@@ -7,24 +7,25 @@ const router = express.Router();
 /* ************************************************************************* */
 
 // Import item-related actions
-const { browse, read, add } = require("./controllers/itemActions");
+
 const annoncesActions = require("./controllers/annoncesActions");
+const entreprisesActions = require("./controllers/entreprisesActions")
 
 // Route to get a list of items
-router.get("/items", browse);
 router.get("/annonces", annoncesActions.browse);
+router.get("/entreprises", entreprisesActions.browse)
 
 // Route to get a specific item by ID
-router.get("/items/:id", read);
 router.get("/annonces/:id", annoncesActions.read);
+router.get("/entreprises/:id", entreprisesActions.read);
 
 // Route to add a new item
-router.post("/items", add);
-router.post("/anonces", annoncesActions.add);
+router.post("/annonces", annoncesActions.add);
+router.post("/entreprises", entreprisesActions.add);
 
 // Route to delete an item
-
-router.delete("/annonces/:id", annoncesActions.delete);
+router.delete("/annonces/:id", annoncesActions.destroy);
+router.delete("/entreprises/:id", entreprisesActions.destroy);
 /* ************************************************************************* */
 
 module.exports = router;
