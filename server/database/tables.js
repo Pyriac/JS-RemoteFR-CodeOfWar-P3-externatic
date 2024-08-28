@@ -1,6 +1,4 @@
 // Import the repository modules responsible for handling data operations on the tables
-const ItemRepository = require("./models/ItemRepository");
-
 const CompanyRepository = require("./models/CompanyRepository");
 
 const AnnounceRepository = require("./models/AnnounceRepository");
@@ -12,12 +10,14 @@ const tables = {};
 /* ************************************************************************* */
 
 // Register each repository as data access point for its table
-tables.item = new ItemRepository();
+
+tables.company = new CompanyRepository();
+tables.announce = new AnnounceRepository();
 
 /* ************************************************************************* */
-tables.company = new CompanyRepository();
+
 // Use a Proxy to customize error messages when trying to access a non-existing table
-tables.annonces = new AnnounceRepository();
+
 // Export the Proxy instance with custom error handling
 module.exports = new Proxy(tables, {
   get(obj, prop) {
