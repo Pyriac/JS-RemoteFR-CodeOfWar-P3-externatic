@@ -1,27 +1,24 @@
 -- SQLBook: Code
-
-
-create table entreprise (
+create table company (
   id int unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(155) not NULL,
   password VARCHAR(255) not NULL,
-  description_annonces TEXT not NULL,
-  nom_entreprise VARCHAR(155) NOT NULL,
-  telephone VARCHAR(20) NOT NULL,
-  taille_entreprise INT NOT NULL,
-  validation BOOLEAN NOT NULL
+  company_name VARCHAR(155) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  company_size INT NOT NULL,
+  validate BOOLEAN NOT NULL
 );
 
-create table annonces (
+create table announce (
   id int unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
-  intituler_de_poste VARCHAR(155) not NULL,
-  localisation VARCHAR(155) NULL,
+  job_title VARCHAR(155) not NULL,
+  location VARCHAR(155) NULL,
   description TEXT not NULL,
-  fourchette_de_salaire DECIMAL(10.2) not NULL,
-  avantages TEXT not NULL,
-  type_emploi VARCHAR(55) not NULL,
-  lieu_du_poste VARCHAR(55) not NULL,
-  entreprise_id int unsigned not NULL,
-  Foreign key (entreprise_id) REFERENCES entreprise(id)
+  min_salary DECIMAL(10.2) not NULL,
+  max_salary DECIMAL(10.2) not NULL,
+  benefits TEXT not NULL,
+  job_type VARCHAR(55) not NULL,
+  telework VARCHAR(55) not NULL,
+  company_id int unsigned not NULL,
+  Foreign key (company_id) REFERENCES company(id)
   );
-  
