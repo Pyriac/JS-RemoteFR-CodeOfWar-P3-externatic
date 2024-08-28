@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.App_title {
+  color: brown;
+  size: 2rem;
+}
