@@ -2,8 +2,9 @@ const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
   try {
-    const entreprise = await tables.entreprise.readAll();
-    res.json(entreprise);
+    const announce = await tables.announce.readAll();
+
+    res.json(announce);
   } catch (error) {
     next(error);
   }
@@ -11,11 +12,11 @@ const browse = async (req, res, next) => {
 
 const read = async (req, res, next) => {
   try {
-    const entreprise = await tables.entreprise.read(req.params.id);
-    if (entreprise == null) {
+    const announce = await tables.announce.read(req.params.id);
+    if (announce == null) {
       res.sendStatus(404);
     } else {
-      res.json(entreprise);
+      res.json(announce);
     }
   } catch (error) {
     next(error);
@@ -23,9 +24,10 @@ const read = async (req, res, next) => {
 };
 
 const add = async (req, res, next) => {
-  const entreprise = req.body;
+  const announce = req.body;
   try {
-    const insertId = await tables.entreprise.create(entreprise);
+    const insertId = await tables.announce.create(announce);
+
     res.status(201).json({ insertId });
   } catch (error) {
     next(error);
@@ -34,7 +36,7 @@ const add = async (req, res, next) => {
 
 const destroy = async (req, res, next) => {
   try {
-    await tables.entreprise.delete(req.params.id);
+    await tables.announce.delete(req.params.id);
 
     res.sendStatus(204);
   } catch (err) {
@@ -42,5 +44,5 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const entreprisesActions = { browse, read, add, destroy };
-module.exports = entreprisesActions ;
+const announceActions = { browse, read, add, destroy };
+module.exports = announceActions;
