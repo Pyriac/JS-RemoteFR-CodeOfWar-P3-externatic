@@ -44,5 +44,15 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const announceActions = { browse, read, add, destroy };
+const edit = async (req, res, next) => {
+  try {
+    const announce = { ...req.body, id: Number(req.params.id) };
+    await tables.announce.update(announce);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const announceActions = { browse, read, add, destroy, edit };
 module.exports = announceActions;

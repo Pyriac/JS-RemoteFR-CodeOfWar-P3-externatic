@@ -9,11 +9,11 @@ const router = express.Router();
 // Import item-related actions
 
 const announceActions = require("./controllers/AnnounceActions");
-const companyActions = require("./controllers/CompanyActions")
+const companyActions = require("./controllers/CompanyActions");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
-router.get("/company", companyActions.browse)
+router.get("/company", companyActions.browse);
 
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.read);
@@ -26,6 +26,9 @@ router.post("/company", companyActions.add);
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);
 router.delete("/company/:id", companyActions.destroy);
+
+// Route to edit an item
+router.put("/announce/:id", announceActions.edit);
 /* ************************************************************************* */
 
 module.exports = router;
