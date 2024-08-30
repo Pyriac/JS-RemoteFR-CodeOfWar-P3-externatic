@@ -26,7 +26,6 @@ const router = createBrowserRouter([
         },
         action: async ({ request, params }) => {
           const formData = await request.formData();
-          console.info(formData);
           switch (request.method.toLowerCase()) {
             case "put": {
               await myAxios.put(`/api/announce/${params.id}`, {
