@@ -61,7 +61,6 @@ class AnnounceRepository extends AbstractRepository {
         announce.id,
       ]
     );
-    console.info(result);
     return result.affectedRows;
   }
 }

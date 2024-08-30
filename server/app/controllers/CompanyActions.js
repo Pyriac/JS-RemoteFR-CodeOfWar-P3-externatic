@@ -41,6 +41,15 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+const edit = async (req, res, next) => {
+  try {
+    const company = { ...req.body, id: Number(req.params.id) };
+    await tables.company.update(company);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
 
-const companyActions = { browse, read, add, destroy };
-module.exports = companyActions ;
+const companyActions = { browse, read, add, destroy, edit };
+module.exports = companyActions;
