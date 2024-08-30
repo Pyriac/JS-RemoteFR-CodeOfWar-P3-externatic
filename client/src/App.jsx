@@ -1,7 +1,13 @@
+import { Outlet } from "react-router-dom";
 import "./assets/styles/App.css";
+import "./assets/styles/EditAnnounce.css";
 
 function App() {
-  return <h1 className="App_title">Hello World !!</h1>;
+  return (
+    <main>
+      <Outlet />
+    </main>
+  );
 }
 
 export default App;
