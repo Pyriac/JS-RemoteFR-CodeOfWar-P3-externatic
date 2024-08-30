@@ -36,9 +36,8 @@ const router = createBrowserRouter([
                 min_salary: formData.get("min_salary"),
                 max_salary: formData.get("max_salary"),
                 benefits: formData.get("benefits"),
-                job_type: formData.get("form_data"),
+                job_type: formData.get("job_type"),
                 telework: formData.get("telework"),
-                id: params.id,
               });
               return redirect(`/`);
             }
