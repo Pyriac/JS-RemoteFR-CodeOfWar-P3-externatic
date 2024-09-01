@@ -6,7 +6,6 @@ export default function EditAnnounce() {
   return (
     <>
       <Form className="EditAnnounce_Form" method="put">
-        {/* The name attribute is used for posting to e.g. a web server. The id is primarily used for CSS (and JavaScript). */}
         <label htmlFor="job_title">Titre de l'annonce :</label>
         <input
           id="EditAnnounce_job_title"
@@ -31,14 +30,16 @@ export default function EditAnnounce() {
         <input
           id="EditAnnounce_min_salary"
           name="min_salary"
-          type="text"
+          type="number"
+          step="0.01"
           defaultValue={loaderData.min_salary}
         />
         <label htmlFor="max_salary"> Salaire maximum:</label>
         <input
           id="EditAnnounce_max_salary"
           name="max_salary"
-          type="text"
+          type="number"
+          step="0.01"
           defaultValue={loaderData.max_salary}
         />
         <label htmlFor="benefits">Avantages :</label>
