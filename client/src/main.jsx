@@ -7,12 +7,16 @@ import announceEditAction from "./services/announceEditAction";
 
 import App from "./App";
 import EditAnnounce from "./pages/EditAnnounce";
+import HomePage from "./pages/HomePage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
       {
         path: "announce/:id/edit",
         element: <EditAnnounce />,
