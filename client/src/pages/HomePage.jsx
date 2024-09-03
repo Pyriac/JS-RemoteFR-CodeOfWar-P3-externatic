@@ -17,8 +17,12 @@ export default function HomePage() {
             entreprise !
           </p>
           <div className="HomePage_header_button">
-            <button type="button">Cree ton profil en 3 clics</button>
-            <button type="button">Je recrute</button>
+            <button className="HomePage_create_button" type="button">
+              Cree ton profil en 3 clics
+            </button>
+            <button className="HomePage_recruit_button" type="button">
+              Je recrute
+            </button>
           </div>
         </div>
         <img src={HeaderPeopleExternatech} alt="three happy people" />

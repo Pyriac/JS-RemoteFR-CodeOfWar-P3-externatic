@@ -26,3 +26,7 @@
   --font-size-five: 3rem;
   --font-size-six: 4rem;
 }
+
+button {
+  all: unset;
+}
