@@ -9,13 +9,12 @@ export default function Announce() {
         {loaderData.map((announce) => (
           <ul key={announce.id}> 
             <h2>{announce.job_title}</h2>
-            <li>Location: {announce.location}</li>
+            <li>ville: {announce.location}</li>
             <li>Description: {announce.description}</li>
-            <li>Min_Salary: {announce.min_salary}</li>
-            <li>Max_Salary: {announce.max_salary}</li>
-            <li>Benefits: {announce.benefits}</li>
-            <li>Job_Type: {announce.job_type}</li>
-            <li>Telework: {announce.telework}</li>
+            <li>Fourchette de salaire: {announce.min_salary} - {announce.max_salary}</li>
+            <li>Avantages: {announce.benefits}</li>
+            <li>Emploi: {announce.job_type}</li>
+            <li>{announce.telework}</li>
           </ul>
         ))}
     </div>
