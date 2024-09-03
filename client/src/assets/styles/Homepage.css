@@ -16,7 +16,6 @@
 .HomePage_phrase_button {
   display: flex;
   flex-direction: column;
-
   font-family: var(--primary-font);
   font-size: var(--font-size-two);
   margin-top: 6rem;
@@ -51,4 +50,34 @@
   background-color: var(--third-color);
   font-size: var(--font-size-one);
   padding: 1rem 2.5rem;
+}
+
+.HomePage_article_carrousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 4.5rem;
+}
+
+.HomePage_title_carrousel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-family: var(--primary-font);
+}
+
+.HomePage_title_carrousel > h2 {
+  font-weight: 300;
+  font-size: var(--font-size-three);
+}
+
+.HomePage_title_carrousel > img {
+  width: 5rem;
+  margin-right: 1rem;
+  margin-top: -0.5rem;
+}
+
+.HomePage_span_green {
+  color: var(--secondary-color);
+  font-weight: 700;
 }

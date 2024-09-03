@@ -1,5 +1,7 @@
 import HeaderPeopleExternatech from "../assets/images/Header_People_Externatech.png";
 
+import HomePageSoulignementVous from "../assets/images/HomePage_soulignement_vous.png";
+
 export default function HomePage() {
   return (
     <>
@@ -28,14 +30,19 @@ export default function HomePage() {
         <img src={HeaderPeopleExternatech} alt="three happy people" />
       </div>
       <div>
-        <div>
-          <h2>
-            Ces entreprises n'attendent que{" "}
-            <span className="HomePage_span_green">vous</span> !
-          </h2>
+        <article className="HomePage_article_carrousel">
+          <div className="HomePage_title_carrousel">
+            <h2>
+              Ces entreprises n'attendent que{" "}
+              <span className="HomePage_span_green">vous</span> !
+            </h2>
+            <img src={HomePageSoulignementVous} alt="line green" />
+          </div>
           <p>carrousel previous entreprises</p>
-          <button type="button">Examiner plus d'entreprises</button>
-        </div>
+          <button className="Homepage_more_company" type="button">
+            Examiner plus d'entreprises
+          </button>
+        </article>
         <div>
           <h2>Entreprises partenaires qui nous font confiance.</h2>
           <p>Carrousel logo entreprises</p>
