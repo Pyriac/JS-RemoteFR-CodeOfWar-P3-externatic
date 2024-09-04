@@ -2,13 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Announce from "./pages/Announce"
+
 import announceLoader from "./services/announceLoader";
 import announceIdLoader from "./services/announceIdLoader";
 import announceEditAction from "./services/announceEditAction";
 
 
 import App from "./App";
+import Announce from "./pages/Announce"
 import EditAnnounce from "./pages/EditAnnounce";
 
 const router = createBrowserRouter([
@@ -25,13 +26,9 @@ const router = createBrowserRouter([
       {
         path: "announce", 
         element: <Announce />,
-        loader: announceLoader,
-         
+        loader: announceLoader, 
       },
-      {
-        path: "annouce/:id",
-        element: <announce />,
-      },
+
     ],
   },
 ]);
