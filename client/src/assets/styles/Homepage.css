@@ -57,6 +57,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 4.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .HomePage_title_carrousel {
@@ -80,4 +81,40 @@
 .HomePage_span_green {
   color: var(--secondary-color);
   font-weight: 700;
+}
+
+.Homepage_more_company {
+  background-color: var(--primary-color);
+  font-size: var(--font-size-one);
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  color: var(--third-color);
+  font-family: var(--primary-font);
+}
+
+.HomePage_partner_company {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.HomePage_partner_company > div > h2 {
+  font-weight: 300;
+  font-size: var(--font-size-three);
+  font-family: var(--primary-font);
+}
+
+.HomePage_title_company {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.HomePage_title_company > img {
+  width: 10rem;
+  margin-top: -0.5rem;
+}
+
+.HomePage_background_grey {
+  background-image: url("../images/Wave_grey.png");
 }
