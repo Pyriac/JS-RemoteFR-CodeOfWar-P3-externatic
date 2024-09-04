@@ -1,10 +1,15 @@
-function FormAnnounce(){
+import {Form, useLoaderData} from "react-router-dom";
 
-    return(
-        <form method="post" >
+
+function FormAnnounce (){
+    const myCompanies = useLoaderData();
+
+      return(
+
+        <Form method="post" >
             <div>
                 <label htmlFor="job_title">Job title</label>{" "}
-                <input type="text" id="job_title" name="job_title" />
+                <input type="text" id="job_title" name="job_title"  />
             </div>
             <div>
                 <label htmlFor="location">Location</label>{" "}
@@ -12,7 +17,7 @@ function FormAnnounce(){
             </div>
             <div>
                 <label htmlFor="description">Description</label>{" "}
-                <input type="textarea" id="description" name="description" />
+                <input type="textarea" id="description" name="description"  />
             </div>
             <div>
                 <label htmlFor="min_salary">Min_Salary</label>{" "}
@@ -46,14 +51,17 @@ function FormAnnounce(){
             <div>
                <label htmlFor="company">Company</label>{" "}
                 <select name="company" id="company">
-                    <option value="1">Company_01</option>
-                    <option value="2">Company_02</option>
-                    <option value="3">Company_03</option>
+                    {myCompanies.map((myCompany) => (
+                        <option key={myCompany.id} value={myCompany.id}>{myCompany.name}</option>
+                    )
+                    )}
+                   
                 </select>
             </div>
             <button type="submit">Valider</button>
-      </form>
+      </Form>
     )
 
 }
+
 export default FormAnnounce;
