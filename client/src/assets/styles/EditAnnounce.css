@@ -1,4 +1,232 @@
+.EditAnnounce_main {
+  background-image: url("../../assets/images/wave_top.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 .EditAnnounce_Form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.EditAnnounce_div {
+  display: flex;
+  flex-direction: column;
+  width: 78%;
+  border: 1px solid var(--second-grey);
+  margin-top: 2rem;
+  background-color: var(--third-color);
+  padding-bottom: 1rem;
+}
+
+.EditAnnounce_div > label {
+  margin: 0% 10%;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.EditAnnounce_div > h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4rem;
+  background-color: var(--first-grey);
+}
+
+.EditAnnounce_display_none {
+  display: none;
+}
+
+.EditAnnounce_Form > div > input {
+  margin: 0% 5%;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.EditAnnounce_Form > div > textarea {
+  margin: 0% 5%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  resize: none;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.EditAnnounce_fork {
+  display: flex;
+  padding: 0% 5%;
+  justify-content: space-between;
+}
+
+.EditAnnounce_div > p {
+  margin: 0 10%;
+  margin-top: 1rem;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.EditAnnounce_fork > div > p {
+  margin: 0rem 1rem;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.EditAnnounce_fork > div > input {
+  margin: 0% 5%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.EditAnnounce_fork > div {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.EditAnnounce_Form > button {
+  margin: 1.5rem 0rem;
+  padding: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  width: 78%;
+  text-align: center;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+  background-color: var(--secondary-color);
+}
+
+.EditAnnounce_main > h3 {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.EditAnnounce_delete {
+  display: block;
+  border: 1px solid var(--second-grey);
+  padding: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  width: 78%;
+  margin: 1rem auto;
+  text-align: center;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.EditAnnounce_desktop_display {
+  display: none;
+}
+
+.EditAnnounce_main input:hover {
+  background-color: rgba(52, 211, 153, 0.05);
+}
+
+.EditAnnounce_main textarea:hover {
+  background-color: rgba(52, 211, 153, 0.05);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  appearance: textfield;
+}
+
+@media (min-width: 993px) {
+  .EditAnnounce_div {
+    width: 60%;
+    gap: 0.5rem;
+    padding-bottom: 2rem;
+  }
+  .EditAnnounce_div > h2 {
+    padding: 1rem;
+  }
+
+  .EditAnnounce_div > label {
+    font-size: 1.2rem;
+  }
+
+  .EditAnnounce_Form > div > input {
+    padding: 0.7rem 2.5rem;
+    font-size: 1rem;
+  }
+  .EditAnnounce_Form > div > textarea {
+    font-size: 1rem;
+    padding: 0.7rem 2.5rem;
+  }
+
+  .EditAnnounce_div > p {
+    font-size: 1.2rem;
+  }
+
+  .EditAnnounce_fork > div > p {
+    margin: 0 10%;
+  }
+
+  .EditAnnounce_fork > div > input {
+    padding: 0.7rem 2.5rem;
+  }
+
+  .EditAnnounce_Form > button {
+    margin-top: 3rem;
+    width: 30%;
+    font-size: 1rem;
+  }
+
+  .EditAnnounce_Form > button:hover {
+    transform: scale(1.01);
+    background-color: rgba(52, 211, 153, 0.9);
+  }
+
+  .EditAnnounce_delete {
+    width: 30%;
+    margin-bottom: 4rem;
+    font-size: 1rem;
+  }
+
+  .EditAnnounce_delete:hover {
+    border: 1px solid var(--secondary-color);
+    background-color: rgba(217, 217, 217, 0.1);
+    transform: scale(1.01);
+  }
+
+  .EditAnnounce_mobile_display {
+    display: none;
+  }
+
+  .EditAnnounce_desktop_display {
+    display: block;
+  }
 }
