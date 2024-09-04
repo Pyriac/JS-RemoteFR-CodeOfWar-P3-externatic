@@ -7,11 +7,6 @@ import HomePageLineTrust from "../assets/images/Line_green_confiance.png";
 export default function HomePage() {
   return (
     <>
-      <div className="HomePage_navbar">
-        <h1>
-          Hello EXTERNA<span className="HomePage_span_green">TECH</span>
-        </h1>
-      </div>
       <div className="HomePage_header_picture">
         <div className="HomePage_phrase_button">
           <p>
@@ -52,9 +47,6 @@ export default function HomePage() {
           </div>
           <p>Carrousel logo entreprises</p>
         </article>
-      </div>
-      <div>
-        <p>futur footer</p>
       </div>
     </>
   );
