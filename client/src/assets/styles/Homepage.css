@@ -17,6 +17,10 @@
   margin-left: 4rem;
 }
 
+.HomePage_phrase_button > p > br:last-of-type {
+  display: none;
+}
+
 .HomePage_phrase_button > p {
   font-weight: 700;
 }
@@ -93,7 +97,7 @@
   align-items: center;
 }
 
-.HomePage_partner_company > div > h2 {
+.HomePage_partner_company > .HomePage_title_company > h2 {
   font-weight: 300;
   font-size: var(--font-size-three);
   font-family: var(--primary-font);
@@ -112,4 +116,66 @@
 
 .HomePage_background_grey {
   background-image: url("../images/Wave_grey.png");
+}
+
+@media (max-width: 992px) {
+  .HomePage_header_picture {
+    height: 26rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .HomePage_header_picture > img {
+    display: none;
+  }
+
+  .HomePage_phrase_button {
+    width: 100%;
+    padding: 1rem;
+    margin: 0;
+    display: flex;
+  }
+
+  .HomePage_header_button {
+    flex-direction: column;
+    margin-top: 4rem;
+    gap: 1rem;
+  }
+
+  .HomePage_create_button {
+    text-align: center;
+  }
+
+  .HomePage_recruit_button {
+    text-align: center;
+  }
+
+  .HomePage_phrase_button > p > br:last-of-type {
+    display: inline;
+  }
+
+  .HomePage_article_carrousel {
+    margin: 1rem;
+  }
+
+  .HomePage_title_carrousel > h2 {
+    font-size: var(--font-size-two);
+  }
+
+  .HomePage_title_carrousel > img {
+    display: none;
+  }
+
+  .HomePage_partner_company {
+    margin: 1rem;
+  }
+
+  .HomePage_partner_company > .HomePage_title_company > h2 {
+    font-size: var(--font-size-two);
+  }
+
+  .HomePage_title_company > img {
+    display: none;
+  }
 }

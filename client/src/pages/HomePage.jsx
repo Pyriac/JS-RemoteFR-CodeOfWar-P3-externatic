@@ -12,8 +12,8 @@ export default function HomePage() {
           <p>
             Avec toi jusqu'à
             <br />
-            <span className="HomePage_span_white">ton premier jour</span> en
-            entreprise !
+            <span className="HomePage_span_white">ton premier jour</span> <br />
+            en entreprise !
           </p>
           <div className="HomePage_header_button">
             <button className="HomePage_create_button" type="button">
