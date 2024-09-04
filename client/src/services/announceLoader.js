@@ -2,9 +2,9 @@ import myAxios from "./myAxios";
 
 
 const announceLoader = async () => {
-  const apiUrl = import.meta.env.VITE_API_URL; 
+   
   try {
-    const response = await myAxios.get(`${apiUrl}/announce`);
+    const response = await myAxios.get(`/api/announce`);
     return response.data; 
   } catch (error) {
     throw new Response("", { status: 405 });

@@ -1,11 +1,9 @@
 import PropTypes from 'prop-types'; 
 
 
-export default function AnnounceList({ loaderData }) {
+export default function AnnounceList({ announce }) {
   return (
-    <div>
-      <h1>Trouver un job</h1>
-      {loaderData.map((announce) => (
+   
         <ul key={announce.id}>
           <h2>{announce.job_title}</h2>
           <li>Ville: {announce.location}</li>
@@ -15,14 +13,13 @@ export default function AnnounceList({ loaderData }) {
           <li>Emploi: {announce.job_type}</li>
           <li>{announce.telework}</li>
         </ul>
-      ))}
-    </div>
+    
   );
 }
 
 
 AnnounceList.propTypes = {
-  loaderData: PropTypes.arrayOf(
+  announce: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       job_title: PropTypes.string.isRequired,
