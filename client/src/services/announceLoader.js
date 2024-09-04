@@ -1,12 +1,13 @@
 import myAxios from "./myAxios"; 
 
+
 const announceLoader = async () => {
+  const apiUrl = import.meta.env.VITE_API_URL; 
   try {
-    const response = await myAxios.get("http://localhost:3310/api/announce");
+    const response = await myAxios.get(`${apiUrl}/announce`);
     return response.data; 
   } catch (error) {
- 
-    throw new Response("", { status: 500 });
+    throw new Response("", { status: 405 });
   }
 };
 
