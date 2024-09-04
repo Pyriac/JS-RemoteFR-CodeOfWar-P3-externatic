@@ -3,6 +3,7 @@ import {Form, useLoaderData} from "react-router-dom";
 
 function FormAnnounce (){
     const myCompanies = useLoaderData();
+    console.info(myCompanies);
 
       return(
 
@@ -17,7 +18,7 @@ function FormAnnounce (){
             </div>
             <div>
                 <label htmlFor="description">Description</label>{" "}
-                <input type="textarea" id="description" name="description"  />
+                <textarea id="description" name="description" rows="4" cols="50" /> 
             </div>
             <div>
                 <label htmlFor="min_salary">Salaire minimun</label>{" "}
@@ -29,7 +30,7 @@ function FormAnnounce (){
             </div>
             <div>
                 <label htmlFor="benefits">Avantages</label>{" "}
-                <input type="text" id="benefits" name="benefits" />
+                <textarea id="benefits" name="benefits" rows="4" cols="50" />
             </div>
             <div>
                <label htmlFor="job_type">Type de contrat</label>{" "}
