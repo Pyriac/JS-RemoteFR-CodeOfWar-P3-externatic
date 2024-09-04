@@ -33,7 +33,7 @@
 }
 
 .HomePage_create_button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: var(--primary-color);
   color: var(--third-color);
   font-size: var(--font-size-one);
@@ -41,7 +41,7 @@
 }
 
 .HomePage_recruit_button {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: var(--third-color);
   font-size: var(--font-size-one);
   padding: 1rem 2.5rem;
@@ -82,7 +82,7 @@
   background-color: var(--primary-color);
   font-size: var(--font-size-one);
   padding: 1rem 2.5rem;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   color: var(--third-color);
   font-family: var(--primary-font);
 }
