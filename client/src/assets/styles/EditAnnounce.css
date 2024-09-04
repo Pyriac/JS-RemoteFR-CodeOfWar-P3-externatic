@@ -4,6 +4,56 @@
   background-size: contain;
 }
 
+.EditAnnounce_main label {
+  margin: 0% 10%;
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.EditAnnounce_main input {
+  margin: 0% 5%;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.EditAnnounce_main h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4rem;
+  background-color: var(--first-grey);
+}
+
+.EditAnnounce_main textarea {
+  margin: 0% 5%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  resize: none;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.EditAnnounce_main p {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
 .EditAnnounce_Form {
   display: flex;
   flex-direction: column;
@@ -20,51 +70,8 @@
   padding-bottom: 1rem;
 }
 
-.EditAnnounce_div > label {
-  margin: 0% 10%;
-  font-family: var(--primary-font);
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1rem;
-}
-
-.EditAnnounce_div > h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-  font-family: var(--primary-font);
-  font-weight: 700;
-  font-style: normal;
-  font-size: 1.4rem;
-  background-color: var(--first-grey);
-}
-
 .EditAnnounce_display_none {
   display: none;
-}
-
-.EditAnnounce_Form > div > input {
-  margin: 0% 5%;
-  padding: 0.5rem 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid rgba(0, 0, 0, 1);
-  font-family: var(--primary-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.8rem;
-}
-
-.EditAnnounce_Form > div > textarea {
-  margin: 0% 5%;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid rgba(0, 0, 0, 1);
-  resize: none;
-  font-family: var(--primary-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.8rem;
 }
 
 .EditAnnounce_fork {
@@ -76,30 +83,10 @@
 .EditAnnounce_div > p {
   margin: 0 10%;
   margin-top: 1rem;
-  font-family: var(--primary-font);
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1rem;
 }
 
 .EditAnnounce_fork > div > p {
   margin: 0rem 1rem;
-  font-family: var(--primary-font);
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1rem;
-}
-
-.EditAnnounce_fork > div > input {
-  margin: 0% 5%;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid rgba(0, 0, 0, 1);
-  font-family: var(--primary-font);
-  font-weight: 500;
-  font-style: normal;
-  font-size: 0.8rem;
 }
 
 .EditAnnounce_fork > div {
@@ -170,24 +157,24 @@ input[type="number"] {
     gap: 0.5rem;
     padding-bottom: 2rem;
   }
-  .EditAnnounce_div > h2 {
+  .EditAnnounce_main h2 {
     padding: 1rem;
   }
 
-  .EditAnnounce_div > label {
+  .EditAnnounce_main label {
     font-size: 1.2rem;
   }
 
-  .EditAnnounce_Form > div > input {
+  .EditAnnounce_main input {
     padding: 0.7rem 2.5rem;
     font-size: 1rem;
   }
-  .EditAnnounce_Form > div > textarea {
+  .EditAnnounce_main textarea {
     font-size: 1rem;
     padding: 0.7rem 2.5rem;
   }
 
-  .EditAnnounce_div > p {
+  .EditAnnounce_main p {
     font-size: 1.2rem;
   }
 
