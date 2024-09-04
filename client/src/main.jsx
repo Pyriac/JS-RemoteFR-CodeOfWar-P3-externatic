@@ -8,12 +8,13 @@ import announceLoader from "./services/announceLoader";
 import announceIdLoader from "./services/announceIdLoader";
 import announceEditAction from "./services/announceEditAction";
 import companyLoader from "./services/companyLoader";
+import announceDetailLoader from "./services/announceDetailLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce"
 import EditAnnounce from "./pages/EditAnnounce";
 import AddAnnounce from "./pages/AddAnnounce";
-
+import AnnounceDetail from "./pages/AnnounceDetail";
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,11 @@ const router = createBrowserRouter([
         path: "announce", 
         element: <Announce />,
         loader: announceLoader, 
+      },
+      {
+        path: "announce/:id", 
+        element: <AnnounceDetail />,
+        loader: announceDetailLoader, 
       },
 
     ],
