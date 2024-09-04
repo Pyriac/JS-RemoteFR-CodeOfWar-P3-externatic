@@ -1,5 +1,5 @@
 import { useLoaderData } from 'react-router-dom';
-import AnnounceList from '../components/AnnounceList'; 
+import AnnounceCard from '../components/AnnounceCard';
 
 export default function Announce() {
   const loaderData = useLoaderData(); 
@@ -8,7 +8,7 @@ export default function Announce() {
     <>
       <h1>Trouver un job</h1>
       {loaderData.map((announce) => (
-        <AnnounceList key={announce.id} announce={announce} />
+        <AnnounceCard key={announce.id} announce={announce} />
       ))}
     </>
   );

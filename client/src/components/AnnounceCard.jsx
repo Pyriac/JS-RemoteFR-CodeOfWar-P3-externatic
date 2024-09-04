@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'; 
 
 
-export default function AnnounceList({ announce }) {
+export default function AnnounceCard({ announce }) {
   return (
    
         <ul key={announce.id}>
@@ -18,7 +18,7 @@ export default function AnnounceList({ announce }) {
 }
 
 
-AnnounceList.propTypes = {
+AnnounceCard.propTypes = {
   announce: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
