@@ -4,11 +4,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
 
-import announceLoader from "./services/announceLoader";
-import announceIdLoader from "./services/announceIdLoader";
 import announceEditAction from "./services/announceEditAction";
-import companyLoader from "./services/companyLoader";
-import announceDetailLoader from "./services/announceDetailLoader";
+import { announceLoader, announceIdLoader, companyLoader, announceDetailLoader } from "./services/announceLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce"

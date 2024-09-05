@@ -1,14 +1,37 @@
-import myAxios from "./myAxios"; 
+import myAxios from "./myAxios";
 
 
-const announceLoader = async () => {
-   
+export const announceLoader = async () => {
   try {
     const response = await myAxios.get(`/api/announce`);
-    return response.data; 
+    return response.data;
   } catch (error) {
     throw new Response("", { status: 405 });
   }
 };
 
-export default announceLoader;
+
+export const announceDetailLoader = async ({ params }) => {
+  try {
+    const response = await myAxios.get(`/api/announce/${params.id}`);
+    return response.data;
+  } catch (error) {
+    throw new Response("", { status: 405 });
+  }
+};
+
+
+export const announceIdLoader = async ({ params }) => {
+
+  const response = await myAxios.get(`/api/announce/${params.id}`);
+  return response.data;
+
+};
+
+
+export const companyLoader = async () => {
+
+  const response = await myAxios.get("/api/company");
+  return response.data;
+
+};
