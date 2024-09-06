@@ -6,7 +6,8 @@ function AddAnnounce() {
     <main className="EditAnnounce_main">
       <Form className="AnnounceForm" method="post">
         <FormAnnounce />
-        <button type="submit">Valider</button>
+        <h3>Votre annonce est prête ?</h3>
+        <button type="submit">Publier</button>
       </Form>
     </main>
   );

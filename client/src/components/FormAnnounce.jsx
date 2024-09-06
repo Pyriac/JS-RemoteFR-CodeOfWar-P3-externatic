@@ -56,7 +56,7 @@ function FormAnnounce({ announce }) {
           id="EditAnnounce_description"
           name="description"
           defaultValue={(announce && announce.description) || ""}
-          rows={5}
+          rows={8}
           required
         />
       </div>
@@ -66,6 +66,7 @@ function FormAnnounce({ announce }) {
         <textarea
           id="EditAnnounce_benefits"
           name="benefits"
+          rows={4}
           defaultValue={(announce && announce.benefits) || ""}
           required
         />
@@ -88,7 +89,7 @@ function FormAnnounce({ announce }) {
           </div>
           <div>
             <p className="EditAnnounce_mobile_display">Max:</p>
-            <p className="EditAnnounce_desktop_display">Maximum</p>
+            <p className="EditAnnounce_desktop_display">Maximum :</p>
             <label htmlFor="max_salary" className="EditAnnounce_display_none">
               {" "}
               Salaire maximum:
