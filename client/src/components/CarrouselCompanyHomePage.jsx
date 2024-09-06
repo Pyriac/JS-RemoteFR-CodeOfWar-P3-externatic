@@ -7,8 +7,8 @@ export default function CarrouselCompanyHomePage() {
     loop: true,
     mode: "free-snap",
     slides: {
-      perView: 3,
-      spacing: 32,
+      perView: 4,
+      spacing: 64,
     },
   });
 
