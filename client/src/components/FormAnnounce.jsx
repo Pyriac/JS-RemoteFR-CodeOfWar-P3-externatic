@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 
 function FormAnnounce({ announce }) {
-  console.info(announce);
   return (
     <>
       <div className="EditAnnounce_div">
@@ -12,6 +11,7 @@ function FormAnnounce({ announce }) {
           name="job_title"
           type="text"
           defaultValue={(announce && announce.job_title) || ""}
+          required
         />
         <label htmlFor="location">Localisation :</label>
         <input
@@ -19,12 +19,14 @@ function FormAnnounce({ announce }) {
           name="location"
           type="text"
           defaultValue={(announce && announce.location) || ""}
+          required
         />
         <label htmlFor="job_type">Type de contrat</label>{" "}
         <select
           name="job_type"
           id="job_type"
           defaultValue={(announce && announce.job_type) || ""}
+          required
         >
           <option value="">---------</option>
           <option value="CDI">CDI</option>
@@ -37,6 +39,7 @@ function FormAnnounce({ announce }) {
           name="telework"
           id="telework"
           defaultValue={(announce && announce.telework) || ""}
+          required
         >
           <option value="">---------</option>
           <option value="presentiel">Présentiel</option>
@@ -54,6 +57,7 @@ function FormAnnounce({ announce }) {
           name="description"
           defaultValue={(announce && announce.description) || ""}
           rows={5}
+          required
         />
       </div>
       <div className="EditAnnounce_div">
@@ -63,6 +67,7 @@ function FormAnnounce({ announce }) {
           id="EditAnnounce_benefits"
           name="benefits"
           defaultValue={(announce && announce.benefits) || ""}
+          required
         />
         <p>Salaire :</p>
         <div className="EditAnnounce_fork">
@@ -78,6 +83,7 @@ function FormAnnounce({ announce }) {
               type="number"
               step="0.01"
               defaultValue={(announce && announce.min_salary) || ""}
+              required
             />
           </div>
           <div>
@@ -93,6 +99,7 @@ function FormAnnounce({ announce }) {
               type="number"
               step="0.01"
               defaultValue={(announce && announce.max_salary) || ""}
+              required
             />
           </div>
         </div>

@@ -54,7 +54,7 @@
   font-size: 1rem;
 }
 
-.EditAnnounce_Form {
+.AnnounceForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -95,11 +95,11 @@
   width: 40%;
 }
 
-.EditAnnounce_Form > button {
+.AnnounceForm button {
   margin: 1.5rem 0rem;
   padding: 0.5rem 0rem;
   border-radius: 0.5rem;
-  width: 78%;
+  width: 40%;
   text-align: center;
   font-family: var(--primary-font);
   font-weight: 500;
@@ -151,6 +151,12 @@ input[type="number"] {
   appearance: textfield;
 }
 
+input:invalid,
+textarea:invalid,
+select:invalid {
+  outline: none;
+}
+
 @media (min-width: 993px) {
   .EditAnnounce_div {
     width: 60%;
@@ -186,13 +192,13 @@ input[type="number"] {
     padding: 0.7rem 2.5rem;
   }
 
-  .EditAnnounce_Form > button {
+  .AnnounceForm > button {
     margin-top: 3rem;
     width: 30%;
     font-size: 1rem;
   }
 
-  .EditAnnounce_Form > button:hover {
+  .AnnounceForm > button:hover {
     transform: scale(1.01);
     background-color: rgba(52, 211, 153, 0.9);
   }
