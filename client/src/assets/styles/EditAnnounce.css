@@ -12,13 +12,11 @@
 
 .AnnounceForm label {
   margin: 0% 10%;
-  font-family: var(--primary-font);
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1rem;
 }
 
-.AnnounceForm input {
+.AnnounceForm input,
+.AnnounceForm select,
+.AnnounceForm textarea {
   margin: 0% 5%;
   padding: 0.5rem 2rem;
   border-radius: 0.5rem;
@@ -31,15 +29,6 @@
 }
 
 .AnnounceForm select {
-  margin: 0% 5%;
-  padding: 0.5rem 2rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid rgba(0, 0, 0, 1);
-  font-family: var(--primary-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.8rem;
   background-color: var(--first-grey);
 }
 
@@ -53,20 +42,8 @@
   background-color: var(--first-grey);
 }
 
-.AnnounceForm textarea {
-  margin: 0% 5%;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid rgba(0, 0, 0, 1);
-  resize: none;
-  font-family: var(--primary-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.8rem;
-}
-
-.AnnounceForm p {
+.AnnounceForm p,
+.AnnounceForm label {
   font-family: var(--primary-font);
   font-weight: 600;
   font-style: normal;
@@ -112,7 +89,6 @@
   margin: 1.5rem 0rem;
   padding: 0.5rem 0rem;
   border-radius: 0.5rem;
-  width: 40%;
   text-align: center;
   font-family: var(--primary-font);
   font-weight: 500;
@@ -148,10 +124,7 @@
   display: none;
 }
 
-.EditAnnounce_main input:hover {
-  background-color: rgba(52, 211, 153, 0.05);
-}
-
+.EditAnnounce_main input:hover,
 .EditAnnounce_main textarea:hover {
   background-color: rgba(52, 211, 153, 0.05);
 }
