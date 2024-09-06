@@ -55,8 +55,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4.5rem;
-  margin-bottom: 3.5rem;
+  margin: 2rem 8rem;
 }
 
 .HomePage_title_carrousel {
@@ -64,7 +63,7 @@
   flex-direction: column;
   align-items: flex-end;
   font-family: var(--primary-font);
-  margin: 2rem;
+  margin-bottom: 2rem;
 }
 
 .HomePage_title_carrousel > h2 {
