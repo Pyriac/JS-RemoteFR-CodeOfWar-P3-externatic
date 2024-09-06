@@ -21,16 +21,24 @@ function FormAnnounce({ announce }) {
           defaultValue={(announce && announce.location) || ""}
         />
         <label htmlFor="job_type">Type de contrat</label>{" "}
-        <select name="job_type" id="job_type">
+        <select
+          name="job_type"
+          id="job_type"
+          defaultValue={(announce && announce.job_type) || ""}
+        >
           <option value="CDI">CDI</option>
           <option value="CDD">CDD</option>
-          <option value="STAGE">STAGE</option>
-          <option value="ALTERNANCE">ALTERNANCE</option>
+          <option value="STAGE">Stage</option>
+          <option value="ALTERNANCE">Alternance</option>
         </select>
         <label htmlFor="telework">Télétravail</label>{" "}
-        <select name="telework" id="telework">
+        <select
+          name="telework"
+          id="telework"
+          defaultValue={(announce && announce.telework) || ""}
+        >
           <option value="presentiel">Présentiel</option>
-          <option value="distentiel">Distenciel</option>
+          <option value="distanciel">Distanciel</option>
           <option value="hybride">Hybride</option>
         </select>
       </div>
@@ -96,6 +104,7 @@ FormAnnounce.propTypes = {
     job_title: PropTypes.string,
     location: PropTypes.string,
     job_type: PropTypes.string,
+    telework: PropTypes.string,
     description: PropTypes.string,
     benefits: PropTypes.string,
     min_salary: PropTypes.number,
