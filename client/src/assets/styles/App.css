@@ -14,6 +14,8 @@
   --primary-color: #0c1618;
   --secondary-color: #34d399;
   --third-color: #ffffff;
+  --first-grey: rgb(217, 217, 217);
+  --second-grey: #898989;
 
   /*Font*/
   --primary-font: "Poppins", sans-serif;
@@ -25,6 +27,10 @@
   --font-size-four: 2.5rem;
   --font-size-five: 3rem;
   --font-size-six: 4rem;
+}
+
+button {
+  all: unset;
 }
 
 button {
