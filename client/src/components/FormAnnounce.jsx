@@ -26,7 +26,7 @@ function FormAnnounce({ announce }) {
           id="job_type"
           defaultValue={(announce && announce.job_type) || ""}
         >
-          <option>---------</option>
+          <option value="">---------</option>
           <option value="CDI">CDI</option>
           <option value="CDD">CDD</option>
           <option value="STAGE">Stage</option>
@@ -38,7 +38,7 @@ function FormAnnounce({ announce }) {
           id="telework"
           defaultValue={(announce && announce.telework) || ""}
         >
-          <option>---------</option>
+          <option value="">---------</option>
           <option value="presentiel">Présentiel</option>
           <option value="distanciel">Distanciel</option>
           <option value="hybride">Hybride</option>
