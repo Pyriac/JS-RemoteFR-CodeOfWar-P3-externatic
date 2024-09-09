@@ -8,9 +8,6 @@ import companyLoader from "./services/companyLoader";
 import App from "./App";
 import EditAnnounce from "./pages/EditAnnounce";
 
-
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -22,14 +19,13 @@ const router = createBrowserRouter([
         loader: announceIdLoader,
         action: announceEditAction,
       },
+      {
+        path: "/AddAnnounce",
+        element: <AddAnnounce />,
+        loader: companyLoader,
+        action: announceEditAction,
+      },
     ],
-  },
-  {
-    path: "/AddAnnounce",
-    element: <AddAnnounce />,
-     loader: companyLoader,
-     action: announceEditAction,
-
   },
 ]);
 

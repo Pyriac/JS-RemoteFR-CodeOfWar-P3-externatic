@@ -1,11 +1,6 @@
 import FormAnnounce from "../components/FormAnnounce";
 
 function AddAnnounce() {
-
- return(
-        <FormAnnounce />
- )
-
-    
+  return <FormAnnounce />;
 }
 export default AddAnnounce;

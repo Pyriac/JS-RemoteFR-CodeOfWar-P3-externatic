@@ -18,7 +18,7 @@ const announceEditAction = async ({ request, params }) => {
       return redirect(`/`);
     }
     case "post": {
-     await myAxios.post("/api/announce", { 
+      await myAxios.post("/api/announce", {
         job_title: formData.get("job_title"),
         location: formData.get("location"),
         description: formData.get("description"),
@@ -28,9 +28,8 @@ const announceEditAction = async ({ request, params }) => {
         job_type: formData.get("job_type"),
         telework: formData.get("telework"),
         company_id: formData.get("company"),
-       });
-       return redirect(`/`);
-
+      });
+      return redirect(`/`);
     }
     case "delete": {
       await myAxios.delete(`/api/announce/${params.id}`);
