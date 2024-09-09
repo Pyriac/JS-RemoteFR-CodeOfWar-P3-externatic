@@ -4,15 +4,19 @@
   background-size: contain;
 }
 
-.EditAnnounce_main label {
-  margin: 0% 10%;
-  font-family: var(--primary-font);
-  font-weight: 600;
-  font-style: normal;
-  font-size: 1rem;
+.AnnounceForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.EditAnnounce_main input {
+.AnnounceForm label {
+  margin: 0% 10%;
+}
+
+.AnnounceForm input,
+.AnnounceForm select,
+.AnnounceForm textarea {
   margin: 0% 5%;
   padding: 0.5rem 2rem;
   border-radius: 0.5rem;
@@ -24,7 +28,11 @@
   font-size: 0.8rem;
 }
 
-.EditAnnounce_main h2 {
+.AnnounceForm select {
+  background-color: var(--first-grey);
+}
+
+.AnnounceForm h2 {
   text-align: center;
   margin-bottom: 1rem;
   font-family: var(--primary-font);
@@ -34,30 +42,12 @@
   background-color: var(--first-grey);
 }
 
-.EditAnnounce_main textarea {
-  margin: 0% 5%;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  border: 1px solid rgba(0, 0, 0, 1);
-  resize: none;
-  font-family: var(--primary-font);
-  font-weight: 400;
-  font-style: normal;
-  font-size: 0.8rem;
-}
-
-.EditAnnounce_main p {
+.AnnounceForm p,
+.AnnounceForm label {
   font-family: var(--primary-font);
   font-weight: 600;
   font-style: normal;
   font-size: 1rem;
-}
-
-.EditAnnounce_Form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .EditAnnounce_div {
@@ -95,11 +85,10 @@
   width: 40%;
 }
 
-.EditAnnounce_Form > button {
+.AnnounceForm button {
   margin: 1.5rem 0rem;
   padding: 0.5rem 0rem;
   border-radius: 0.5rem;
-  width: 78%;
   text-align: center;
   font-family: var(--primary-font);
   font-weight: 500;
@@ -108,7 +97,7 @@
   background-color: var(--secondary-color);
 }
 
-.EditAnnounce_main > h3 {
+.EditAnnounce_main h3 {
   font-family: var(--primary-font);
   font-weight: 600;
   font-style: normal;
@@ -135,10 +124,7 @@
   display: none;
 }
 
-.EditAnnounce_main input:hover {
-  background-color: rgba(52, 211, 153, 0.05);
-}
-
+.EditAnnounce_main input:hover,
 .EditAnnounce_main textarea:hover {
   background-color: rgba(52, 211, 153, 0.05);
 }
@@ -149,6 +135,12 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 input[type="number"] {
   appearance: textfield;
+}
+
+input:invalid,
+textarea:invalid,
+select:invalid {
+  outline: none;
 }
 
 @media (min-width: 993px) {
@@ -186,13 +178,13 @@ input[type="number"] {
     padding: 0.7rem 2.5rem;
   }
 
-  .EditAnnounce_Form > button {
+  .AnnounceForm > button {
     margin-top: 3rem;
     width: 30%;
     font-size: 1rem;
   }
 
-  .EditAnnounce_Form > button:hover {
+  .AnnounceForm > button:hover {
     transform: scale(1.01);
     background-color: rgba(52, 211, 153, 0.9);
   }
