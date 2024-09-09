@@ -20,6 +20,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader: companyLoader,
       },
       {
         path: "announce/:id/edit",

@@ -3,9 +3,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  height: 30rem;
   display: flex;
   justify-content: space-between;
+}
+
+.HomePage_header_picture > img {
+  max-width: 45%;
+  height: auto;
 }
 
 .HomePage_phrase_button {
@@ -13,8 +17,9 @@
   flex-direction: column;
   font-family: var(--primary-font);
   font-size: var(--font-size-two);
-  margin-top: 6rem;
-  margin-left: 4rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 4%;
 }
 
 .HomePage_phrase_button > p > br:last-of-type {
