@@ -41,9 +41,9 @@ nav > .Nav_Burger {
   background-color: var(--primary-color);
   border: 0.5rem solid var(--primary-color);
   right: 0;
-  margin: 0.5rem;
   height: 3rem;
-  width: 3rem;
+  width: 2rem;
+  margin: 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,7 +51,7 @@ nav > .Nav_Burger {
   cursor: pointer;
 }
 nav > .Nav_Burger > .Burger_Bar {
-  width: 3rem;
+  width: 2rem;
   height: 0.3rem;
   background-color: var(--third-color);
   border-radius: 0.5rem;
@@ -64,7 +64,7 @@ nav > .Nav_Burger > .Second {
 
 @media (max-width: 992px) {
   nav {
-    position: absolute;
+    position: fixed;
     width: 100%;
     padding: 1rem;
   }
@@ -79,11 +79,11 @@ nav > .Nav_Burger > .Second {
   }
 
   nav > .Nav_Link > ul {
-    top: 0;
-    left: 0;
     position: absolute;
+    top: 4rem;
+    left: 0;
     background-color: #d9d9d9;
-    height: 100vh;
+    height: calc(100vh - 4rem);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -91,6 +91,7 @@ nav > .Nav_Burger > .Second {
     align-items: center;
     gap: 2rem;
     margin-left: -100%;
+    transition: 0.5s;
     z-index: -1;
   }
 
