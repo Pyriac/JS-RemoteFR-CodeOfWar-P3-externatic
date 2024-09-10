@@ -8,9 +8,9 @@ export default function CardCompany({ company }) {
       <img src={HeaderPeopleExternatech} alt="coucou les gens" />
       <section>
         <h2>{company.name}</h2>
-        <p>{company.size}</p>
+        <p>Nombre de salariés: {company.size}</p>
         <div className="CardCompany_num_offre_see_offer">
-          <p>Nombre d'offres</p>
+          <p>17 Offres</p>
           <Link to="announce">
             <button type="button">Voir l'offre</button>
           </Link>

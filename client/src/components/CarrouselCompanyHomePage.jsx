@@ -13,12 +13,20 @@ export default function CarrouselCompanyHomePage() {
       perView: 4,
       spacing: 64,
     },
-  });
+    breakpoints: {
+      '(max-width: 992px)': {
+        loop: true,
+        slides: {
+          perView: 2,
+          spacing: 16,
+        }
+      },
+  }});
 
   return (
     <div ref={sliderRef} className="keen-slider">
       {companys.map((company) => (
-        <div className="keen-slider__slide number-slide1" key={company.id}>
+        <div className="keen-slider__slide" key={company.id}>
           <CardCompany company={company} />
         </div>
       ))}
