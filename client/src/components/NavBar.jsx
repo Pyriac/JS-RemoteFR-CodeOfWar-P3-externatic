@@ -23,13 +23,13 @@ function NavBar() {
         </ul>
       </div>
 
-      <article className={`Brand_Title `}>
-        <Link to="/" className="Brain_Title">
+      <article >
+        <Link to="/" className="Brand_Title">
           EXTERNA<span className="Tech_Style">TECH</span>
         </Link>
       </article>
 
-      <div className={`Brand_Nav Mobile `}>
+      <div className="Brand_Nav Mobile">
         <ul className="User_Actions">
           <li className="Register_Link">
             <Link to="/">Créer un compte</Link>
