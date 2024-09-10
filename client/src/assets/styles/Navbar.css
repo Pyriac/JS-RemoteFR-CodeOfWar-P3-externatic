@@ -41,7 +41,7 @@ nav > .Nav_Burger {
   background-color: var(--primary-color);
   border: 0.5rem solid var(--primary-color);
   right: 0;
-  height: 3rem;
+  height: 2rem;
   width: 2rem;
   margin: 0.5rem;
   display: flex;
@@ -64,7 +64,6 @@ nav > .Nav_Burger > .Second {
 
 @media (max-width: 992px) {
   nav {
-    position: fixed;
     width: 100%;
     padding: 1rem;
   }
@@ -92,7 +91,7 @@ nav > .Nav_Burger > .Second {
     gap: 2rem;
     margin-left: -100%;
     transition: 0.5s;
-    z-index: -1;
+    z-index: 10;
   }
 
   nav > .Nav_Link > .Active {
