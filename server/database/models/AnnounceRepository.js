@@ -32,7 +32,7 @@ class AnnounceRepository extends AbstractRepository {
         announce.benefits,
         announce.job_type,
         announce.telework,
-        announce.company_id,
+        1,
       ]
     );
     return result.insertId;
