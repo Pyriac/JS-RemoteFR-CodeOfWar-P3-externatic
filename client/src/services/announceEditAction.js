@@ -27,7 +27,6 @@ const announceEditAction = async ({ request, params }) => {
         benefits: formData.get("benefits"),
         job_type: formData.get("job_type"),
         telework: formData.get("telework"),
-        company_id: formData.get("company"),
       });
       return redirect(`/`);
     }

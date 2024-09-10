@@ -1,18 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import AddAnnounce from "./pages/AddAnnounce";
-import announceIdLoader from "./services/announceIdLoader";
 import announceEditAction from "./services/announceEditAction";
-import companyLoader from "./services/companyLoader";
+import { announceLoader, announceIdLoader, announceDetailLoader } from "./services/announceLoader";
+
 import App from "./App";
+import Announce from "./pages/Announce";
 import EditAnnounce from "./pages/EditAnnounce";
+import HomePage from "./pages/HomePage";
+import AddAnnounce from "./pages/AddAnnounce";
+import AnnounceDetail from "./pages/AnnounceDetail";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
     children: [
+      {
+        path: "/",
+        element: <HomePage />,
+      },
       {
         path: "announce/:id/edit",
         element: <EditAnnounce />,
@@ -22,9 +28,19 @@ const router = createBrowserRouter([
       {
         path: "/AddAnnounce",
         element: <AddAnnounce />,
-        loader: companyLoader,
         action: announceEditAction,
       },
+      {
+        path: "announce",
+        element: <Announce />,
+        loader: announceLoader, 
+      },
+      {
+        path: "announce/:id", 
+        element: <AnnounceDetail />,
+        loader: announceDetailLoader, 
+      },
+
     ],
   },
 ]);
