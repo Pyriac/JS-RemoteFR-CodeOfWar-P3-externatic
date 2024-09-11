@@ -1,6 +1,6 @@
 function Confidential() {
   return (
-    <p>
+    <p className="Legal_pages_p">
       À travers nos services Externatech, nous aidons les candidats à rejoindre
       l’entreprise qui correspond à leurs aspirations. Nous mettons à
       disposition des entreprises une vitrine pour présenter leur activité, leur
@@ -15,13 +15,7 @@ function Confidential() {
       avons élaboré deux politiques distinctes de confidentialité, une dédiée
       aux candidats et aux particuliers et l’autre aux professionnels du
       recrutement. Ces politiques reflètent nos engagements envers la protection
-      des vos données personnelles. Nous vous invitons donc à lire avec
-      attention les présents documents (ci-après, « Politique de Confidentialité
-      »). Pour toute question concernant ces documents et, d’une manière
-      générale, sur la collecte et le traitement de vos informations
-      personnelles par la société Coruscant SAS et toute entitée affiliée à
-      Coruscant (ci-après, « Nous », « Externatech » ou « WTTJ »), n’hésitez pas
-      à nous contacter via l’adresse e-mail suivante : privacy@wttj.co
+      des vos données personnelles.
     </p>
   );
 }

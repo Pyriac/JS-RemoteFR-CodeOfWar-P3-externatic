@@ -1,0 +1,16 @@
+.Legal_pages_p,
+.Legal_pages_h4,
+.Legal_pages_li,
+.Legal_pages_h2 {
+  font-family: var(--primary-font);
+  margin: 1rem;
+}
+
+.Legal_pages_h4 {
+  margin: 1rem;
+}
+
+.Legal_pages_li {
+  list-style-type: disc;
+  margin: 2rem;
+}
