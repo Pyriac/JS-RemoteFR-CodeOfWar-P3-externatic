@@ -1,10 +1,12 @@
 import { Outlet } from "react-router-dom";
-import "./assets/styles/App.css";
-import "./assets/styles/EditAnnounce.css";
+import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import "./assets/styles/Homepage.css";
 import "./assets/styles/CarrouselCompanyHomePage.css";
 import "./assets/styles/CardCompany.css";
+import "./assets/styles/App.css";
+import "./assets/styles/EditAnnounce.css";
+import "./assets/styles/Footer.css";
 
 function App() {
   return (
@@ -13,6 +15,7 @@ function App() {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </>
   );
 }
