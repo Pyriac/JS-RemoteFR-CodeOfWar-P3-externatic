@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function Announcefirstbox({ announce }) {
   return (
-   <div className="AnnouceDetail_jobtitle">
+   <div className="AnnounceDetail_jobtitle">
         <ul key={announce.id}>
           <h1 className="AnnouceDetail_title">{announce.job_title}</h1>
           <li className="AnnouceDetail_bref">L'annonce en Bref</li>

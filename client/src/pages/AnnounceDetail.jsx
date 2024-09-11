@@ -1,5 +1,6 @@
 import { useLoaderData } from 'react-router-dom';
 import AnnounceDetailTitle from "../components/AnnounceDetailTitle";
+import AnnounceDetailPost from "../components/AnnouncePostDetail";
 
 export default function AnnounceDetail() {
   const announce = useLoaderData(); 
@@ -9,10 +10,7 @@ export default function AnnounceDetail() {
 
       <AnnounceDetailTitle announce={announce}  />
     
-      <div className="AnnounceDetail_detailpost">
-        <h2>Le poste en détail</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque et eros eros. Curabitur non semper ligula. Etiam ultricies, sapien in faucibus consequat, eros magna vehicula nunc, at consequat sapien mi et nisi.</p>
-      </div>
+      <AnnounceDetailPost announce={announce}  />
 
       <div className="AnnounceDetail_companydescription">
         <h2>L'entreprise</h2>
