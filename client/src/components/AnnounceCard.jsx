@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types'; 
+import { Link } from 'react-router-dom';
 
 
 export default function AnnounceCard({ announce }) {
   return (
    
         <ul key={announce.id}>
-          <h2>{announce.job_title}</h2>
+          <h2><Link to={`/announce/${announce.id}`}>{announce.job_title}</Link></h2>
           <li>Ville: {announce.location}</li>
           <li>Description: {announce.description}</li>
           <li>Fourchette de salaire: {announce.min_salary} - {announce.max_salary}</li>
