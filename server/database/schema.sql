@@ -6,7 +6,8 @@ create table company (
   name VARCHAR(155) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   size INT NOT NULL,
-  validate BOOLEAN NOT NULL
+  validate BOOLEAN NOT NULL,
+  image VARCHAR(255) DEFAULT "/default.png"
 );
 
 create table announce (
