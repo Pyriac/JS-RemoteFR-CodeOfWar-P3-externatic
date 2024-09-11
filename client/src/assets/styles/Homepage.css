@@ -3,9 +3,13 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom;
-  height: 30rem;
   display: flex;
   justify-content: space-between;
+}
+
+.HomePage_header_picture > img {
+  max-width: 45%;
+  height: auto;
 }
 
 .HomePage_phrase_button {
@@ -13,8 +17,9 @@
   flex-direction: column;
   font-family: var(--primary-font);
   font-size: var(--font-size-two);
-  margin-top: 6rem;
-  margin-left: 4rem;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 4%;
 }
 
 .HomePage_phrase_button > p > br:last-of-type {
@@ -55,8 +60,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4.5rem;
-  margin-bottom: 3.5rem;
+  margin: 2rem 8rem;
 }
 
 .HomePage_title_carrousel {
@@ -64,6 +68,7 @@
   flex-direction: column;
   align-items: flex-end;
   font-family: var(--primary-font);
+  margin-bottom: 2rem;
 }
 
 .HomePage_title_carrousel > h2 {
@@ -89,6 +94,7 @@
   border-radius: 0.5rem;
   color: var(--third-color);
   font-family: var(--primary-font);
+  margin-top: 2rem;
 }
 
 .HomePage_partner_company {
@@ -116,6 +122,8 @@
 
 .HomePage_background_grey {
   background-image: url("../images/Wave_grey.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 992px) {

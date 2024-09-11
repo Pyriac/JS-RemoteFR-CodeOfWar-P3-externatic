@@ -1,0 +1,47 @@
+.CardCompany_body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--third-color);
+  color: rgb(0, 0, 0);
+  height: 100%;
+  font-family: var(--primary-font);
+  gap: 2rem;
+}
+
+.CardCompany_body > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 4%;
+  height: 100%;
+}
+
+.CardCompany_num_offre_see_offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.CardCompany_num_offre_see_offer > a {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 0.5rem;
+  padding: 0.5rem 2rem;
+  font-weight: 700;
+}
+
+@media (max-width: 992px) {
+  .CardCompany_body {
+    gap: 0.5rem;
+  }
+
+  .CardCompany_num_offre_see_offer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .CardCompany_body > section {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+}

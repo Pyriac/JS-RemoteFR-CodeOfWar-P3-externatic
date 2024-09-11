@@ -1,0 +1,11 @@
+.keen-slider__slide {
+  height: 25rem;
+  box-shadow: 2px 2px 3px rgba(184, 184, 184, 0.25);
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 992px) {
+  .keen-slider__slide {
+    height: 20rem;
+  }
+}

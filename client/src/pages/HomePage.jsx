@@ -4,6 +4,8 @@ import HomePageLineYou from "../assets/images/HomePage_soulignement_vous.png";
 
 import HomePageLineTrust from "../assets/images/Line_green_confiance.png";
 
+import CarrouselCompanyHomePage from "../components/CarrouselCompanyHomePage";
+
 export default function HomePage() {
   return (
     <>
@@ -35,7 +37,7 @@ export default function HomePage() {
             </h2>
             <img src={HomePageLineYou} alt="line green" />
           </div>
-          <p>carrousel previous entreprises</p>
+          <CarrouselCompanyHomePage />
           <button className="Homepage_more_company" type="button">
             Examiner plus d'entreprises
           </button>
