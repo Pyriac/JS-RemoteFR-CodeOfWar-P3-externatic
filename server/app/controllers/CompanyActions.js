@@ -51,5 +51,6 @@ const edit = async (req, res, next) => {
   }
 };
 
-const companyActions = { browse, read, add, destroy, edit };
+
+const companyActions = { browse, read, add, destroy, edit};
 module.exports = companyActions;
