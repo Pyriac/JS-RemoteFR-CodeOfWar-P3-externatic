@@ -35,8 +35,11 @@ button {
   all: unset;
 }
 
-body {
+#root {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
 }
