@@ -8,6 +8,11 @@
   gap: 2rem;
 }
 
+.CardCompany_body > img {
+  object-fit: contain;
+  max-height: 10rem;
+}
+
 .CardCompany_body > section {
   display: flex;
   flex-direction: column;
@@ -33,6 +38,10 @@
 @media (max-width: 992px) {
   .CardCompany_body {
     gap: 0.5rem;
+  }
+
+  .CardCompany_body > img {
+    max-height: 6rem;
   }
 
   .CardCompany_num_offre_see_offer {
