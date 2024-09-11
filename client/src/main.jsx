@@ -15,6 +15,7 @@ import EditAnnounce from "./pages/EditAnnounce";
 import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
+import Legal from "./pages/Footer/Legal";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+      },
+      {
+        path: "pages/legal",
+        element: <Legal />,
       },
     ],
   },

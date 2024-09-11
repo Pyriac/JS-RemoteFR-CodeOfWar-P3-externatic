@@ -4,11 +4,11 @@
   color: var(--third-color);
 }
 
-ul > li {
+.NavBar ul > li {
   list-style: none;
 }
 
-a {
+.NavBar a {
   text-decoration: none;
   color: var(--third-color);
 }

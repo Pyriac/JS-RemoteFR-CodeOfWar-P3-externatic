@@ -6,37 +6,46 @@ import Twitter from "../assets/images/twitter.svg";
 
 function Footer() {
   return (
-    <>
-      <Link to="/">
-        <h2>EXTERNATECH</h2>
-      </Link>
-      <Link to="https://www.facebook.com">
-        <img src={Facebook} alt="Facebook" />
-      </Link>
-      <Link to="https://www.instagram.com">
-        <img src={Instagram} alt="Instagram" />
-      </Link>
-      <Link to="https://www.linkedin.com">
-        <img src={LinkedIn} alt="LinkedIn" />
-      </Link>
-      <Link to="https://x.com">
-        <img src={Twitter} alt="Twitter" />
-      </Link>
-      <Link to="/announce">
-        <h3>Offres d'emploi</h3>
-      </Link>
-      <Link to="/company">
-        <h3>Entreprises</h3>
-      </Link>
+    <section className="Footer">
+      <div className="Footer_top_div">
+        <div className="Footer_title_social_div">
+          <Link to="/">
+            EXTERNA<span className="Tech_Style">TECH</span>
+          </Link>
+          <div>
+            <Link to="https://www.facebook.com">
+              <img src={Facebook} alt="Facebook" />
+            </Link>
+            <Link to="https://www.instagram.com">
+              <img src={Instagram} alt="Instagram" />
+            </Link>
+            <Link to="https://www.linkedin.com">
+              <img src={LinkedIn} alt="LinkedIn" />
+            </Link>
+            <Link to="https://x.com">
+              <img src={Twitter} alt="Twitter" />
+            </Link>
+          </div>
+        </div>
+        <Link to="/announce" className="Footer_announce_link">
+          <h3>Offres d'emploi</h3>
+        </Link>
+        <Link to="/company" className="Footer_company_link">
+          <h3>Entreprises</h3>
+        </Link>
+      </div>
       <ul>
-        <li>Mentions légales</li>
+        <Link to="pages/legal">
+          {" "}
+          <li>Mentions légales</li>
+        </Link>
         <li>CGU</li>
         <li>Politique de confidentialité</li>
         <li>Charte Externatech</li>
         <li>Politique cookies</li>
         <li>Gestion des cookies</li>
       </ul>
-    </>
+    </section>
   );
 }
 
