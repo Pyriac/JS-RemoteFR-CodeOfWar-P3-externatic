@@ -36,3 +36,21 @@ button {
 button {
   all: unset;
 }
+
+:root {
+  /* color */
+  --primary-color: #0c1618;
+  --secondary-color: #34d399;
+  --third-color: #ffffff;
+
+  /*Font*/
+  --primary-font: "Poppins", sans-serif;
+
+  /*Font-size*/
+  --font-size-one: 1rem;
+  --font-size-two: 1.5rem;
+  --font-size-three: 2rem;
+  --font-size-four: 2.5rem;
+  --font-size-five: 3rem;
+  --font-size-six: 4rem;
+}

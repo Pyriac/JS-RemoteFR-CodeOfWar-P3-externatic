@@ -19,7 +19,6 @@ class CompanyRepository extends AbstractRepository {
 
     return rows[0];
   }
-  
 
   async create(company) {
     const [result] = await this.database.query(

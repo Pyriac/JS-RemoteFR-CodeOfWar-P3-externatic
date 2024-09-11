@@ -123,3 +123,4 @@ FormAnnounce.propTypes = {
 };
 
 export default FormAnnounce;
+
