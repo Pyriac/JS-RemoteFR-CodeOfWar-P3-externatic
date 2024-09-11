@@ -14,10 +14,11 @@
 }
 
 nav {
+  position: sticky;
+  top: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
   padding: 0 0.5rem;
 }
 
@@ -31,13 +32,20 @@ nav > .Brand_Nav > .User_Actions > .Login_Link {
   font-weight: bold;
   padding: 0.3rem 0.8rem;
   border-radius: 0.5rem;
+  margin-left: 5%;
+  width: 10rem;
+  text-align: center;
+}
+
+.Register_Link {
+  width: 10rem;
 }
 
 nav > .Brand_Nav > .User_Actions > .Login_Link > a {
   color: var(--primary-color);
 }
 nav > .Nav_Burger {
-  position: absolute;
+  position: sticky;
   background-color: var(--primary-color);
   border: 0.5rem solid var(--primary-color);
   right: 0;
@@ -114,6 +122,9 @@ nav > .Nav_Burger > .Second {
 
   .Nav_Burger span.Burger_Bar.Clicked:nth-child(3) {
     transform: rotate(135deg) translate(-0.1rem, 0.75rem);
+  }
+  nav > .Brand_Nav > .User_Actions > .Login_Link {
+    width: 7rem;
   }
 }
 
