@@ -11,7 +11,10 @@
 }
 
 .Footer ul {
-  margin: 1rem 0rem;
+  border-top: 1px solid var(--fourth-color);
+  width: 90%;
+  padding: 1rem;
+  margin: 1rem auto;
 }
 
 .Footer ul li {
@@ -21,7 +24,8 @@
 }
 
 .Footer_top_div,
-.Footer_title_social_div {
+.Footer_title_social_div,
+.Footer ul {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -59,4 +63,30 @@
 
 .Footer_company_link h3 {
   background-color: var(--secondary-color);
+}
+
+@media (min-width: 993px) {
+  .Footer_top_div {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .Footer_title_social_div {
+    margin: 2rem 0;
+  }
+
+  .Footer_top_div div:last-child {
+    display: flex;
+  }
+
+  .Footer_announce_link,
+  .Footer_company_link {
+    width: 15rem;
+  }
+
+  .Footer ul {
+    padding: 2rem;
+    flex-direction: row;
+    justify-content: space-around;
+  }
 }
