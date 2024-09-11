@@ -39,11 +39,18 @@ function Footer() {
           {" "}
           <li>Mentions légales</li>
         </Link>
-        <li>CGU</li>
-        <li>Politique de confidentialité</li>
-        <li>Charte Externatech</li>
-        <li>Politique cookies</li>
-        <li>Gestion des cookies</li>
+        <Link to="pages/CGU">
+          <li>CGU</li>
+        </Link>
+        <Link to="pages/privacy-policy">
+          <li>Politique de confidentialité</li>
+        </Link>
+        <Link to="pages/charter">
+          <li>Charte Externatech</li>
+        </Link>
+        <Link to="pages/cookies-policy">
+          <li>Politique cookies</li>
+        </Link>
       </ul>
     </section>
   );
