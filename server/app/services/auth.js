@@ -21,4 +21,57 @@ const hashPassword = async(req, res, next) => {
         next(err);
     }
 }
-module.exports = {hashPassword}
+
+
+function contientCaractere(password) {
+    const caracteres = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', ';', ':', '"', '\\', '|', ',', '.', '<', '>', '/', '?', '€', '£', '¥', ',', '~', '§'];
+    return caracteres.some((caractere) => password.includes(caractere))
+      
+  }
+  
+  function contientMajuscule(password) {
+    const regex = /[A-Z]/;
+    return regex.test(password)
+  } 
+  
+  function contientChiffre(password) {
+    const chiffres = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    return chiffres.some((chiffre) => password.includes(chiffre))
+  }
+  
+const verifPassword = async(req, res, next) => {
+    try{
+        const {password, confirmPassword} = req.body;
+
+        if(password === confirmPassword){
+            if(password.length >= 8){
+                if(contientCaractere(password)){
+                    if(contientMajuscule(password)){
+                      if(contientChiffre(password)){
+                        console.info("mot de passe conforme aux normes attendus");
+                        next();
+                      }else{
+                        console.info("il manque au moins un chiffre")
+                      }
+                    }else{
+                      console.info("il manque au moins une majuscule");
+                    }
+                }else{
+                    console.info('Il manque au moins un caractère spécieux');
+                }
+            }else{
+                console.info('erreur sur la longeur du mot de passe');
+              }    
+        }else{
+            console.info("les deux mot de passes de sont pas identique")
+        }
+        
+
+    }catch (err){
+        console.info("mot de passe nom conforme aux normes")
+        next(err);
+    }
+}
+
+
+module.exports = {verifPassword, hashPassword}

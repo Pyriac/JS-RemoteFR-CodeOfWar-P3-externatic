@@ -10,7 +10,7 @@ const router = express.Router();
 
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
-const { hashPassword } = require("./services/auth");
+const {verifPassword, hashPassword} = require("./services/auth");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
@@ -23,7 +23,7 @@ router.get("/company/:id", companyActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
-router.post("/company", hashPassword, companyActions.add);
+router.post("/company", verifPassword, hashPassword, companyActions.add);
 
 
 // Route to delete an item
