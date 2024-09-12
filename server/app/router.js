@@ -11,6 +11,7 @@ const router = express.Router();
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
+const upload = require("./services/upload");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
@@ -24,7 +25,7 @@ router.get("/candidate/:id", candidateActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
-router.post("/company", companyActions.add);
+router.post("/company", upload.uploadCompanyFiles, companyActions.add);
 router.post("/candidate", candidateActions.add);
 
 // Route to delete an item

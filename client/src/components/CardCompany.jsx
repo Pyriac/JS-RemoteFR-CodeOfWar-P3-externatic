@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import HeaderPeopleExternatech from "../assets/images/Header_People_Externatech.png";
 
 export default function CardCompany({ company }) {
   return (
     <div className="CardCompany_body">
-      <img src={HeaderPeopleExternatech} alt="coucou les gens" />
+      <img
+        className="CardCompany_picture_company"
+        src={`${import.meta.env.VITE_API_URL}/uploads/${company.image}`}
+        alt={`Illustration fourni par ${company.name}`}
+      />
+      <img
+        className="CardCompany_logo_company"
+        src={`${import.meta.env.VITE_API_URL}/uploads/${company.logo}`}
+        alt={`logo fourni par ${company.name}`}
+      />
       <section>
         <h2>{company.name}</h2>
         <p>Nombre de salariés: {company.size}</p>
@@ -24,5 +32,7 @@ CardCompany.propTypes = {
   company: PropTypes.shape({
     name: PropTypes.string,
     size: PropTypes.number,
+    image: PropTypes.string,
+    logo: PropTypes.string,
   }).isRequired,
 };
