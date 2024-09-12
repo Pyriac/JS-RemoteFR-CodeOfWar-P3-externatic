@@ -7,12 +7,12 @@ export default function CardCompany({ company }) {
       <img
         className="CardCompany_picture_company"
         src={`${import.meta.env.VITE_API_URL}/uploads/${company.image}`}
-        alt="stan lee"
+        alt={`Illustration fourni par ${company.name}`}
       />
       <img
         className="CardCompany_logo_company"
         src={`${import.meta.env.VITE_API_URL}/uploads/${company.logo}`}
-        alt="logo entreprise"
+        alt={`logo fourni par ${company.name}`}
       />
       <section>
         <h2>{company.name}</h2>
