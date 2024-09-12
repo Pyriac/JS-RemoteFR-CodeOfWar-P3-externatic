@@ -42,6 +42,16 @@ const edit = async (req, res, next) => {
   }
 };
 
-const candidateActions = { browse, read, add, edit };
+const destroy = async (req, res, next) => {
+  try {
+    await tables.candidate.delete(req.params.id);
+
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const candidateActions = { browse, read, add, edit, destroy };
 
 module.exports = candidateActions;

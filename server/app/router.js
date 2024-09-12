@@ -30,6 +30,7 @@ router.post("/candidate", candidateActions.add);
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);
 router.delete("/company/:id", companyActions.destroy);
+router.delete("/candidate/:id", candidateActions.destroy);
 
 // Route to edit an item
 router.put("/announce/:id", announceActions.edit);
