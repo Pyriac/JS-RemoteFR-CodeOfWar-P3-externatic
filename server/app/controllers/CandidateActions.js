@@ -32,6 +32,16 @@ const add = async (req, res, next) => {
   }
 };
 
-const candidateActions = { browse, read, add };
+const edit = async (req, res, next) => {
+  try {
+    const candidate = { ...req.body, id: Number(req.params.id) };
+    await tables.candidate.update(candidate);
+    res.sendStatus(204);
+  } catch (err) {
+    next(err);
+  }
+};
+
+const candidateActions = { browse, read, add, edit };
 
 module.exports = candidateActions;

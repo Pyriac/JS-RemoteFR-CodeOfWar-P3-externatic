@@ -37,6 +37,25 @@ class CandidateRepository extends AbstractRepository {
     );
     return result.insertId;
   }
+
+  async update(candidate) {
+    const [result] = await this.database.query(
+      `update ${this.table} set email = ?, password = ?, cv = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ?`,
+      [
+        candidate.email,
+        candidate.password,
+        candidate.cv,
+        candidate.location,
+        candidate.first_name,
+        candidate.last_name,
+        candidate.title,
+        candidate.birthday,
+        candidate.degree,
+        candidate.phone,
+      ]
+    );
+    return result.insertId;
+  }
 }
 
 module.exports = CandidateRepository;

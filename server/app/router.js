@@ -34,6 +34,7 @@ router.delete("/company/:id", companyActions.destroy);
 // Route to edit an item
 router.put("/announce/:id", announceActions.edit);
 router.put("/company/:id", companyActions.edit);
+router.put("/candidate/:id", candidateActions.edit);
 /* ************************************************************************* */
 
 module.exports = router;
