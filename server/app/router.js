@@ -22,7 +22,7 @@ router.get("/company/:id", companyActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
-router.post("/company", upload.uploadPictureCompany, companyActions.add);
+router.post("/company", upload.uploadCompanyFiles, companyActions.add);
 
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);

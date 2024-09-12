@@ -22,7 +22,7 @@ class CompanyRepository extends AbstractRepository {
 
   async create(company) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (email, password, name, phone, size, validate, image) values (?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (email, password, name, phone, size, validate, image, logo) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         company.email,
         company.password,
@@ -31,6 +31,7 @@ class CompanyRepository extends AbstractRepository {
         company.size,
         company.validate,
         company.image,
+        company.logo,
       ]
     );
     return result.insertId;
