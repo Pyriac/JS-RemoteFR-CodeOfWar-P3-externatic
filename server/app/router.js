@@ -20,6 +20,7 @@ router.get("/candidate", candidateActions.browse);
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.read);
 router.get("/company/:id", companyActions.read);
+router.get("/candidate/:id", candidateActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
