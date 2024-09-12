@@ -22,6 +22,16 @@ const read = async (req, res, next) => {
   }
 };
 
-const candidateActions = { browse, read };
+const add = async (req, res, next) => {
+  const candidate = req.body;
+  try {
+    const insertId = await tables.candidate.create(candidate);
+    res.status(201).json({ insertId });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const candidateActions = { browse, read, add };
 
 module.exports = candidateActions;

@@ -25,6 +25,7 @@ router.get("/candidate/:id", candidateActions.read);
 // Route to add a new item
 router.post("/announce", announceActions.add);
 router.post("/company", companyActions.add);
+router.post("/candidate", candidateActions.add);
 
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);

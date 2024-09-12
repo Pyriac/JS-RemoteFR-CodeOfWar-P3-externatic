@@ -18,6 +18,25 @@ class CandidateRepository extends AbstractRepository {
 
     return rows[0];
   }
+
+  async create(candidate) {
+    const [result] = await this.database.query(
+      `insert into ${this.table} (email, password, cv, location, first_name, last_name, title, birthday, degree, phone ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        candidate.email,
+        candidate.password,
+        candidate.cv,
+        candidate.location,
+        candidate.first_name,
+        candidate.last_name,
+        candidate.title,
+        candidate.birthday,
+        candidate.degree,
+        candidate.phone,
+      ]
+    );
+    return result.insertId;
+  }
 }
 
 module.exports = CandidateRepository;
