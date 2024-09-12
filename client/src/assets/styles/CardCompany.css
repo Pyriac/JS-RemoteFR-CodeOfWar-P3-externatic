@@ -8,9 +8,18 @@
   gap: 2rem;
 }
 
-.CardCompany_body > img {
+.CardCompany_picture_company {
   object-fit: contain;
   max-height: 10rem;
+  min-height: 10rem;
+}
+
+.CardCompany_logo_company {
+  max-height: 5rem;
+  max-width: 5rem;
+  position: absolute;
+  margin-top: 7rem;
+  margin-left: 2rem;
 }
 
 .CardCompany_body > section {
@@ -40,8 +49,16 @@
     gap: 0.5rem;
   }
 
-  .CardCompany_body > img {
+  .CardCompany_picture_company {
     max-height: 6rem;
+    min-height: 6rem;
+  }
+
+  .CardCompany_logo_company {
+    max-height: 2.5rem;
+    max-width: 2.5rem;
+    margin-top: 4.5rem;
+    margin-left: 1rem;
   }
 
   .CardCompany_num_offre_see_offer {

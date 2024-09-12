@@ -5,8 +5,14 @@ export default function CardCompany({ company }) {
   return (
     <div className="CardCompany_body">
       <img
+        className="CardCompany_picture_company"
         src={`${import.meta.env.VITE_API_URL}/uploads/${company.image}`}
         alt="stan lee"
+      />
+      <img
+        className="CardCompany_logo_company"
+        src={`${import.meta.env.VITE_API_URL}/uploads/${company.logo}`}
+        alt="logo entreprise"
       />
       <section>
         <h2>{company.name}</h2>
@@ -27,5 +33,6 @@ CardCompany.propTypes = {
     name: PropTypes.string,
     size: PropTypes.number,
     image: PropTypes.string,
+    logo: PropTypes.string,
   }).isRequired,
 };
