@@ -1,9 +1,9 @@
-import { useLoaderData } from 'react-router-dom';
-import AnnounceCard from '../components/AnnounceCard';
+import { useLoaderData } from "react-router-dom";
+import AnnounceCard from "../components/AnnounceCard";
 
 export default function Announce() {
-  const loaderData = useLoaderData(); 
- 
+  const loaderData = useLoaderData();
+
   return (
     <>
       <h1>Trouver un job</h1>

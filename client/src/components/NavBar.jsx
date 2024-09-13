@@ -23,7 +23,7 @@ function NavBar() {
         </ul>
       </div>
 
-      <article >
+      <article>
         <Link to="/" className="Brand_Title">
           EXTERNA<span className="Tech_Style">TECH</span>
         </Link>

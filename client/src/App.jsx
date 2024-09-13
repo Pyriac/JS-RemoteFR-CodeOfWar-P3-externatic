@@ -5,7 +5,6 @@ import NavBar from "./components/NavBar";
 import "./assets/styles/Homepage.css";
 import "./assets/styles/AnnounceDetail.css";
 
-
 function App() {
   return (
     <>
