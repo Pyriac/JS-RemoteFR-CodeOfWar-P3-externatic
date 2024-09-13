@@ -25,11 +25,9 @@ function NavBar() {
 
       <article>
         <Link to="/" className="Brand_Title">
-          COUCOU
-        </Link>
-
-        <Link to="/">
-          EXTERNA<span className="Tech_Style">TECH</span>
+          <Link to="/">
+            EXTERNA<span className="Tech_Style">TECH</span>
+          </Link>
         </Link>
       </article>
 
