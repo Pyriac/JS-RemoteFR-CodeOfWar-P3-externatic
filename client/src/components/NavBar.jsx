@@ -24,8 +24,10 @@ function NavBar() {
       </div>
 
       <article>
-        <Link to="/">
-          EXTERNA<span className="Tech_Style">TECH</span>
+        <Link to="/" className="Brand_Title">
+          <Link to="/">
+            EXTERNA<span className="Tech_Style">TECH</span>
+          </Link>
         </Link>
       </article>
 
