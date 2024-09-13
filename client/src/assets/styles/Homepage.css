@@ -95,6 +95,7 @@
   color: var(--third-color);
   font-family: var(--primary-font);
   margin-top: 2rem;
+  text-align: center;
 }
 
 .HomePage_partner_company {

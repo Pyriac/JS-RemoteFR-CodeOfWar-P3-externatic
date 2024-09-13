@@ -1,6 +1,6 @@
 // Import the repository modules responsible for handling data operations on the tables
 const CompanyRepository = require("./models/CompanyRepository");
-
+const CandidateRepository = require("./models/CandidateRepository");
 const AnnounceRepository = require("./models/AnnounceRepository");
 // Create an empty object to hold data repositories for different tables
 const tables = {};
@@ -13,6 +13,7 @@ const tables = {};
 
 tables.company = new CompanyRepository();
 tables.announce = new AnnounceRepository();
+tables.candidate = new CandidateRepository();
 
 /* ************************************************************************* */
 
