@@ -12,11 +12,10 @@ export default function Announce() {
     navigate(`/announce?contract=${event.target.value}`);
   };
 
-  console.info("COUCOU", announces)
-
   return (
     <>
       <h1>Trouver un job</h1>
+      
       <select onChange={handleChangeSelect}>
         <option value="">Tous les contrats</option>
         {contracts.map((contract) => (
@@ -28,7 +27,6 @@ export default function Announce() {
       {announces.map((announce) => (
         <AnnounceCard  announce={announce} key={announce.id} />
       ))}
-     
     </>
   );
 }

@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
-import { getAnnounces, getContracts } from "./services/request";
+
 import announceEditAction from "./services/announceEditAction";
-import {  announceIdLoader, companyLoader, announceDetailLoader } from "./services/announceLoader";
+import {  announceIdLoader, companyLoader, announceDetailLoader, getAnnounces, getContracts } from "./services/announceLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce";
