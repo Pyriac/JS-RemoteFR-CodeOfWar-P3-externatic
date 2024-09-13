@@ -20,6 +20,7 @@ import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
+import RegisterCandidat from "./pages/RegisterCandidat";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+      },
+      {
+        path: "register/candidate",
+        element: <RegisterCandidat />,
       },
       {
         path: "pages/legal",
