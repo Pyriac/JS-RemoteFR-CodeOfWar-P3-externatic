@@ -1,12 +1,12 @@
 import { useLoaderData } from 'react-router-dom';
-import AnnounceCard from '../components/AnnounceCard'; 
+import AnnounceDetailCard from '../components/AnnounceDetailCard';
 
 export default function AnnounceDetail() {
   const announce = useLoaderData(); 
 
   return (
     <div>
-      <AnnounceCard announce={announce} /> 
+      <AnnounceDetailCard announce={announce} />
     </div>
   );
 }

@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 
-
+import { getAnnounces, getContracts } from "./services/request";
 import announceEditAction from "./services/announceEditAction";
-import { announceLoader, announceIdLoader, companyLoader, announceDetailLoader } from "./services/announceLoader";
+import {  announceIdLoader, companyLoader, announceDetailLoader } from "./services/announceLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -32,7 +32,15 @@ const router = createBrowserRouter([
       {
         path: "announce",
         element: <Announce />,
-        loader: announceLoader, 
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const contract = url.searchParams.get("contract");
+          const result = {
+            contracts: await getContracts(),
+            announces: await getAnnounces(contract),
+          };
+          return result; 
+        },
       },
       {
         path: "announce/:id", 

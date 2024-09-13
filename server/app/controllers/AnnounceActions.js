@@ -2,11 +2,21 @@ const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
   try {
-    const announce = await tables.announce.readAll();
+    const { contract } = req.query;
 
-    res.json(announce);
-  } catch (error) {
-    next(error);
+    console.info(contract)
+    const announces = await tables.announce.readAll(contract);
+
+    if (announces.length === 0) {
+      res.json({
+        message: "Pas d'annonces",
+        result: announces,
+      });
+    } else {
+      res.json({ result: announces });
+    }
+  } catch (err) {
+    next(err);
   }
 };
 

@@ -11,10 +11,13 @@ const router = express.Router();
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
 
+const contractActions = require("./controllers/ContractActions");
+
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
 router.get("/company", companyActions.browse);
 
+router.get("/contract", contractActions.browse);
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.read);
 router.get("/company/:id", companyActions.read);
