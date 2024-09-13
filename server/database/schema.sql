@@ -48,6 +48,8 @@ create table announce (
     phone VARCHAR(55)
   );
 
+  
+
   INSERT INTO company(email, password, name, phone, size, validate)
   VALUES("auchan@auchan.fr", "0000", "auchan", "03087965412", 500, 1 ),
   ("lidl@lidl.fr", "1234", "lidl", "03087965412", 300, 1 ),

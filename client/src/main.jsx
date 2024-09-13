@@ -1,11 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
-
-
 import announceEditAction from "./services/announceEditAction";
-import {  announceIdLoader, companyLoader, announceDetailLoader, getAnnounces, getContracts } from "./services/announceLoader";
+
+import {  announceLoader, announceIdLoader, companyLoader, announceDetailLoader, getAnnounces, getContracts } from "./services/announceLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -13,7 +11,11 @@ import EditAnnounce from "./pages/EditAnnounce";
 import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
-
+import Legal from "./pages/Footer/Legal";
+import CGU from "./pages/Footer/Cgu";
+import Confidential from "./pages/Footer/Confidential";
+import Charter from "./pages/Footer/Charter";
+import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader: companyLoader,
       },
       {
         path: "announce/:id/edit",
@@ -40,22 +43,43 @@ const router = createBrowserRouter([
             announces: await getAnnounces(contract),
           };
           return result; 
-        },
+      }},
+        {
+        path: "/AddAnnounce",
+        element: <AddAnnounce />,
+        action: announceEditAction,
       },
       {
-        path: "announce/:id", 
-        element: <AnnounceDetail />,
-        loader: announceDetailLoader, 
+        path: "announce",
+        element: <Announce />,
+        loader: announceLoader,
       },
-
+      {
+        path: "announce/:id",
+        element: <AnnounceDetail />,
+        loader: announceDetailLoader,
+      },
+      {
+        path: "pages/legal",
+        element: <Legal />,
+      },
+      {
+        path: "pages/CGU",
+        element: <CGU />,
+      },
+      {
+        path: "pages/privacy-policy",
+        element: <Confidential />,
+      },
+      {
+        path: "pages/charter",
+        element: <Charter />,
+      },
+      {
+        path: "pages/cookies-policy",
+        element: <CookiesPolicy />,
+      },
     ],
-  },
-  {
-    path: "/AddAnnounce",
-    element: <AddAnnounce />,
-     loader: companyLoader,
-     action: announceEditAction,
-
   },
 ]);
 

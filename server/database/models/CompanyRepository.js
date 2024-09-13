@@ -19,11 +19,10 @@ class CompanyRepository extends AbstractRepository {
 
     return rows[0];
   }
-  
 
   async create(company) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (email, password, name, phone, size, validate) values (?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (email, password, name, phone, size, validate, image, logo) values (?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         company.email,
         company.password,
@@ -31,6 +30,8 @@ class CompanyRepository extends AbstractRepository {
         company.phone,
         company.size,
         company.validate,
+        company.image,
+        company.logo,
       ]
     );
     return result.insertId;
@@ -46,7 +47,7 @@ class CompanyRepository extends AbstractRepository {
 
   async update(company) {
     const [result] = await this.database.query(
-      `update ${this.table} set email = ?, password = ?, name = ?, phone = ?, size = ?, validate = ?`,
+      `update ${this.table} set email = ?, password = ?, name = ?, phone = ?, size = ?, validate = ? where id = ?`,
       [
         company.email,
         company.password,
@@ -54,6 +55,7 @@ class CompanyRepository extends AbstractRepository {
         company.phone,
         company.size,
         company.validate,
+        company.id,
       ]
     );
     return result.affectedRows;

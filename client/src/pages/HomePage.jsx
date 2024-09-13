@@ -4,6 +4,9 @@ import HomePageLineYou from "../assets/images/HomePage_soulignement_vous.png";
 
 import HomePageLineTrust from "../assets/images/Line_green_confiance.png";
 
+import CarrouselCompanyHomePage from "../components/CarrouselCompanyHomePage";
+import CorporateSponcor from "../components/CorporateSponcor";
+
 export default function HomePage() {
   return (
     <>
@@ -35,7 +38,7 @@ export default function HomePage() {
             </h2>
             <img src={HomePageLineYou} alt="line green" />
           </div>
-          <p>carrousel previous entreprises</p>
+          <CarrouselCompanyHomePage />
           <button className="Homepage_more_company" type="button">
             Examiner plus d'entreprises
           </button>
@@ -45,7 +48,7 @@ export default function HomePage() {
             <h2>Entreprises partenaires qui nous font confiance.</h2>
             <img src={HomePageLineTrust} alt="line green" />
           </div>
-          <p>Carrousel logo entreprises</p>
+          <CorporateSponcor />
         </article>
       </div>
     </>
