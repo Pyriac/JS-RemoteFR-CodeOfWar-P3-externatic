@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import HeaderPeopleExternatech from "../assets/images/Header_People_Externatech.png";
 
 import HomePageLineYou from "../assets/images/HomePage_soulignement_vous.png";
@@ -20,7 +22,7 @@ export default function HomePage() {
           </p>
           <div className="HomePage_header_button">
             <button className="HomePage_create_button" type="button">
-              Cree ton profil en 3 clics
+             <Link to="/register/candidate"> Cree ton profil en 3 clics </Link> 
             </button>
             <button className="HomePage_recruit_button" type="button">
               Je recrute

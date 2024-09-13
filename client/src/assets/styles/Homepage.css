@@ -49,6 +49,10 @@
   padding: 1rem 2.5rem;
 }
 
+.HomePage_create_button > a {
+  color: var(--third-color);
+}
+
 .HomePage_recruit_button {
   border-radius: 0.5rem;
   background-color: var(--third-color);
