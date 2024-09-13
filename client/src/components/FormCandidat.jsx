@@ -9,6 +9,7 @@ export default function FormCandidat() {
       <label htmlFor="email">Adresse mail *</label>
       <input
         type="email"
+        name="email"
         id="email"
         pattern="^[\w\.-]+@[a-zA-Z\d-]+\.[a-zA-Z]{2,6}$"
         placeholder="sophie@example.com"

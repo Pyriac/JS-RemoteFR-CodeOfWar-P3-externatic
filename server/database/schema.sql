@@ -34,7 +34,7 @@ create table announce (
     first_name VARCHAR(55) NOT NULL,
     last_name VARCHAR(55) NOT NULL,
     title VARCHAR(155) NOT NULL,
-    birthday DATE,
+    birthday DATE DEFAULT NULL,
     degree VARCHAR(155),
     phone VARCHAR(55)
   );
