@@ -9,13 +9,15 @@ import {
   announceDetailLoader,
 } from "./services/announceLoader";
 
+import companyAction from "./services/companyAction";
+
 import App from "./App";
 import Announce from "./pages/Announce";
 import EditAnnounce from "./pages/EditAnnounce";
 import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
-import RegisterCompany from "./pages/RegisterCompay";
+import RegisterCompany from "./pages/RegisterCompany";
 import Legal from "./pages/Footer/Legal";
 import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
@@ -56,6 +58,7 @@ const router = createBrowserRouter([
       {
         path: "registerCompany",
         element: <RegisterCompany />,
+        action: companyAction,
       },
       {
         path: "pages/legal",

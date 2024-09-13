@@ -6,7 +6,7 @@ create table company (
   name VARCHAR(155) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   size INT NOT NULL,
-  validate BOOLEAN NOT NULL,
+  validate BOOLEAN DEFAULT 0,
   image VARCHAR(255) DEFAULT "../assets/images/default.png",
   logo VARCHAR(255) DEFAULT "../assets/images/logo_default.png"
 );

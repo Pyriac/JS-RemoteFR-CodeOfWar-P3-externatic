@@ -29,9 +29,10 @@ function contientCaractere(password) {
       
   }
   
-  function contientMajuscule(password) {
-    const regex = /[A-Z]/;
-    return regex.test(password)
+  function contientMajusculeMinuscule(password) {
+    const regexMajuscule = /[A-Z]/;
+    const regexMinuscule = /[a-z]/;
+    return regexMajuscule.test(password) && regexMinuscule.test(password);
   } 
   
   function contientChiffre(password) {
@@ -46,7 +47,7 @@ const verifPassword = async(req, res, next) => {
         if(password === confirmPassword){
             if(password.length >= 8){
                 if(contientCaractere(password)){
-                    if(contientMajuscule(password)){
+                    if(contientMajusculeMinuscule(password)){
                       if(contientChiffre(password)){
                         console.info("mot de passe conforme aux normes attendus");
                         next();
@@ -54,7 +55,7 @@ const verifPassword = async(req, res, next) => {
                         console.info("il manque au moins un chiffre")
                       }
                     }else{
-                      console.info("il manque au moins une majuscule");
+                      console.info("il manque au moins une majuscule ou minuscule");
                     }
                 }else{
                     console.info('Il manque au moins un caractère spécieux');
