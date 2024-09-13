@@ -40,7 +40,7 @@ class CandidateRepository extends AbstractRepository {
 
   async update(candidate) {
     const [result] = await this.database.query(
-      `update ${this.table} set email = ?, password = ?, cv = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ?`,
+      `update ${this.table} set email = ?, password = ?, cv = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ? where id = ?`,
       [
         candidate.email,
         candidate.password,
@@ -52,6 +52,7 @@ class CandidateRepository extends AbstractRepository {
         candidate.birthday,
         candidate.degree,
         candidate.phone,
+        candidate.id,
       ]
     );
     return result.insertId;

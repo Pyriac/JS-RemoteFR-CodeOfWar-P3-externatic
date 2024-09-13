@@ -47,7 +47,7 @@ class CompanyRepository extends AbstractRepository {
 
   async update(company) {
     const [result] = await this.database.query(
-      `update ${this.table} set email = ?, password = ?, name = ?, phone = ?, size = ?, validate = ?`,
+      `update ${this.table} set email = ?, password = ?, name = ?, phone = ?, size = ?, validate = ? where id = ?`,
       [
         company.email,
         company.password,
@@ -55,6 +55,7 @@ class CompanyRepository extends AbstractRepository {
         company.phone,
         company.size,
         company.validate,
+        company.id,
       ]
     );
     return result.affectedRows;
