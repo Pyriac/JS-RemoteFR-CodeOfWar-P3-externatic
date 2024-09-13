@@ -5,6 +5,7 @@ import announceEditAction from "./services/announceEditAction";
 import {
   announceLoader,
   announceIdLoader,
+  companyLoader,
   announceDetailLoader,
 } from "./services/announceLoader";
 
@@ -14,6 +15,11 @@ import EditAnnounce from "./pages/EditAnnounce";
 import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
+import Legal from "./pages/Footer/Legal";
+import CGU from "./pages/Footer/Cgu";
+import Confidential from "./pages/Footer/Confidential";
+import Charter from "./pages/Footer/Charter";
+import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +28,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+        loader: companyLoader,
       },
       {
         path: "announce/:id/edit",
@@ -43,6 +50,26 @@ const router = createBrowserRouter([
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+      },
+      {
+        path: "pages/legal",
+        element: <Legal />,
+      },
+      {
+        path: "pages/CGU",
+        element: <CGU />,
+      },
+      {
+        path: "pages/privacy-policy",
+        element: <Confidential />,
+      },
+      {
+        path: "pages/charter",
+        element: <Charter />,
+      },
+      {
+        path: "pages/cookies-policy",
+        element: <CookiesPolicy />,
       },
     ],
   },

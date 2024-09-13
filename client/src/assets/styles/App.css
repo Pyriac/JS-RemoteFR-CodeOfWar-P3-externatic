@@ -14,6 +14,8 @@
   --primary-color: #0c1618;
   --secondary-color: #34d399;
   --third-color: #ffffff;
+  --fourth-color: #b8b8b8;
+
   --first-grey: rgb(217, 217, 217);
   --second-grey: #898989;
 
@@ -33,24 +35,11 @@ button {
   all: unset;
 }
 
-button {
-  all: unset;
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-:root {
-  /* color */
-  --primary-color: #0c1618;
-  --secondary-color: #34d399;
-  --third-color: #ffffff;
-
-  /*Font*/
-  --primary-font: "Poppins", sans-serif;
-
-  /*Font-size*/
-  --font-size-one: 1rem;
-  --font-size-two: 1.5rem;
-  --font-size-three: 2rem;
-  --font-size-four: 2.5rem;
-  --font-size-five: 3rem;
-  --font-size-six: 4rem;
+main {
+  flex: 1;
 }
