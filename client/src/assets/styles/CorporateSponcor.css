@@ -1,0 +1,23 @@
+.CorporatSponcor {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+}
+
+.CorporatSponcor > img {
+  height: 12rem;
+}
+
+@media (max-width: 992px) {
+  .CorporatSponcor {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem;
+    justify-content: center;
+  }
+
+  .CorporatSponcor > img {
+    height: 5rem;
+  }
+}
