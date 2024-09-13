@@ -8,6 +8,7 @@ import "./assets/styles/App.css";
 import "./assets/styles/EditAnnounce.css";
 import "./assets/styles/Footer.css";
 import "./assets/styles/LegalPages.css";
+import "./assets/styles/CorporateSponcor.css";
 
 function App() {
   return (
