@@ -9,7 +9,6 @@ const storage = multer.diskStorage({
   filename(req, file, cb) {
     const uniqueId = uuidv4();
     const fileName = `${uniqueId}${path.extname(file.originalname)}`;
-
     if (file.fieldname === "image") {
       req.body.image = fileName;
     } else if (file.fieldname === "logo") {
@@ -19,6 +18,7 @@ const storage = multer.diskStorage({
     cb(null, fileName);
   },
 });
+
 
 const uploadCompanyFiles = multer({ storage }).fields([
   { name: "image", maxCount: 1 },

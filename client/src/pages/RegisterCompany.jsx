@@ -1,7 +1,9 @@
 import { useState } from "react";
-import { Form } from "react-router-dom";
+import {Form} from "react-router-dom";
+
 
 function RegisterCompany(){
+    
 
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -13,8 +15,9 @@ function RegisterCompany(){
         setConfirmPassword(event.target.value);
     }
 
+
     return(
-        <Form method="post" >
+        <Form method="post" encType="multipart/form-data" >
             <h2>Inscrivez vous en remplissant le formulaire !</h2>
             <div>
                 <label htmlFor="name">Nom de l'entreprise :</label>{" "}
@@ -46,6 +49,23 @@ function RegisterCompany(){
                 />
             </div>
             <div>
+                <label htmlFor="image">Photo de l'entreprise :</label>
+                <input
+                id="image"
+                name="image"
+                type="file"
+                />
+            </div>
+            <div>
+                <label htmlFor="logo">Logo de l'entreprise:</label>
+                <input
+                id="logo"
+                name="logo"
+                type="file"
+                />
+            </div>
+
+            <div>
                 <label htmlFor="email">Email :</label>
                 <input
                 id="email"
@@ -54,7 +74,6 @@ function RegisterCompany(){
                 required
                 />
             </div>
-             
              <div>
                 <label htmlFor="password">Mot de Passe :</label>
                 <input
@@ -87,6 +106,7 @@ function RegisterCompany(){
         </Form>
 
     );
+    
 }
 
 export default RegisterCompany;

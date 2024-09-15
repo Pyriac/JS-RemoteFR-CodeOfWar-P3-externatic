@@ -37,8 +37,8 @@ class CompanyRepository extends AbstractRepository {
         company.name,
         company.phone,
         company.size,
-        company.image,
-        company.logo,
+        company.image || "../assets/images/default.png",
+        company.logo || "../assets/images/logo_default.png",
       ]
     );
     return result.insertId;

@@ -24,6 +24,7 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   const company = req.body;
+  console.info("req.body", req.body)
   try {
     const insertId = await tables.company.create(company);
     res.status(201).json({ insertId });
