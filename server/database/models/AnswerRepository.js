@@ -9,6 +9,14 @@ class AnswerRepository extends AbstractRepository {
     const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
     return rows;
   }
+
+  async read(announceId) {
+    const [rows] = await this.database.query(
+      `SELECT * FROM ${this.table} WHERE announce_id = ?`,
+      [announceId]
+    );
+    return rows;
+  }
 }
 
 module.exports = AnswerRepository;

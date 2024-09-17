@@ -48,13 +48,14 @@ create table announce (
     phone VARCHAR(55)
   );
 
-  create table answer (
-    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+CREATE TABLE answer (
     announce_id INT UNSIGNED NOT NULL,
     candidate_id INT UNSIGNED NOT NULL,
-    Foreign Key (announce_id) REFERENCES announce(id),
-    Foreign Key (candidate_id) REFERENCES candidate(id)
-  );
+    PRIMARY KEY (announce_id, candidate_id),
+    FOREIGN KEY (announce_id) REFERENCES announce(id),
+    FOREIGN KEY (candidate_id) REFERENCES candidate(id)
+);
+
 
   INSERT INTO company(email, password, name, phone, size, validate)
   VALUES("auchan@auchan.fr", "0000", "auchan", "03087965412", 500, 1 ),
