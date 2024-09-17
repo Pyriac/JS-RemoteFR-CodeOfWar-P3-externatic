@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
-
+import candidateLoader from "./services/candidateLoader";
 import {
   announceIdLoader,
   companyLoader,
@@ -78,8 +78,9 @@ const router = createBrowserRouter([
         action: candidateActions,
       },
       {
-        path: "edit/candidate",
+        path: "edit/candidate/:id",
         element: <EditCandidate />,
+        loader: candidateLoader.CandidateDetailLoader,
       },
       {
         path: "pages/legal",

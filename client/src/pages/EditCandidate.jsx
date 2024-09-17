@@ -2,7 +2,9 @@ import { Form, useLoaderData } from "react-router-dom";
 import FormCandidat from "../components/FormCandidat";
 
 function EditCandidate() {
-  const loaderData = useLoaderData;
+  const loaderData = useLoaderData();
+
+  console.info(loaderData);
   return (
     <>
       <h1>coucou</h1>
