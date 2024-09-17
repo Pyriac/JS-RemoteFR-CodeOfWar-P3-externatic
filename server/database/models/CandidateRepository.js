@@ -30,7 +30,7 @@ class CandidateRepository extends AbstractRepository {
         candidate.first_name,
         candidate.last_name,
         candidate.title,
-        candidate.birthday,
+        candidate.birthday || null,
         candidate.degree,
         candidate.phone,
       ]

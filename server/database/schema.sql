@@ -1,4 +1,5 @@
--- SQLBook: Code
+-- Active: 1724754257677@@127.0.0.1@3306@authenticate
+
 create table company (
   id int unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(155) not NULL,
@@ -6,9 +7,9 @@ create table company (
   name VARCHAR(155) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   size INT NOT NULL,
-  validate BOOLEAN NOT NULL,
+  validate BOOLEAN DEFAULT 0,
   image VARCHAR(255) DEFAULT "../assets/images/default.png",
-  logo VARCHAR(255) DEFAULT "../assets/images/logo_default.png"
+  logo VARCHAR(255)  DEFAULT "../assets/images/logo_default.png"
 );
 CREATE Table contract (
   id INT unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -43,7 +44,7 @@ create table announce (
     first_name VARCHAR(55) NOT NULL,
     last_name VARCHAR(55) NOT NULL,
     title VARCHAR(155) NOT NULL,
-    birthday DATE,
+    birthday DATE DEFAULT NULL,
     degree VARCHAR(155),
     phone VARCHAR(55)
   );

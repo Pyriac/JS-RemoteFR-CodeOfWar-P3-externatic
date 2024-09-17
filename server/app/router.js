@@ -10,11 +10,13 @@ const router = express.Router();
 
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
+
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
-const contractActions = require("./controllers/ContractActions");
-
 const upload = require("./services/upload");
+const { verifPassword, hashPassword } = require("./services/auth");
+
+const contractActions = require("./controllers/ContractActions");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
@@ -30,7 +32,14 @@ router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
-router.post("/company", upload.uploadCompanyFiles, companyActions.add);
+
+router.post(
+  "/company",
+  upload.uploadCompanyFiles,
+  verifPassword,
+  hashPassword,
+  companyActions.add
+);
 router.post("/candidate", candidateActions.add);
 router.post("/answer", answerActions.add);
 
