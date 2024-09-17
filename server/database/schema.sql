@@ -48,7 +48,13 @@ create table announce (
     phone VARCHAR(55)
   );
 
-  
+  create table answer (
+    id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    announce_id INT UNSIGNED NOT NULL,
+    candidate_id INT UNSIGNED NOT NULL,
+    Foreign Key (announce_id) REFERENCES announce(id),
+    Foreign Key (candidate_id) REFERENCES candidate(id)
+  );
 
   INSERT INTO company(email, password, name, phone, size, validate)
   VALUES("auchan@auchan.fr", "0000", "auchan", "03087965412", 500, 1 ),
@@ -65,3 +71,6 @@ VALUES ("pechin.geoffrey@externatech.com", "StanLee", "Noisy Le Grand", "Geoffre
 ("anthony.gelormini@externatech.com", "FreeCorsica", "Corsica", "Anthony", "Gelormini", "Developpeur Back-End", "Titre RNCP niveau 6"),
 ("aissatou.diallo@externatech.com", "RobotVoice", "Lille", "Aïssatou", "Diallo", "Data Analyst", "BTS développeur d'application"),
 ("samih.ringuet@externatech.com", "Anarchy4life", "Corse", "Samih", "Ringuet", "Développeur Full-Stack", "Titre RNCP niveau 5");
+
+INSERT INTO answer (announce_id, candidate_id)
+VALUES (1,2),(1,3),(2,3),(3,4);
