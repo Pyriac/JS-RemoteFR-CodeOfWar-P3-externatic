@@ -12,7 +12,7 @@ const announceEditAction = async ({ request, params }) => {
         min_salary: formData.get("min_salary"),
         max_salary: formData.get("max_salary"),
         benefits: formData.get("benefits"),
-        job_type: formData.get("job_type"),
+       
         telework: formData.get("telework"),
       });
       return redirect(`/`);
@@ -25,7 +25,7 @@ const announceEditAction = async ({ request, params }) => {
         min_salary: formData.get("min_salary"),
         max_salary: formData.get("max_salary"),
         benefits: formData.get("benefits"),
-        job_type: formData.get("job_type"),
+       
         telework: formData.get("telework"),
       });
       return redirect(`/`);
