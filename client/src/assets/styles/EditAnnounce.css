@@ -26,6 +26,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 0.8rem;
+  max-width: 80vw;
 }
 
 .AnnounceForm select {

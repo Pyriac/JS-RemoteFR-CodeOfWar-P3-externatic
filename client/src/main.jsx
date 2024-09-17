@@ -2,8 +2,15 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import announceEditAction from "./services/announceEditAction";
+import candidateActions from "./services/candidateAction";
 
-import {  announceLoader, announceIdLoader, companyLoader, announceDetailLoader, getAnnounces, getContracts } from "./services/announceLoader";
+import {
+  announceIdLoader,
+  companyLoader,
+  announceDetailLoader,
+  getAnnounces,
+  getContracts,
+} from "./services/announceLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -16,6 +23,7 @@ import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
+import RegisterCandidat from "./pages/RegisterCandidat";
 
 const router = createBrowserRouter([
   {
@@ -42,22 +50,23 @@ const router = createBrowserRouter([
             contracts: await getContracts(),
             announces: await getAnnounces(contract),
           };
-          return result; 
-      }},
-        {
+          return result;
+        },
+      },
+      {
         path: "/AddAnnounce",
         element: <AddAnnounce />,
         action: announceEditAction,
       },
       {
-        path: "announce",
-        element: <Announce />,
-        loader: announceLoader,
-      },
-      {
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+      },
+      {
+        path: "register/candidate",
+        element: <RegisterCandidat />,
+        action: candidateActions,
       },
       {
         path: "pages/legal",
