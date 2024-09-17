@@ -1,5 +1,4 @@
 const argon2 = require("argon2");
-
 const Joi = require("joi");
 
 const hashingOptions = {
