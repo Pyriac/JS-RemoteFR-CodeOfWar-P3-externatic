@@ -26,12 +26,13 @@ router.get("/contract", contractActions.browse);
 router.get("/announce/:id", announceActions.read);
 router.get("/company/:id", companyActions.read);
 router.get("/candidate/:id", candidateActions.read);
-router.get("answer/:id", answerActions.read);
+router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
 router.post("/company", upload.uploadCompanyFiles, companyActions.add);
 router.post("/candidate", candidateActions.add);
+router.post("/answer", answerActions.add);
 
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);
