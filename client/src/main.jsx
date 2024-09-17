@@ -21,13 +21,13 @@ import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
 import RegisterCompany from "./pages/RegisterCompany";
+import EditCandidate from "./pages/EditCandidate";
 import Legal from "./pages/Footer/Legal";
 import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
-
 
 const router = createBrowserRouter([
   {
@@ -76,6 +76,10 @@ const router = createBrowserRouter([
         path: "register/candidate",
         element: <RegisterCandidat />,
         action: candidateActions,
+      },
+      {
+        path: "edit/candidate",
+        element: <EditCandidate />,
       },
       {
         path: "pages/legal",
