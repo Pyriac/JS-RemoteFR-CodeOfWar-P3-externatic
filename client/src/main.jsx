@@ -12,18 +12,22 @@ import {
   getContracts,
 } from "./services/announceLoader";
 
+import companyAction from "./services/companyAction";
+
 import App from "./App";
 import Announce from "./pages/Announce";
 import EditAnnounce from "./pages/EditAnnounce";
 import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
+import RegisterCompany from "./pages/RegisterCompany";
 import Legal from "./pages/Footer/Legal";
 import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
+
 
 const router = createBrowserRouter([
   {
@@ -62,6 +66,11 @@ const router = createBrowserRouter([
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+      },
+      {
+        path: "registerCompany",
+        element: <RegisterCompany />,
+        action: companyAction,
       },
       {
         path: "register/candidate",
