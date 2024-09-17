@@ -7,7 +7,7 @@ function EditCandidate() {
   return (
     <>
       <h1>coucou</h1>
-      <Form>
+      <Form method="put">
         <FormCandidat candidate={candidateData} />
         <button type="submit"> Mettre à jour</button>
       </Form>

@@ -57,7 +57,7 @@ export default function FormCandidat({ candidate }) {
       <input
         name="birthday"
         type="date"
-        defaultValue={(candidate && candidate.birthday) || ""}
+        defaultValue={(candidate && candidate.birthday) || null}
       />
       <label htmlFor="degree">
         Veuillez saisir votre dernier diplôme obtenu

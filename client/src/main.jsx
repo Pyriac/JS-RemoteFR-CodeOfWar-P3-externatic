@@ -81,6 +81,7 @@ const router = createBrowserRouter([
         path: "edit/candidate/:id",
         element: <EditCandidate />,
         loader: candidateLoader.CandidateDetailLoader,
+        action: candidateActions,
       },
       {
         path: "pages/legal",
