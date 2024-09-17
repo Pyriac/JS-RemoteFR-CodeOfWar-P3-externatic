@@ -2,14 +2,13 @@ import { Form, useLoaderData } from "react-router-dom";
 import FormCandidat from "../components/FormCandidat";
 
 function EditCandidate() {
-  const loaderData = useLoaderData();
+  const candidateData = useLoaderData();
 
-  console.info(loaderData);
   return (
     <>
       <h1>coucou</h1>
       <Form>
-        <FormCandidat data={loaderData} />
+        <FormCandidat candidate={candidateData} />
         <button type="submit"> Mettre à jour</button>
       </Form>
     </>

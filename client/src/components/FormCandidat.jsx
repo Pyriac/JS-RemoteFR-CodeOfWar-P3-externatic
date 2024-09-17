@@ -1,43 +1,101 @@
-export default function FormCandidat() {
+import PropTypes from "prop-types";
+
+export default function FormCandidat({ candidate }) {
   return (
     <div className="FormCandidat">
       <h2>Informations candidate</h2>
       <label htmlFor="first_name"> Prénom du candidat *</label>
-      <input name="first_name" type="text" required />
+      <input
+        name="first_name"
+        type="text"
+        defaultValue={(candidate && candidate.first_name) || ""}
+        required
+      />
       <label htmlFor="last_name">Nom du candidat *</label>
-      <input name="last_name" type="text" required />
+      <input
+        name="last_name"
+        type="text"
+        defaultValue={(candidate && candidate.last_name) || ""}
+        required
+      />
       <label htmlFor="email">Adresse mail *</label>
       <input
         type="email"
         name="email"
         id="email"
-        pattern="^[\w\.-]+@[a-zA-Z\d-]+\.[a-zA-Z]{2,6}$"
+        pattern="^[\w\.\-]+@[a-zA-Z\d\-]+\.[a-zA-Z]{2,6}$"
         placeholder="sophie@example.com"
+        defaultValue={(candidate && candidate.email) || ""}
         required
       />
       <label htmlFor="password">Password *</label>
-      <input type="password" id="pass" name="password" minLength="8" required />
+      <input
+        type="password"
+        id="pass"
+        name="password"
+        minLength="8"
+        required
+        defaultValue={(candidate && candidate.password) || ""}
+      />
       <label htmlFor="title">Intitulé de poste *</label>
-      <input name="title" type="text" required />
+      <input
+        name="title"
+        type="text"
+        defaultValue={(candidate && candidate.title) || ""}
+        required
+      />
       <label htmlFor="location">Localisation *</label>
-      <input name="location" type="text" required />
+      <input
+        name="location"
+        type="text"
+        defaultValue={(candidate && candidate.location) || ""}
+        required
+      />
       <label htmlFor="birthday">
         Veuillez saisir votre date de naissance :
       </label>
-      <input name="birthday" type="date" />
+      <input
+        name="birthday"
+        type="date"
+        defaultValue={(candidate && candidate.birthday) || ""}
+      />
       <label htmlFor="degree">
         Veuillez saisir votre dernier diplôme obtenu
       </label>
-      <input name="degree" type="text" />
+      <input
+        name="degree"
+        type="text"
+        defaultValue={(candidate && candidate.degree) || ""}
+      />
       <label htmlFor="phone">N° Téléphone:</label>
-      <input name="phone" type="text" />
+      <input
+        name="phone"
+        type="text"
+        defaultValue={(candidate && candidate.phone) || ""}
+      />
       <label htmlFor="cv">Importer votre C.V</label>
       <input
         className="FormCandidat_Download"
         name="cv"
         type="file"
         accept=".doc, .docx, .pdf, .jpg, .jpeg, .png"
+        defaultValue={(candidate && candidate.cv) || ""}
       />
     </div>
   );
 }
+
+FormCandidat.propTypes = {
+  candidate: PropTypes.shape({
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    email: PropTypes.string,
+    password: PropTypes.string,
+    title: PropTypes.string,
+    location: PropTypes.string,
+    birthday: PropTypes.instanceOf(Date),
+    degree: PropTypes.string,
+    phone: PropTypes.number,
+    cv: PropTypes.string,
+  }).isRequired,
+};
