@@ -2,13 +2,16 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import announceEditAction from "./services/announceEditAction";
+import candidateActions from "./services/candidateAction";
+
 import {
   announceLoader,
   announceIdLoader,
   companyLoader,
   announceDetailLoader,
+  getAnnounces,
+  getContracts,
 } from "./services/announceLoader";
-import candidateActions from "./services/candidateAction";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -22,7 +25,6 @@ import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
-
 
 const router = createBrowserRouter([
   {
@@ -38,6 +40,19 @@ const router = createBrowserRouter([
         element: <EditAnnounce />,
         loader: announceIdLoader,
         action: announceEditAction,
+      },
+      {
+        path: "announce",
+        element: <Announce />,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const contract = url.searchParams.get("contract");
+          const result = {
+            contracts: await getContracts(),
+            announces: await getAnnounces(contract),
+          };
+          return result;
+        },
       },
       {
         path: "/AddAnnounce",

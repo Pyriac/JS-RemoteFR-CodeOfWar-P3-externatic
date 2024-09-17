@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "./components/Footer";
 import NavBar from "./components/NavBar";
 import "./assets/styles/Homepage.css";
+import "./assets/styles/AnnounceDetail.css";
 import "./assets/styles/CarrouselCompanyHomePage.css";
 import "./assets/styles/CardCompany.css";
 import "./assets/styles/App.css";
