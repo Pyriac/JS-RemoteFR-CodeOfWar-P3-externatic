@@ -12,6 +12,8 @@ const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const upload = require("./services/upload");
+const candidateVerify = require("./services/verifyCandidate");
+const candidateAuth = require("./services/authCandidate");
 
 const contractActions = require("./controllers/ContractActions");
 
@@ -29,7 +31,12 @@ router.get("/candidate/:id", candidateActions.read);
 // Route to add a new item
 router.post("/announce", announceActions.add);
 router.post("/company", upload.uploadCompanyFiles, companyActions.add);
-router.post("/candidate", candidateActions.add);
+router.post(
+  "/candidate",
+  candidateVerify.verifyFields,
+  candidateAuth.hashPassword,
+  candidateActions.add
+);
 
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);
