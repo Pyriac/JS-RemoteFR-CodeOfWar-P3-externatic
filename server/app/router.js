@@ -12,15 +12,14 @@ const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const upload = require("./services/upload");
-const candidateVerify = require("./services/verifyCandidate");
-const candidateAuth = require("./services/authCandidate");
+const candidateAuth = require("./services/candidateAuth");
 
 const contractActions = require("./controllers/ContractActions");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
 router.get("/company", companyActions.browse);
-router.get("/candidate", candidateActions.browse);
+router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 
 router.get("/contract", contractActions.browse);
 // Route to get a specific item by ID
@@ -33,9 +32,16 @@ router.post("/announce", announceActions.add);
 router.post("/company", upload.uploadCompanyFiles, companyActions.add);
 router.post(
   "/candidate",
-  candidateVerify.verifyFields,
+  candidateAuth.verifyFields,
   candidateAuth.hashPassword,
   candidateActions.add
+);
+
+router.post(
+  "/login",
+  candidateAuth.verifyPassword,
+  candidateAuth.createToken,
+  candidateActions.login
 );
 
 // Route to delete an item

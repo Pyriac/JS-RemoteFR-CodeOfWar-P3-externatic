@@ -19,6 +19,14 @@ class CandidateRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+    return rows[0];
+  }
+
   async create(candidate) {
     const [result] = await this.database.query(
       `insert into ${this.table} (email, password, cv, location, first_name, last_name, title, birthday, degree, phone ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
