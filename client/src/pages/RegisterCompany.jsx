@@ -3,7 +3,7 @@ import {Form, useActionData} from "react-router-dom";
 
 
 function RegisterCompany(){
-    const companyAction = useActionData(); 
+    const companyData = useActionData(); 
 
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -19,7 +19,7 @@ function RegisterCompany(){
     return(
         <Form method="post" encType="multipart/form-data" >
             <h2>Inscrivez vous en remplissant le formulaire !</h2>
-            <div>{companyAction}</div>
+            <div>{companyData}</div>
             <div>
                 <label htmlFor="name">Nom de l'entreprise :</label>{" "}
                 <input
