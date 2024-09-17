@@ -4,9 +4,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
 import candidateLoader from "./services/candidateLoader";
+import companyLoader from "./services/companyLoader";
 import {
   announceIdLoader,
-  companyLoader,
   announceDetailLoader,
   getAnnounces,
   getContracts,
@@ -28,6 +28,7 @@ import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
+import EditCompany from "./pages/EditCompany";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: companyLoader,
+        loader: companyLoader.AllCompanyLoader,
       },
       {
         path: "announce/:id/edit",
@@ -82,6 +83,11 @@ const router = createBrowserRouter([
         element: <EditCandidate />,
         loader: candidateLoader.CandidateDetailLoader,
         action: candidateActions,
+      },
+      {
+        path: "edit/company/:id",
+        element: <EditCompany />,
+        loader: companyLoader.CompanyDetailLoader,
       },
       {
         path: "pages/legal",
