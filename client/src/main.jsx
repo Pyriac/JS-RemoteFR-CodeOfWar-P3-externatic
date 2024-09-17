@@ -2,12 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import announceEditAction from "./services/announceEditAction";
-import {
-  announceLoader,
-  announceIdLoader,
-  companyLoader,
-  announceDetailLoader,
-} from "./services/announceLoader";
+
+import {  announceLoader, announceIdLoader, companyLoader, announceDetailLoader, getAnnounces, getContracts } from "./services/announceLoader";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -37,6 +33,18 @@ const router = createBrowserRouter([
         action: announceEditAction,
       },
       {
+        path: "announce",
+        element: <Announce />,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const contract = url.searchParams.get("contract");
+          const result = {
+            contracts: await getContracts(),
+            announces: await getAnnounces(contract),
+          };
+          return result; 
+      }},
+        {
         path: "/AddAnnounce",
         element: <AddAnnounce />,
         action: announceEditAction,

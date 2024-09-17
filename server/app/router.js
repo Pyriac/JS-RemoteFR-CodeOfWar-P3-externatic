@@ -13,11 +13,14 @@ const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const upload = require("./services/upload");
 
+const contractActions = require("./controllers/ContractActions");
+
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
 router.get("/company", companyActions.browse);
 router.get("/candidate", candidateActions.browse);
 
+router.get("/contract", contractActions.browse);
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.read);
 router.get("/company/:id", companyActions.read);

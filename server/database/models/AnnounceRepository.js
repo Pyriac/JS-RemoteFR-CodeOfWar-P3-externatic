@@ -5,11 +5,20 @@ class AnnounceRepository extends AbstractRepository {
     super({ table: "announce" });
   }
 
-  async readAll() {
-    const [rows] = await this.database.query(`select * from ${this.table}`);
+  async readAll(contract) {
 
+
+    if (!contract) {
+      const [rows] = await this.database.query(
+        `SELECT announce.*, contract.id as contract_id, contract.name as contract_name from ${this.table} join contract on contract.id = announce.contract_id`,
+      );
+      return rows
+    }
+
+    const [rows] = await this.database.query(`select announce .*, contract.id as contract_id, contract.name as contract_name from ${this.table} join contract on contract.id = announce.contract_id where contract.name = ?`, [contract]);
     return rows;
-  }
+
+}
 
   async read(id) {
     const [rows] = await this.database.query(
@@ -22,7 +31,7 @@ class AnnounceRepository extends AbstractRepository {
 
   async create(announce) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (job_title, location, description, min_salary, max_salary, benefits, job_type, telework, company_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (job_title, location, description, min_salary, max_salary, benefits, telework, contract_id, company_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
         announce.job_title,
         announce.location,
@@ -30,9 +39,9 @@ class AnnounceRepository extends AbstractRepository {
         announce.min_salary,
         announce.max_salary,
         announce.benefits,
-        announce.job_type,
         announce.telework,
-        1,
+        announce.contract_id,
+        announce.company_id,
       ]
     );
     return result.insertId;
@@ -48,7 +57,7 @@ class AnnounceRepository extends AbstractRepository {
 
   async update(announce) {
     const [result] = await this.database.query(
-      `update ${this.table} set job_title = ?, location = ?, description = ?, min_salary = ?, max_salary = ?, benefits = ?, job_type = ?, telework = ? where id = ?`,
+      `update ${this.table} set job_title = ?, location = ?, description = ?, min_salary = ?, max_salary = ?, benefits = ?, telework = ? where id = ?`,
       [
         announce.job_title,
         announce.location,
@@ -56,7 +65,6 @@ class AnnounceRepository extends AbstractRepository {
         announce.min_salary,
         announce.max_salary,
         announce.benefits,
-        announce.job_type,
         announce.telework,
         announce.id,
       ]
