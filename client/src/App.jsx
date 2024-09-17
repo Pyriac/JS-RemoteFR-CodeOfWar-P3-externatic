@@ -9,6 +9,7 @@ import "./assets/styles/EditAnnounce.css";
 import "./assets/styles/Footer.css";
 import "./assets/styles/LegalPages.css";
 import "./assets/styles/CorporateSponcor.css";
+import "./assets/styles/RegisterCandidat.css";
 
 function App() {
   return (

@@ -1,0 +1,117 @@
+.RegisterCandidat {
+  background-image: url("../../assets/images/wave_top.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 100vw;
+}
+
+.CandidatForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.FormCandidat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 78%;
+  border: 1px solid var(--second-grey);
+  margin-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.FormCandidat input,
+.FormCandidat select,
+.FormCandidat textarea {
+  margin: 0% 5%;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+}
+
+.FormCandidat select {
+  background-color: var(--first-grey);
+}
+
+.FormCandidat h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4rem;
+  background-color: var(--first-grey);
+}
+
+.FormCandidat p,
+.FormCandidat label {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+}
+
+.FormCandidat_Download {
+  display: flex;
+  flex-direction: column;
+  max-width: 70%;
+}
+
+.CandidatForm button {
+  margin: 1.5rem 0rem;
+  padding: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+  background-color: var(--secondary-color);
+}
+
+.FormCandidat input:hover {
+  background-color: rgba(52, 211, 153, 0.05);
+}
+
+@media (min-width: 993px) {
+  .FormCandidat {
+    width: 60%;
+    gap: 0.5rem;
+    padding-bottom: 2rem;
+  }
+  .FormCandidat h2 {
+    padding: 1rem;
+  }
+
+  .FormCandidat label {
+    font-size: 1.2rem;
+    margin: 0.5rem;
+  }
+
+  .FormCandidat input {
+    padding: 0.7rem 2.5rem;
+    font-size: 1rem;
+    width: 70%;
+  }
+
+  .FormCandidat p {
+    font-size: 1.2rem;
+  }
+
+  .CandidatForm button {
+    margin-top: 3rem;
+    width: 30%;
+    font-size: 1rem;
+  }
+
+  .CandidatForm button:hover {
+    transform: scale(1.01);
+    background-color: rgba(52, 211, 153, 0.9);
+  }
+}

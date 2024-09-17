@@ -33,6 +33,7 @@ export default function FormCandidat() {
       <input name="phone" type="text" />
       <label htmlFor="cv">Importer votre C.V</label>
       <input
+        className="FormCandidat_Download"
         name="cv"
         type="file"
         accept=".doc, .docx, .pdf, .jpg, .jpeg, .png"
