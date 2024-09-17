@@ -5,7 +5,6 @@ import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
 
 import {
-  announceLoader,
   announceIdLoader,
   companyLoader,
   announceDetailLoader,
@@ -58,11 +57,6 @@ const router = createBrowserRouter([
         path: "/AddAnnounce",
         element: <AddAnnounce />,
         action: announceEditAction,
-      },
-      {
-        path: "announce",
-        element: <Announce />,
-        loader: announceLoader,
       },
       {
         path: "announce/:id",

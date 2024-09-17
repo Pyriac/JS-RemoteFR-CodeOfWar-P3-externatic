@@ -1,10 +1,9 @@
-import { useLoaderData, useNavigate } from 'react-router-dom';
+import { useLoaderData, useNavigate } from "react-router-dom";
 
-import AnnounceCard from '../components/AnnounceCard';
+import AnnounceCard from "../components/AnnounceCard";
 
 export default function Announce() {
-   
-  const { announces , contracts  } = useLoaderData();
+  const { announces, contracts } = useLoaderData();
 
   const navigate = useNavigate();
 
@@ -15,7 +14,7 @@ export default function Announce() {
   return (
     <>
       <h1>Trouver un job</h1>
-      
+
       <select onChange={handleChangeSelect}>
         <option value="">Tous les contrats</option>
         {contracts.map((contract) => (
@@ -25,7 +24,7 @@ export default function Announce() {
         ))}
       </select>
       {announces.map((announce) => (
-        <AnnounceCard  announce={announce} key={announce.id} />
+        <AnnounceCard announce={announce} key={announce.id} />
       ))}
     </>
   );
