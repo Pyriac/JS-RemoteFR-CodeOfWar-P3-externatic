@@ -1,5 +1,7 @@
 const argon2 = require("argon2");
 
+const Joi = require("joi");
+
 const hashingOptions = {
   type: argon2.argon2id,
   memoryCost: 19 * 2 ** 10,
@@ -7,72 +9,45 @@ const hashingOptions = {
   parallelism: 1,
 };
 
-const hashPassword = async(req, res, next) => {
-    try{
-        const {password} = req.body;
-        const hashedPassword = await argon2.hash(password, hashingOptions);
-        req.body.hashedPassword = hashedPassword;
-        
-        delete req.body.password;
+const hashPassword = async (req, res, next) => {
+  try {
+    const { password } = req.body;
+    const hashedPassword = await argon2.hash(password, hashingOptions);
+    req.body.hashedPassword = hashedPassword;
 
-        next();
+    delete req.body.password;
 
-    }catch (err){
-        next(err);
-    }
-}
-
-
-function contientCaractere(password) {
-    const caracteres = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', ';', ':', '"', '\\', '|', ',', '.', '<', '>', '/', '?', '€', '£', '¥', ',', '~', '§'];
-    return caracteres.some((caractere) => password.includes(caractere))
-      
+    next();
+  } catch (err) {
+    next(err);
   }
-  
-  function contientMajusculeMinuscule(password) {
-    const regexMajuscule = /[A-Z]/;
-    const regexMinuscule = /[a-z]/;
-    return regexMajuscule.test(password) && regexMinuscule.test(password);
-  } 
-  
-  function contientChiffre(password) {
-    const chiffres = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-    return chiffres.some((chiffre) => password.includes(chiffre))
+};
+
+const verifPassword = async (req, res, next) => {
+  const passTest = {
+    password: req.body.password,
+    confirmPassword: req.body.confirmPassword,
+  };
+  const schema = Joi.object({
+    password: Joi.string()
+      .pattern(/^[a-zA-Z0-9!@#$%&?*]{8}$/)
+      .messages({
+        "string.empty": "Vous devez obligatoirement saisir un mot de passe",
+        "string.pattern.base":
+          "Le mot de passe doit contenir au moins une majuscule, minuscule, un chiffre et un caractère spécial.",
+      }),
+
+    confirmPassword: Joi.string().valid(Joi.ref("password")).messages({
+      "any.only": "les deux mot de passe doivent être identiques !",
+    }),
+  });
+
+  const result = schema.validate(passTest);
+  if (result.error) {
+    res.status(400).send(result.error.message);
+  } else {
+    next();
   }
-  
-const verifPassword = async(req, res, next) => {
-    try{
-        const {password, confirmPassword} = req.body;
+};
 
-        if(password === confirmPassword){
-            if(password.length >= 8){
-                if(contientCaractere(password)){
-                    if(contientMajusculeMinuscule(password)){
-                      if(contientChiffre(password)){
-                        console.info("mot de passe conforme aux normes attendus");
-                        next();
-                      }else{
-                        console.info("il manque au moins un chiffre")
-                      }
-                    }else{
-                      console.info("il manque au moins une majuscule ou minuscule");
-                    }
-                }else{
-                    console.info('Il manque au moins un caractère spécieux');
-                }
-            }else{
-                console.info('erreur sur la longeur du mot de passe');
-              }    
-        }else{
-            console.info("les deux mot de passes de sont pas identique")
-        }
-        
-
-    }catch (err){
-        console.info("mot de passe nom conforme aux normes")
-        next(err);
-    }
-}
-
-
-module.exports = {verifPassword, hashPassword}
+module.exports = { verifPassword, hashPassword };
