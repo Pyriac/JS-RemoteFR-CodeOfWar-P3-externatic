@@ -10,9 +10,13 @@ const router = express.Router();
 
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
+
 const candidateActions = require("./controllers/CandidateActions");
 const upload = require("./services/upload");
+
 const candidateAuth = require("./services/candidateAuth");
+
+const { verifPassword, hashPassword } = require("./services/auth");
 
 const contractActions = require("./controllers/ContractActions");
 
@@ -29,6 +33,7 @@ router.get("/candidate/:id", candidateActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
+
 router.post("/company", upload.uploadCompanyFiles, companyActions.add);
 router.post(
   "/candidate",
@@ -42,6 +47,14 @@ router.post(
   candidateAuth.verifyPassword,
   candidateAuth.createToken,
   candidateActions.login
+);
+
+router.post(
+  "/company",
+  upload.uploadCompanyFiles,
+  verifPassword,
+  hashPassword,
+  companyActions.add
 );
 
 // Route to delete an item

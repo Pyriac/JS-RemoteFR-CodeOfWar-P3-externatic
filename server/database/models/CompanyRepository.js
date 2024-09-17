@@ -20,18 +20,25 @@ class CompanyRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readByEmail(email) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where email = ?`,
+      [email]
+    );
+    return rows[0];
+  }
+
   async create(company) {
     const [result] = await this.database.query(
-      `insert into ${this.table} (email, password, name, phone, size, validate, image, logo) values (?, ?, ?, ?, ?, ?, ?, ?)`,
+      `insert into ${this.table} (email, password, name, phone, size, image, logo) values (?, ?, ?, ?, ?, ?, ?)`,
       [
         company.email,
-        company.password,
+        company.hashedPassword,
         company.name,
         company.phone,
         company.size,
-        company.validate,
-        company.image,
-        company.logo,
+        company.image || "../assets/images/default.png",
+        company.logo || "../assets/images/logo_default.png",
       ]
     );
     return result.insertId;
