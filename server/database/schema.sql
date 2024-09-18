@@ -49,7 +49,14 @@ create table announce (
     phone VARCHAR(55)
   );
 
-  
+CREATE TABLE answer (
+    announce_id INT UNSIGNED NOT NULL,
+    candidate_id INT UNSIGNED NOT NULL,
+    PRIMARY KEY (announce_id, candidate_id),
+    FOREIGN KEY (announce_id) REFERENCES announce(id),
+    FOREIGN KEY (candidate_id) REFERENCES candidate(id)
+);
+
 
   INSERT INTO company(email, password, name, phone, size, validate)
   VALUES("auchan@auchan.fr", "0000", "auchan", "03087965412", 500, 1 ),
@@ -66,3 +73,7 @@ VALUES ("pechin.geoffrey@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwA
 ("anthony.gelormini@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Corsica", "Anthony", "Gelormini", "Developpeur Back-End", "Titre RNCP niveau 6"),
 ("aissatou.diallo@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Lille", "Aïssatou", "Diallo", "Data Analyst", "BTS développeur d'application"),
 ("samih.ringuet@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Corse", "Samih", "Ringuet", "Développeur Full-Stack", "Titre RNCP niveau 5");
+
+INSERT INTO answer (announce_id, candidate_id)
+VALUES (1,2),(1,3),(2,3),(3,4);
+
