@@ -43,7 +43,8 @@ const destroy = async (req, res, next) => {
 };
 const edit = async (req, res, next) => {
   try {
-    console.info(req.body);
+    delete req.body.password;
+    delete req.body.confirmPassword;
     const company = { ...req.body, id: Number(req.params.id) };
     await tables.company.update(company);
     res.sendStatus(204);

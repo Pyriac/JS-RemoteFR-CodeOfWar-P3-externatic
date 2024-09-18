@@ -28,15 +28,29 @@ const companyAction = async ({ request, params }) => {
       return new Response("Entreprise créer", { status: 201 });
     }
     case "put": {
-      await myAxios.put(`/api/company/${params.id}`, {
-        name: formData.get("name"),
-        phone: formData.get("phone"),
-        size: formData.get("size"),
-        image: formData.get("image"),
-        logo: formData.get("logo"),
-        email: formData.get("email"),
-      });
-      return redirect("/");
+      try {
+        const response = await myAxios.put(
+          `/api/company/${params.id}`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+            name: formData.get("name"),
+            phone: formData.get("phone"),
+            size: formData.get("size"),
+            image: formData.get("image"),
+            logo: formData.get("logo"),
+            email: formData.get("email"),
+          }
+        );
+        if (response.status === 201) {
+          return redirect(`/`);
+        }
+      } catch (err) {
+        return err.response.data;
+      }
+      return new Response("Entreprise update", { status: 201 });
     }
     default:
       throw new Response("", { status: 405 });

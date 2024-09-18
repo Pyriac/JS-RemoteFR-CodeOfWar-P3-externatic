@@ -6,7 +6,7 @@ function EditCompany() {
   return (
     <>
       <h1>coucou</h1>
-      <Form method="put">
+      <Form method="put" encType="multipart/form-data">
         <FormCompany company={companyData} />
         <button type="submit"> Mettre à jour</button>
       </Form>
