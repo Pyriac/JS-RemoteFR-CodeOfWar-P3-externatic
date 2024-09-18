@@ -39,8 +39,8 @@ router.get("/answer/:id", answerActions.read);
 router.post("/announce", announceActions.add);
 router.post(
   "/candidate",
-  candidateAuth.verifyFields,
   upload.uploadCandidateFile,
+  candidateAuth.verifyFields,
   candidateAuth.hashPassword,
   candidateActions.add
 );
