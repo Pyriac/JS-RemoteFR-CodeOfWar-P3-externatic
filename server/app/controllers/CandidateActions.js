@@ -54,6 +54,18 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const candidateActions = { browse, read, add, edit, destroy };
+const login = async (req, res, next) => {
+  try {
+    res.cookie("auth", req.token).json({
+      message: "Connexion réussie",
+      id: req.candidate.id,
+      email: req.candidate.email,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const candidateActions = { browse, read, add, edit, destroy, login };
 
 module.exports = candidateActions;
