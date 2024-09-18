@@ -24,7 +24,7 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   const candidate = req.body;
-  console.info(candidate)
+  console.info(candidate);
   try {
     const insertId = await tables.candidate.create(candidate);
     res.status(201).json({ insertId });
@@ -53,6 +53,18 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const candidateActions = { browse, read, add, edit, destroy };
+const login = async (req, res, next) => {
+  try {
+    res.cookie("auth", req.token).json({
+      message: "Connexion réussie",
+      id: req.candidate.id,
+      email: req.candidate.email,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const candidateActions = { browse, read, add, edit, destroy, login };
 
 module.exports = candidateActions;
