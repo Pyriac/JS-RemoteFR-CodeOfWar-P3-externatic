@@ -40,7 +40,7 @@ const verifyPassword = async (req, res, next) => {
     };
 
     const verified = await argon2.verify(candidate.password, password);
-    console.info("coucou");
+
     if (!verified) {
       res.sendStatus(401);
     } else {

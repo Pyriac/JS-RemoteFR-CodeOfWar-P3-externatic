@@ -33,8 +33,6 @@ router.get("/candidate/:id", candidateActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
-
-router.post("/company", upload.uploadCompanyFiles, companyActions.add);
 router.post(
   "/candidate",
   candidateAuth.verifyFields,
