@@ -9,22 +9,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .FormCandidat {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 78%;
+  width: 90%;
   border: 1px solid var(--second-grey);
   margin-top: 2rem;
   padding-bottom: 1rem;
 }
 
+.FormCandidat div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .FormCandidat input,
 .FormCandidat select,
 .FormCandidat textarea {
-  margin: 0% 5%;
+  display: flex;
   padding: 0.5rem 2rem;
   border-radius: 0.5rem;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
@@ -33,6 +41,8 @@
   font-weight: 400;
   font-style: normal;
   font-size: 0.8rem;
+  width: 90%;
+  justify-content: center;
 }
 
 .FormCandidat select {
@@ -51,10 +61,13 @@
 
 .FormCandidat p,
 .FormCandidat label {
+  display: flex;
   font-family: var(--primary-font);
   font-weight: 600;
   font-style: normal;
   font-size: 1rem;
+  padding: 0.5rem;
+  justify-content: center;
 }
 
 .FormCandidat_Download {
@@ -73,10 +86,21 @@
   font-style: normal;
   font-size: 0.8rem;
   background-color: var(--secondary-color);
+  width: 60%;
 }
 
 .FormCandidat input:hover {
   background-color: rgba(52, 211, 153, 0.05);
+}
+
+.FormTitle {
+  padding-top: 1rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.FormTitle span {
+  color: var(--secondary-color);
 }
 
 @media (min-width: 993px) {
@@ -113,5 +137,19 @@
   .CandidatForm button:hover {
     transform: scale(1.01);
     background-color: rgba(52, 211, 153, 0.9);
+  }
+
+  .FormCandidat input,
+  .FormCandidat select,
+  .FormCandidat textarea {
+    padding: 1rem 2rem;
+    font-weight: 500;
+    font-size: 1.2rem;
+    width: 70%;
+  }
+
+  .FormTitle {
+    padding-top: 2rem;
+    font-size: 1.8rem;
   }
 }

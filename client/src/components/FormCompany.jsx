@@ -1,21 +1,10 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 
 function FormCompany({ company }) {
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handlePasswordChange = (event) => {
-    setPassword(event.target.value);
-  };
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-  };
   return (
-    <>
-      <h2>Besoin de mettre à jour des données ?</h2>
+    <div className="FormCandidat">
       <div>
-        <label htmlFor="name">Nom de l'entreprise :</label>{" "}
+        <label htmlFor="name">Nom de l'entreprise*</label>{" "}
         <input
           id="name"
           name="name"
@@ -26,7 +15,7 @@ function FormCompany({ company }) {
       </div>
 
       <div>
-        <label htmlFor="phone">Numero de téléphone :</label>{" "}
+        <label htmlFor="phone">Numero de téléphone*</label>{" "}
         <input
           id="phone"
           name="phone"
@@ -37,7 +26,7 @@ function FormCompany({ company }) {
       </div>
 
       <div>
-        <label htmlFor="size">Taille de l'entrepris :</label>{" "}
+        <label htmlFor="size">Taille de l'entreprise*</label>{" "}
         <input
           id="size"
           name="size"
@@ -47,20 +36,16 @@ function FormCompany({ company }) {
         />
       </div>
       <div>
-        <label htmlFor="image">Photo de l'entreprise :</label>
-        <img
-          src={company && company.image}
-          alt={`ilustration de l'entreprise${company.name}`}
-        />
+        <label htmlFor="image">Photo de l'entreprise</label>
         <input id="image" name="image" type="file" />
       </div>
       <div>
-        <label htmlFor="logo">Logo de l'entreprise:</label>
+        <label htmlFor="logo">Logo de l'entreprise</label>
         <input id="logo" name="logo" type="file" />
       </div>
 
       <div>
-        <label htmlFor="email">Email :</label>
+        <label htmlFor="email">Email*</label>
         <input
           id="email"
           name="email"
@@ -75,34 +60,20 @@ function FormCompany({ company }) {
             company && company.password ? "Edit_display" : "Create_display"
           }
         >
-          <label htmlFor="password">Mot de Passe :</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          {`length: ${password.length} >= 8`}
-          <div>
-            Le mot de passe doit contenir au moins une majuscule, un caractère
-            spécial, minimum 8 caractères.
-          </div>
+          <label htmlFor="password">Mot de Passe*</label>
+          <input id="password" name="password" type="password" />
         </div>
 
         <div>
-          <label htmlFor="confirme password">Confirmer le mot de Passe :</label>
-          <input
-            id="confirmPassword"
-            name="confirmPassword"
-            type="password"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-          />
-          {password === confirmPassword ? "✅" : "❌"}
+          <label htmlFor="confirme password">Confirmer le mot de Passe</label>
+          <input id="confirmPassword" name="confirmPassword" type="password" />
         </div>
+        <p>
+          Le mot de passe doit contenir au moins une majuscule, un caractère
+          spécial, minimum 8 caractères.
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 

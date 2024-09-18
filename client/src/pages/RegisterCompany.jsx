@@ -5,14 +5,23 @@ function RegisterCompany() {
   const companyData = useActionData();
 
   return (
-    <>
-      <h2>Inscrivez vous en remplissant le formulaire !</h2>
+    <div className="RegisterCandidat">
+      <h2 className="FormTitle">
+        Bienvenue chez EXTERNA<span>TECH</span>
+      </h2>
+      <h2 className="FormTitle">
+        Inscrivez vous en remplissant le formulaire !
+      </h2>
       <div>{companyData}</div>
-      <Form method="post" encType="multipart/form-data">
+      <Form
+        className="CandidatForm"
+        method="post"
+        encType="multipart/form-data"
+      >
         <FormCompany />
-        <button type="submit"> Inscrire </button>
+        <button type="submit"> S'inscrire </button>
       </Form>
-    </>
+    </div>
   );
 }
 
