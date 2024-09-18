@@ -5,8 +5,6 @@ function FormCompany({ company }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  console.info(company);
-
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
@@ -50,21 +48,15 @@ function FormCompany({ company }) {
       </div>
       <div>
         <label htmlFor="image">Photo de l'entreprise :</label>
-        <input
-          id="image"
-          name="image"
-          type="file"
-          defaultValue={(company && company.image) || ""}
+        <img
+          src={company && company.image}
+          alt={`ilustration de l'entreprise${company.name}`}
         />
+        <input id="image" name="image" type="file" />
       </div>
       <div>
         <label htmlFor="logo">Logo de l'entreprise:</label>
-        <input
-          id="logo"
-          name="logo"
-          type="file"
-          defaultValue={(company && company.logo) || ""}
-        />
+        <input id="logo" name="logo" type="file" />
       </div>
 
       <div>
@@ -78,33 +70,37 @@ function FormCompany({ company }) {
         />
       </div>
       <div>
-        <label htmlFor="password">Mot de Passe :</label>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          value={password}
-          required
-          onChange={handlePasswordChange}
-        />
-        {`length: ${password.length} >= 8`}
-        <div>
-          Le mot de passe doit contenir au moins une majuscule, un caractère
-          spécial, minimum 8 caractères.
+        <div
+          className={
+            company && company.password ? "Edit_display" : "Create_display"
+          }
+        >
+          <label htmlFor="password">Mot de Passe :</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            value={password}
+            onChange={handlePasswordChange}
+          />
+          {`length: ${password.length} >= 8`}
+          <div>
+            Le mot de passe doit contenir au moins une majuscule, un caractère
+            spécial, minimum 8 caractères.
+          </div>
         </div>
-      </div>
 
-      <div>
-        <label htmlFor="confirme password">Confirmer le mot de Passe :</label>
-        <input
-          id="confirmPassword"
-          name="confirmPassword"
-          type="password"
-          value={confirmPassword}
-          required
-          onChange={handleConfirmPasswordChange}
-        />
-        {password === confirmPassword ? "✅" : "❌"}
+        <div>
+          <label htmlFor="confirme password">Confirmer le mot de Passe :</label>
+          <input
+            id="confirmPassword"
+            name="confirmPassword"
+            type="password"
+            value={confirmPassword}
+            onChange={handleConfirmPasswordChange}
+          />
+          {password === confirmPassword ? "✅" : "❌"}
+        </div>
       </div>
     </>
   );

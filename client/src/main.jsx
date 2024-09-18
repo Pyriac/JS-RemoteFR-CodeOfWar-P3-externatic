@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         loader: announceDetailLoader,
       },
       {
-        path: "registerCompany",
+        path: "register/company",
         element: <RegisterCompany />,
         action: companyAction,
       },
@@ -88,6 +88,7 @@ const router = createBrowserRouter([
         path: "edit/company/:id",
         element: <EditCompany />,
         loader: companyLoader.CompanyDetailLoader,
+        action: companyAction,
       },
       {
         path: "pages/legal",

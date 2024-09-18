@@ -11,7 +11,6 @@ const router = express.Router();
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
 
-
 const candidateActions = require("./controllers/CandidateActions");
 const upload = require("./services/upload");
 const { verifPassword, hashPassword } = require("./services/auth");
@@ -32,9 +31,14 @@ router.get("/candidate/:id", candidateActions.read);
 // Route to add a new item
 router.post("/announce", announceActions.add);
 
-router.post("/company", upload.uploadCompanyFiles, verifPassword, hashPassword,  companyActions.add);
+router.post(
+  "/company",
+  upload.uploadCompanyFiles,
+  verifPassword,
+  hashPassword,
+  companyActions.add
+);
 router.post("/candidate", candidateActions.add);
-
 
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);
@@ -43,7 +47,7 @@ router.delete("/candidate/:id", candidateActions.destroy);
 
 // Route to edit an item
 router.put("/announce/:id", announceActions.edit);
-router.put("/company/:id", companyActions.edit);
+router.put("/company/:id", upload.uploadCompanyFiles, companyActions.edit);
 router.put("/candidate/:id", candidateActions.edit);
 /* ************************************************************************* */
 
