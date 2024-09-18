@@ -38,7 +38,7 @@ router.post(
   hashPassword,
   companyActions.add
 );
-router.post("/candidate", candidateActions.add);
+router.post("/candidate", upload.uploadCandidateFile, candidateActions.add);
 
 // Route to delete an item
 router.delete("/announce/:id", announceActions.destroy);
