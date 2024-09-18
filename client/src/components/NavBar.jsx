@@ -15,10 +15,10 @@ function NavBar() {
       <div className="Brand_Nav Desktop">
         <ul className="User_Actions">
           <li className="Register_Link">
-            <Link to="/">Créer un compte</Link>
+            <Link to="/register/candidate">Créer un compte</Link>
           </li>
           <li className="Login_Link">
-            <Link to="/"> Se connecter</Link>
+            <Link to="/login"> Se connecter</Link>
           </li>
         </ul>
       </div>
@@ -34,10 +34,10 @@ function NavBar() {
       <div className="Brand_Nav Mobile">
         <ul className="User_Actions">
           <li className="Register_Link">
-            <Link to="/">Créer un compte</Link>
+            <Link to="/register/candidate">Créer un compte</Link>
           </li>
           <li className="Login_Link">
-            <Link to="/">Connexion</Link>
+            <Link to="/login">Connexion</Link>
           </li>
         </ul>
       </div>

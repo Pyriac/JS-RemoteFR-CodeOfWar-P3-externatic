@@ -27,6 +27,7 @@ import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
+import LoginCandidate from "./pages/LoginCandidate";
 
 
 const router = createBrowserRouter([
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
         path: "register/candidate",
         element: <RegisterCandidat />,
         action: candidateActions,
+      },
+      {
+        path:"/login",
+        element: <LoginCandidate />
       },
       {
         path: "pages/legal",
