@@ -29,7 +29,7 @@ const verifPassword = async (req, res, next) => {
   };
   const schema = Joi.object({
     password: Joi.string()
-      .pattern(/^[a-zA-Z0-9!@#$%&?*]{8}$/)
+      .pattern(/^[a-zA-Z0-9!@#$%&?*]{8,}$/)
       .messages({
         "string.empty": "Vous devez obligatoirement saisir un mot de passe",
         "string.pattern.base":
