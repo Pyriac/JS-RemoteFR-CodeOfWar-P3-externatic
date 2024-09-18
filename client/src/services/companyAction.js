@@ -44,7 +44,6 @@ const companyAction = async ({ request, params }) => {
             email: formData.get("email"),
           }
         );
-        console.info(response);
         if (response.status === 201) {
           return redirect(`/`);
         }
