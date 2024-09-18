@@ -1,3 +1,5 @@
+const argon2 = require("argon2");
+
 const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
@@ -41,6 +43,7 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+
 const edit = async (req, res, next) => {
   try {
     const company = { ...req.body, id: Number(req.params.id) };
@@ -51,6 +54,32 @@ const edit = async (req, res, next) => {
   }
 };
 
+const login = async(req, res, next) =>{
+  try{
+    const company = await tables.company.readByEmail(req.body.email);
+    if (company == null) {
+      res.sendStatus(422);
+      return;
+    }
 
-const companyActions = { browse, read, add, destroy, edit};
+    const verified = await argon2.verify(
+      company.password,
+      req.body.password
+    );
+
+    if (verified) {
+      delete company.password;
+      res.json(company);
+    } else {
+      res.sendStatus(422);
+    }
+
+  }catch(err){
+    next(err);
+  }
+
+};
+
+
+const companyActions = { browse, read, add, destroy, edit, login};
 module.exports = companyActions;
