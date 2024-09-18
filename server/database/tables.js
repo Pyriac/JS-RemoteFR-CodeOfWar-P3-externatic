@@ -2,8 +2,8 @@
 const CompanyRepository = require("./models/CompanyRepository");
 const CandidateRepository = require("./models/CandidateRepository");
 const AnnounceRepository = require("./models/AnnounceRepository");
-
 const ContractRepository = require("./models/ContractRepository");
+const AnswerRepository = require("./models/AnswerRepository");
 // Create an empty object to hold data repositories for different tables
 const tables = {};
 
@@ -15,11 +15,9 @@ const tables = {};
 
 tables.company = new CompanyRepository();
 tables.announce = new AnnounceRepository();
-
 tables.contract = new ContractRepository();
-
 tables.candidate = new CandidateRepository();
-
+tables.answer = new AnswerRepository();
 
 /* ************************************************************************* */
 
