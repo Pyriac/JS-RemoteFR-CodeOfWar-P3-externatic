@@ -1,5 +1,3 @@
-const argon2 = require("argon2");
-
 const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
@@ -54,32 +52,17 @@ const edit = async (req, res, next) => {
   }
 };
 
-const login = async(req, res, next) =>{
-  try{
-    const company = await tables.company.readByEmail(req.body.email);
-    if (company == null) {
-      res.sendStatus(422);
-      return;
-    }
-
-    const verified = await argon2.verify(
-      company.password,
-      req.body.password
-    );
-
-    if (verified) {
-      delete company.password;
-      res.json(company);
-    } else {
-      res.sendStatus(422);
-    }
-
-  }catch(err){
-    next(err);
+const login = async (req, res, next) => {
+  try {
+    res.cookie("auth", req.token).json({
+      message: "Connexion réussie",
+      id: req.company.id,
+      email: req.company.email,
+    });
+  } catch (error) {
+    next(error);
   }
-
 };
-
 
 const companyActions = { browse, read, add, destroy, edit, login};
 module.exports = companyActions;
