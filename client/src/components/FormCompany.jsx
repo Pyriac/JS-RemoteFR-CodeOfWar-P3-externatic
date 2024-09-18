@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function FormCompany({ company }) {
   return (
     <div className="FormCandidat">
-      <div>
+      <div className="FormCandidatDiv">
         <label htmlFor="name">Nom de l'entreprise*</label>{" "}
         <input
           id="name"
@@ -12,9 +12,6 @@ function FormCompany({ company }) {
           defaultValue={(company && company.name) || ""}
           required
         />
-      </div>
-
-      <div>
         <label htmlFor="phone">Numero de téléphone*</label>{" "}
         <input
           id="phone"
@@ -23,9 +20,6 @@ function FormCompany({ company }) {
           defaultValue={(company && company.phone) || ""}
           required
         />
-      </div>
-
-      <div>
         <label htmlFor="size">Taille de l'entreprise*</label>{" "}
         <input
           id="size"
@@ -34,17 +28,10 @@ function FormCompany({ company }) {
           defaultValue={(company && company.size) || ""}
           required
         />
-      </div>
-      <div>
         <label htmlFor="image">Photo de l'entreprise</label>
         <input id="image" name="image" type="file" />
-      </div>
-      <div>
         <label htmlFor="logo">Logo de l'entreprise</label>
         <input id="logo" name="logo" type="file" />
-      </div>
-
-      <div>
         <label htmlFor="email">Email*</label>
         <input
           id="email"
@@ -54,20 +41,15 @@ function FormCompany({ company }) {
           required
         />
       </div>
-      <div>
-        <div
-          className={
-            company && company.password ? "Edit_display" : "Create_display"
-          }
-        >
-          <label htmlFor="password">Mot de Passe*</label>
-          <input id="password" name="password" type="password" />
-        </div>
+      <div
+        className={company && company.name ? "displayNone" : "FormCandidatDiv"}
+      >
+        <label htmlFor="password">Mot de Passe*</label>
+        <input id="password" name="password" type="password" />
 
-        <div>
-          <label htmlFor="confirme password">Confirmer le mot de Passe</label>
-          <input id="confirmPassword" name="confirmPassword" type="password" />
-        </div>
+        <label htmlFor="confirme password">Confirmer le mot de Passe</label>
+        <input id="confirmPassword" name="confirmPassword" type="password" />
+
         <p>
           Le mot de passe doit contenir au moins une majuscule, un caractère
           spécial, minimum 8 caractères.
