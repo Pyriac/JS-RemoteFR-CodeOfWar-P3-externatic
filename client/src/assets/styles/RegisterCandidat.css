@@ -20,6 +20,7 @@
   border: 1px solid var(--second-grey);
   margin-top: 2rem;
   padding-bottom: 1rem;
+  background-color: white;
 }
 
 .FormCandidatDiv {
@@ -57,6 +58,8 @@
   font-style: normal;
   font-size: 1.4rem;
   background-color: var(--first-grey);
+  width: 100%;
+  padding: 0.5rem 0rem;
 }
 
 .FormCandidat p,

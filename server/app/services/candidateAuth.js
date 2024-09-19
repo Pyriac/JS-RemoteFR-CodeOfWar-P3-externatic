@@ -12,7 +12,6 @@ const hashingOptions = {
 
 const hashPassword = async (req, res, next) => {
   try {
-    console.info(req.body);
     const { password } = req.body;
     const hashedPassword = await argon2.hash(password, hashingOptions);
 
@@ -83,14 +82,11 @@ const verifyToken = async (req, res, next) => {
 };
 
 const verifyFields = (req, res, next) => {
-  // console.info("req.body", req.body);
-  // next();
-  console.info(req.body);
   const schema = Joi.object({
     first_name: Joi.string().required(),
     last_name: Joi.string().required(),
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).required(),
+    password: Joi.string().min(8).required(),
     title: Joi.string().required(),
     location: Joi.string().required(),
     birthday: Joi.date().allow(null, ""),
