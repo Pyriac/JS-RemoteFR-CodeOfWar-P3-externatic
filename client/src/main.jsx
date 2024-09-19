@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./context/AuthentificationContext";
 import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
 
@@ -28,7 +29,6 @@ import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCandidate from "./pages/LoginCandidate";
-
 
 const router = createBrowserRouter([
   {
@@ -79,8 +79,8 @@ const router = createBrowserRouter([
         action: candidateActions,
       },
       {
-        path:"/login",
-        element: <LoginCandidate />
+        path: "/login",
+        element: <LoginCandidate />,
       },
       {
         path: "pages/legal",
@@ -110,6 +110,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

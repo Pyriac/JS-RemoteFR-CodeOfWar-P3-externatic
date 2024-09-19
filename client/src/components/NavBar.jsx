@@ -1,10 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+
+import { AuthContext } from "../context/AuthentificationContext";
+
 import Logo from "../assets/images/Logo.png";
 import "../assets/styles/Navbar.css";
 
 function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const { auth, logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -14,20 +22,30 @@ function NavBar() {
     <nav className="NavBar">
       <div className="Brand_Nav Desktop">
         <ul className="User_Actions">
-          <li className="Register_Link">
-            <Link to="/register/candidate">Créer un compte</Link>
-          </li>
-          <li className="Login_Link">
-            <Link to="/login"> Se connecter</Link>
-          </li>
+          {!auth ? (
+            <>
+              <li className="Register_Link">
+                <Link to="/register/candidate">Créer un compte</Link>
+              </li>
+              <li className="Login_Link">
+                <Link to="/login"> Se connecter</Link>
+              </li>{" "}
+            </>
+          ) : (
+            <li className="Navbar_disconnected">
+              <Link to="/">
+                <button onClick={handleLogout} type="button">
+                  Se déconnecter
+                </button>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
 
       <article>
-        <Link to="/" className="Brand_Title">
-          <Link to="/">
-            EXTERNA<span className="Tech_Style">TECH</span>
-          </Link>
+        <Link to="/">
+          EXTERNA<span className="Tech_Style">TECH</span>
         </Link>
       </article>
 

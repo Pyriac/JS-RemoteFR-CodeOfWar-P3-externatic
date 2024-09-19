@@ -1,11 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthentificationContext";
 import myAxios from "../services/myAxios";
 
 export default function LoginCandidate() {
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -15,19 +16,15 @@ export default function LoginCandidate() {
       const response = await myAxios.post(
         "/api/login",
         { email, password },
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
+        { withCredentials: true }
       );
 
-      if (response.status === 200) {
-        navigate("/");
-      } else {
-        console.info("Erreur de connexion", response);
-      }
-    } catch (err) {
-      console.error("Erreur lors de la connexion", err);
+      const { id } = response.data;
+
+      login(id);
+      navigate("/");
+    } catch (error) {
+      console.error("Erreur de connexion :", error);
     }
   };
 
