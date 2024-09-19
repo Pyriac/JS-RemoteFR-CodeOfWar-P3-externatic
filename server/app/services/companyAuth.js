@@ -55,14 +55,13 @@ const verifPassword = async (req, res, next) => {
 
 const verifyPasswordForLogin = async (req, res, next) => {
   try {
+    
     const { email, password } = req.body;
     const company = await tables.company.readByEmail(email);
-    console.info("entreprise", company);
-
     if (!company) {
       res.sendStatus(401);
     }
-
+    
     req.company = {
       id: company.id,
       email: company.email,
@@ -114,8 +113,9 @@ const verifyFields = (req, res, next) => {
       size: Joi.number().required(),
       email: Joi.string().email().required(),
       password: Joi.string().min(6).required(),
-      image: Joi.file().allow(null, ""),
-      logo: Joi.file().allow(null, ""),
+      confirmPassword: Joi.string().min(6).required(),
+      image: Joi.string().allow(null, ""),
+      logo: Joi.string().allow(null, ""),
     });
   
     const result = schema.validate(req.body);
