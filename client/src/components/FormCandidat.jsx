@@ -28,15 +28,20 @@ export default function FormCandidat({ candidate }) {
         defaultValue={(candidate && candidate.email) || ""}
         required
       />
-      <label htmlFor="password">Password *</label>
-      <input
-        type="password"
-        id="pass"
-        name="password"
-        minLength="8"
-        required
-        defaultValue={(candidate && candidate.password) || ""}
-      />
+      {!candidate && (
+        <>
+          <label htmlFor="password">Password *</label>
+          <input
+            type="password"
+            id="pass"
+            name="password"
+            minLength="8"
+            required
+            defaultValue={candidate.password || ""}
+          />
+        </>
+      )}
+
       <label htmlFor="title">Intitulé de poste *</label>
       <input
         name="title"
