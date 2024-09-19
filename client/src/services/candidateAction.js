@@ -27,7 +27,9 @@ const candidateActions = async ({ request, params }) => {
       } catch (err) {
         return err.response.data;
       }
-      return new Response("Entreprise créer", { status: 201 });
+      return new Response("Ton compte est créé ! Félicitation 🎉", {
+        status: 201,
+      });
     }
     case "put": {
       try {
@@ -56,7 +58,9 @@ const candidateActions = async ({ request, params }) => {
       } catch (err) {
         return err.response.data;
       }
-      return new Response("Entreprise créer", { status: 201 });
+      return new Response("Ton compte a bien été mis à jour 📝", {
+        status: 201,
+      });
     }
 
     default:

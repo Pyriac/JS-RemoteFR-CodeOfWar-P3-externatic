@@ -25,7 +25,9 @@ const companyAction = async ({ request, params }) => {
       } catch (err) {
         return err.response.data;
       }
-      return new Response("Entreprise créer", { status: 201 });
+      return new Response("Entreprise créée, merci de votre confiance 🙏", {
+        status: 201,
+      });
     }
     case "put": {
       try {
@@ -50,7 +52,9 @@ const companyAction = async ({ request, params }) => {
       } catch (err) {
         return err.response.data;
       }
-      return new Response("Entreprise update", { status: 201 });
+      return new Response("Vos données ont bien été mises à jour 📝", {
+        status: 201,
+      });
     }
     default:
       throw new Response("", { status: 405 });
