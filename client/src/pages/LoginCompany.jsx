@@ -32,7 +32,7 @@ export default function LoginCompany() {
   return (
     
        <form  onSubmit={sendCredentials} >
-            <h2>Inscrivez vous en remplissant le formulaire !</h2>
+            <h2>Connectez-vous</h2>
             
             <div>
                 <label htmlFor="email">Email :</label>
