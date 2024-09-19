@@ -17,7 +17,7 @@ const upload = require("./services/upload");
 
 const candidateAuth = require("./services/candidateAuth");
 
-const { verifPassword, hashPassword } = require("./services/auth");
+const companyAuth = require("./services/companyAuth");
 
 const contractActions = require("./controllers/ContractActions");
 
@@ -37,6 +37,7 @@ router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
+
 router.post(
   "/candidate",
   upload.uploadCandidateFile,
@@ -45,17 +46,25 @@ router.post(
   candidateActions.add
 );
 router.post(
+  "/company",
+  upload.uploadCompanyFiles,
+  companyAuth.verifyFields,
+  companyAuth.verifPassword,
+  companyAuth.hashPassword,
+  companyActions.add
+);
+
+router.post(
   "/login",
   candidateAuth.verifyPassword,
   candidateAuth.createToken,
   candidateActions.login
 );
 router.post(
-  "/company",
-  upload.uploadCompanyFiles,
-  verifPassword,
-  hashPassword,
-  companyActions.add
+  "/loginCompany",
+  companyAuth.verifyPasswordForLogin,
+  companyAuth.createToken,
+  companyActions.login
 );
 router.post("/answer", answerActions.add);
 
