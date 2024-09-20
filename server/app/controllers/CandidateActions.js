@@ -64,6 +64,31 @@ const login = async (req, res, next) => {
   }
 };
 
-const candidateActions = { browse, read, add, edit, destroy, login };
+const isLogged = async (req, res, next) => {
+  try {
+    res.status(200).json({ message: "vous êtes bien connecté" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const disconnect = async (req, res, next) => {
+  try {
+    res.clearCookie("auth").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const candidateActions = {
+  browse,
+  read,
+  add,
+  edit,
+  destroy,
+  login,
+  isLogged,
+  disconnect,
+};
 
 module.exports = candidateActions;

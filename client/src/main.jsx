@@ -31,8 +31,6 @@ import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCandidate from "./pages/LoginCandidate";
 import LoginCompany from "./pages/LoginCompany";
 
-
-
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -46,7 +44,6 @@ const router = createBrowserRouter([
         path: "loginCompany",
         element: <LoginCompany />,
         action: companyAction,
-
       },
       {
         path: "announce/:id/edit",

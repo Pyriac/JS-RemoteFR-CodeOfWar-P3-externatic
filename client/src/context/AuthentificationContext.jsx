@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
+import myAxios from "../services/myAxios";
 
 const AuthContext = createContext();
 
@@ -20,9 +21,18 @@ function AuthProvider({ children }) {
     setAuth(candidate);
   };
 
-  const logout = () => {
-    localStorage.removeItem("authToken");
-    setAuth(null);
+  const logout = async () => {
+    try {
+      const response = await myAxios.get("/api/logout", {
+        withCredentials: true,
+      });
+      if (response.status === 200) {
+        localStorage.removeItem("authToken");
+        setAuth(null);
+      }
+    } catch (error) {
+      console.error("Erreur de déconnexion:", error);
+    }
   };
 
   const value = useMemo(
