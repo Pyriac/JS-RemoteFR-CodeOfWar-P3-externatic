@@ -86,7 +86,16 @@ const verifyFields = (req, res, next) => {
     first_name: Joi.string().required(),
     last_name: Joi.string().required(),
     email: Joi.string().email().required(),
-    password: Joi.string().min(6).required(),
+    password: Joi.string()
+      .pattern(
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%&?*])[a-zA-Z0-9!@#$%&?*]{8,}$/
+      )
+      .required()
+      .messages({
+        "string.empty": "Vous devez obligatoirement saisir un mot de passe",
+        "string.pattern.base":
+          "Le mot de passe doit contenir au moins une majuscule, minuscule, un chiffre et un caractère spécial.",
+      }),
     title: Joi.string().required(),
     location: Joi.string().required(),
     birthday: Joi.date().allow(null, ""),
@@ -96,7 +105,9 @@ const verifyFields = (req, res, next) => {
   });
 
   const result = schema.validate(req.body);
+
   console.info(result);
+
   if (result.error) {
     res.status(400).send(result.error.message);
   } else {

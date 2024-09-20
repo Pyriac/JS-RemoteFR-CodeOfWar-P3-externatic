@@ -4,10 +4,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./context/AuthentificationContext";
 import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
-
+import candidateLoader from "./services/candidateLoader";
+import companyLoader from "./services/companyLoader";
 import {
   announceIdLoader,
-  companyLoader,
   announceDetailLoader,
   getAnnounces,
   getContracts,
@@ -23,6 +23,7 @@ import HomePage from "./pages/HomePage";
 import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
 import RegisterCompany from "./pages/RegisterCompany";
+import EditCandidate from "./pages/EditCandidate";
 import Legal from "./pages/Footer/Legal";
 import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
@@ -32,6 +33,7 @@ import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCandidate from "./pages/LoginCandidate";
 import LoginCompany from "./pages/LoginCompany";
 import Forbidden from "./pages/Forbidden";
+import EditCompany from "./pages/EditCompany";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +42,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
-        loader: companyLoader,
+        loader: companyLoader.AllCompanyLoader,
       },
       {
         path: "loginCompany",
@@ -79,7 +81,7 @@ const router = createBrowserRouter([
         loader: announceDetailLoader,
       },
       {
-        path: "registerCompany",
+        path: "register/company",
         element: <RegisterCompany />,
         action: companyAction,
       },
@@ -91,6 +93,18 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <LoginCandidate />,
+      },
+      {
+        path: "edit/candidate/:id",
+        element: <EditCandidate />,
+        loader: candidateLoader.CandidateDetailLoader,
+        action: candidateActions,
+      },
+      {
+        path: "edit/company/:id",
+        element: <EditCompany />,
+        loader: companyLoader.CompanyDetailLoader,
+        action: companyAction,
       },
       {
         path: "pages/legal",

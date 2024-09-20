@@ -41,15 +41,10 @@ router.get("/answer/:id", answerActions.read);
 router.post("/announce", announceActions.add);
 router.post(
   "/candidate",
+  upload.uploadCandidateFile,
   candidateAuth.verifyFields,
   candidateAuth.hashPassword,
   candidateActions.add
-);
-router.post(
-  "/login",
-  candidateAuth.verifyPassword,
-  candidateAuth.createToken,
-  candidateActions.login
 );
 router.post(
   "/company",
@@ -58,6 +53,12 @@ router.post(
   companyAuth.verifPassword,
   companyAuth.hashPassword,
   companyActions.add
+);
+router.post(
+  "/login",
+  candidateAuth.verifyPassword,
+  candidateAuth.createToken,
+  candidateActions.login
 );
 router.post(
   "/loginCompany",
@@ -74,8 +75,8 @@ router.delete("/candidate/:id", candidateActions.destroy);
 
 // Route to edit an item
 router.put("/announce/:id", announceActions.edit);
-router.put("/company/:id", companyActions.edit);
-router.put("/candidate/:id", candidateActions.edit);
+router.put("/company/:id", upload.uploadCompanyFiles, companyActions.edit);
+router.put("/candidate/:id", upload.uploadCandidateFile, candidateActions.edit);
 /* ************************************************************************* */
 
 module.exports = router;

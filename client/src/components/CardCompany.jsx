@@ -1,17 +1,27 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import DefaultImage from "../assets/images/default.png";
+import DefaultLogo from "../assets/images/logo_default.png";
 
 export default function CardCompany({ company }) {
   return (
     <div className="CardCompany_body">
       <img
         className="CardCompany_picture_company"
-        src={`${import.meta.env.VITE_API_URL}/uploads/${company.image}`}
+        src={
+          company.image
+            ? `${import.meta.env.VITE_API_URL}/uploads/${company.image}`
+            : DefaultImage
+        }
         alt={`Illustration fourni par ${company.name}`}
       />
       <img
         className="CardCompany_logo_company"
-        src={`${import.meta.env.VITE_API_URL}/uploads/${company.logo}`}
+        src={
+          company.image
+            ? `${import.meta.env.VITE_API_URL}/uploads/${company.logo}`
+            : DefaultLogo
+        }
         alt={`logo fourni par ${company.name}`}
       />
       <section>
