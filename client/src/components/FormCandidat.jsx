@@ -100,7 +100,7 @@ FormCandidat.propTypes = {
     location: PropTypes.string,
     birthday: PropTypes.instanceOf(Date),
     degree: PropTypes.string,
-    phone: PropTypes.number,
+    phone: PropTypes.string,
     cv: PropTypes.string,
   }).isRequired,
 };
