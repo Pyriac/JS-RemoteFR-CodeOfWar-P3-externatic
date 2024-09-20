@@ -14,6 +14,7 @@ import {
 } from "./services/announceLoader";
 
 import companyAction from "./services/companyAction";
+import getAutorization from "./services/request";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -58,6 +59,7 @@ const router = createBrowserRouter([
           const url = new URL(request.url);
           const contract = url.searchParams.get("contract");
           const result = {
+            isConnected: await getAutorization(),
             contracts: await getContracts(),
             announces: await getAnnounces(contract),
           };
