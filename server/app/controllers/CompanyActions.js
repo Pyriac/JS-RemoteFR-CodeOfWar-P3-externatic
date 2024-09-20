@@ -44,6 +44,8 @@ const destroy = async (req, res, next) => {
 
 const edit = async (req, res, next) => {
   try {
+    delete req.body.password;
+    delete req.body.confirmPassword;
     const company = { ...req.body, id: Number(req.params.id) };
     await tables.company.update(company);
     res.sendStatus(204);
@@ -64,5 +66,5 @@ const login = async (req, res, next) => {
   }
 };
 
-const companyActions = { browse, read, add, destroy, edit, login};
+const companyActions = { browse, read, add, destroy, edit, login };
 module.exports = companyActions;

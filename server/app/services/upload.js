@@ -19,10 +19,29 @@ const storage = multer.diskStorage({
   },
 });
 
-
 const uploadCompanyFiles = multer({ storage }).fields([
   { name: "image", maxCount: 1 },
   { name: "logo", maxCount: 1 },
 ]);
 
-module.exports = { uploadCompanyFiles };
+const storageCandidate = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, "./public/uploads");
+  },
+  filename(req, file, cb) {
+    const uniqueId = uuidv4();
+    const fileName = `${uniqueId}${path.extname(file.originalname)}`;
+
+    req.body.cv = fileName;
+
+    cb(null, fileName);
+  },
+});
+
+const uploadCandidateFile = (req, res, next) => {
+  const upload = multer({ storage: storageCandidate });
+
+  return upload.single("cv")(req, res, next);
+};
+
+module.exports = { uploadCompanyFiles, uploadCandidateFile };
