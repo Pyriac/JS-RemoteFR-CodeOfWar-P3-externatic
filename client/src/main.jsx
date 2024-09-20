@@ -31,6 +31,7 @@ import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCandidate from "./pages/LoginCandidate";
 import LoginCompany from "./pages/LoginCompany";
+import Forbidden from "./pages/Forbidden";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,7 @@ const router = createBrowserRouter([
           };
           return result;
         },
+        errorElement: <Forbidden />,
       },
       {
         path: "/AddAnnounce",
