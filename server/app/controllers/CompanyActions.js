@@ -41,6 +41,7 @@ const destroy = async (req, res, next) => {
     next(err);
   }
 };
+
 const edit = async (req, res, next) => {
   try {
     const company = { ...req.body, id: Number(req.params.id) };
@@ -51,6 +52,17 @@ const edit = async (req, res, next) => {
   }
 };
 
+const login = async (req, res, next) => {
+  try {
+    res.cookie("auth", req.token).json({
+      message: "Connexion réussie",
+      id: req.company.id,
+      email: req.company.email,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
 
-const companyActions = { browse, read, add, destroy, edit};
+const companyActions = { browse, read, add, destroy, edit, login};
 module.exports = companyActions;

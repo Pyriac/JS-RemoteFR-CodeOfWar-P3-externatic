@@ -29,6 +29,9 @@ import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCandidate from "./pages/LoginCandidate";
+import LoginCompany from "./pages/LoginCompany";
+
+
 
 const router = createBrowserRouter([
   {
@@ -38,6 +41,12 @@ const router = createBrowserRouter([
         path: "/",
         element: <HomePage />,
         loader: companyLoader,
+      },
+      {
+        path: "loginCompany",
+        element: <LoginCompany />,
+        action: companyAction,
+
       },
       {
         path: "announce/:id/edit",
