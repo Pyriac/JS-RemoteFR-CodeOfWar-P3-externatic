@@ -56,6 +56,7 @@ const companyAction = async ({ request, params }) => {
         status: 201,
       });
     }
+
     default:
       throw new Response("", { status: 405 });
   }

@@ -66,6 +66,14 @@ router.post(
   companyAuth.createToken,
   companyActions.login
 );
+
+router.post(
+  "/loginCompany",
+  companyAuth.verifyPasswordForLogin,
+  companyAuth.createToken,
+  companyActions.login
+);
+
 router.post("/answer", answerActions.add);
 
 // Route to delete an item

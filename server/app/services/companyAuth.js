@@ -58,8 +58,6 @@ const verifyPasswordForLogin = async (req, res, next) => {
   try {
     const { email, password } = req.body;
     const company = await tables.company.readByEmail(email);
-    console.info("entreprise", company);
-
     if (!company) {
       res.sendStatus(401);
     }
@@ -97,12 +95,10 @@ const createToken = async (req, res, next) => {
 const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
-    console.info(auth);
-
     const result = await jwt.verify(auth, process.env.APP_SECRET);
-    console.info(result);
-
-    next();
+    if (result) {
+      next();
+    }
   } catch (error) {
     next(error);
   }
@@ -115,12 +111,13 @@ const verifyFields = (req, res, next) => {
     size: Joi.number().required(),
     email: Joi.string().email().required(),
     password: Joi.string().min(6).required(),
-    image: Joi.file().allow(null, ""),
-    logo: Joi.file().allow(null, ""),
+    confirmPassword: Joi.string().min(6).required(),
+    image: Joi.string().allow(null, ""),
+    logo: Joi.string().allow(null, ""),
   });
 
   const result = schema.validate(req.body);
-  console.info(result);
+
   if (result.error) {
     res.status(400).send(result.error.message);
   } else {
