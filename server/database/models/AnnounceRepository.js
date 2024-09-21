@@ -6,19 +6,19 @@ class AnnounceRepository extends AbstractRepository {
   }
 
   async readAll(contract) {
-
-
     if (!contract) {
       const [rows] = await this.database.query(
-        `SELECT announce.*, contract.id as contract_id, contract.name as contract_name from ${this.table} join contract on contract.id = announce.contract_id`,
+        `SELECT announce.*, contract.id as contract_id, contract.name as contract_name from ${this.table} join contract on contract.id = announce.contract_id`
       );
-      return rows
+      return rows;
     }
 
-    const [rows] = await this.database.query(`select announce .*, contract.id as contract_id, contract.name as contract_name from ${this.table} join contract on contract.id = announce.contract_id where contract.name = ?`, [contract]);
+    const [rows] = await this.database.query(
+      `select announce .*, contract.id as contract_id, contract.name as contract_name from ${this.table} join contract on contract.id = announce.contract_id where contract.name = ?`,
+      [contract]
+    );
     return rows;
-
-}
+  }
 
   async read(id) {
     const [rows] = await this.database.query(

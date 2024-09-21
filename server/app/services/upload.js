@@ -19,7 +19,6 @@ const storage = multer.diskStorage({
   },
 });
 
-
 const uploadCompanyFiles = multer({ storage }).fields([
   { name: "image", maxCount: 1 },
   { name: "logo", maxCount: 1 },

@@ -29,7 +29,6 @@ import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCompany from "./pages/LoginCompany";
 
-
 const router = createBrowserRouter([
   {
     element: <App />,
@@ -43,7 +42,6 @@ const router = createBrowserRouter([
         path: "loginCompany",
         element: <LoginCompany />,
         action: companyAction,
-
       },
       {
         path: "announce/:id/edit",

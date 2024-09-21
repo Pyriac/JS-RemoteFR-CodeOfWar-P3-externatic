@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function AnnounceDetailCard({ announce }) {
   return (
@@ -9,7 +9,9 @@ export default function AnnounceDetailCard({ announce }) {
           <h2>{announce.job_title}</h2>
           <li>Ville: {announce.location}</li>
           <li>Description: {announce.description}</li>
-          <li>Fourchette de salaire: {announce.min_salary} - {announce.max_salary}</li>
+          <li>
+            Fourchette de salaire: {announce.min_salary} - {announce.max_salary}
+          </li>
           <li>Avantages: {announce.benefits}</li>
           <li>Emploi: {announce.job_type}</li>
           <li>{announce.telework}</li>

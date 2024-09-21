@@ -64,5 +64,5 @@ const login = async (req, res, next) => {
   }
 };
 
-const companyActions = { browse, read, add, destroy, edit, login};
+const companyActions = { browse, read, add, destroy, edit, login };
 module.exports = companyActions;

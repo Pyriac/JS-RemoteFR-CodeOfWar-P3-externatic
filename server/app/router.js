@@ -37,10 +37,32 @@ router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
-router.post("/candidate", candidateAuth.verifyFields, candidateAuth.hashPassword, candidateActions.add);
-router.post("/login", candidateAuth.verifyPassword, candidateAuth.createToken, candidateActions.login);
-router.post("/company", upload.uploadCompanyFiles, companyAuth.verifyFields, companyAuth.verifPassword,companyAuth.hashPassword,  companyActions.add);
-router.post("/loginCompany", companyAuth.verifyPasswordForLogin, companyAuth.createToken, companyActions.login);
+router.post(
+  "/candidate",
+  candidateAuth.verifyFields,
+  candidateAuth.hashPassword,
+  candidateActions.add
+);
+router.post(
+  "/login",
+  candidateAuth.verifyPassword,
+  candidateAuth.createToken,
+  candidateActions.login
+);
+router.post(
+  "/company",
+  upload.uploadCompanyFiles,
+  companyAuth.verifyFields,
+  companyAuth.verifPassword,
+  companyAuth.hashPassword,
+  companyActions.add
+);
+router.post(
+  "/loginCompany",
+  companyAuth.verifyPasswordForLogin,
+  companyAuth.createToken,
+  companyActions.login
+);
 router.post("/answer", answerActions.add);
 
 // Route to delete an item

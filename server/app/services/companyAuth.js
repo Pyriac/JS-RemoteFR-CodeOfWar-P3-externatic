@@ -51,17 +51,14 @@ const verifPassword = async (req, res, next) => {
   }
 };
 
-
-
 const verifyPasswordForLogin = async (req, res, next) => {
   try {
-    
     const { email, password } = req.body;
     const company = await tables.company.readByEmail(email);
     if (!company) {
       res.sendStatus(401);
     }
-    
+
     req.company = {
       id: company.id,
       email: company.email,
@@ -81,7 +78,7 @@ const verifyPasswordForLogin = async (req, res, next) => {
 
 const createToken = async (req, res, next) => {
   try {
-    const payload =  req.company;
+    const payload = req.company;
 
     const token = await jwt.sign(payload, process.env.APP_SECRET, {
       expiresIn: "1y",
@@ -97,8 +94,7 @@ const verifyToken = async (req, res, next) => {
     const { auth } = req.cookies;
     const result = await jwt.verify(auth, process.env.APP_SECRET);
     if (result) {
-
-    next();
+      next();
     }
   } catch (error) {
     next(error);
@@ -106,24 +102,31 @@ const verifyToken = async (req, res, next) => {
 };
 
 const verifyFields = (req, res, next) => {
-    const schema = Joi.object({
-      name: Joi.string().required(),
-      phone: Joi.string().required(),
-      size: Joi.number().required(),
-      email: Joi.string().email().required(),
-      password: Joi.string().min(6).required(),
-      confirmPassword: Joi.string().min(6).required(),
-      image: Joi.string().allow(null, ""),
-      logo: Joi.string().allow(null, ""),
-    });
-  
-    const result = schema.validate(req.body);
- 
-    if (result.error) {
-      res.status(400).send(result.error.message);
-    } else {
-      next();
-    }
-  };
+  const schema = Joi.object({
+    name: Joi.string().required(),
+    phone: Joi.string().required(),
+    size: Joi.number().required(),
+    email: Joi.string().email().required(),
+    password: Joi.string().min(6).required(),
+    confirmPassword: Joi.string().min(6).required(),
+    image: Joi.string().allow(null, ""),
+    logo: Joi.string().allow(null, ""),
+  });
 
-module.exports = { verifPassword, hashPassword, verifyPasswordForLogin, createToken, verifyToken, verifyFields };
+  const result = schema.validate(req.body);
+
+  if (result.error) {
+    res.status(400).send(result.error.message);
+  } else {
+    next();
+  }
+};
+
+module.exports = {
+  verifPassword,
+  hashPassword,
+  verifyPasswordForLogin,
+  createToken,
+  verifyToken,
+  verifyFields,
+};

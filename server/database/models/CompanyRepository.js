@@ -19,7 +19,7 @@ class CompanyRepository extends AbstractRepository {
 
     return rows[0];
   }
-  
+
   async readByEmail(email) {
     const [rows] = await this.database.query(
       `select * from ${this.table} where email = ?`,
@@ -43,8 +43,6 @@ class CompanyRepository extends AbstractRepository {
     );
     return result.insertId;
   }
-
-  
 
   async delete(id) {
     const [result] = await this.database.query(
