@@ -54,12 +54,13 @@ class CompanyRepository extends AbstractRepository {
 
   async update(company) {
     const [result] = await this.database.query(
-      `update ${this.table} set email = ?, password = ?, name = ?, phone = ?, size = ?, validate = ? where id = ?`,
+      `update ${this.table} set email = ?, name = ?, phone = ?, image = ?, logo = ?, size = ?, validate = ? where id = ?`,
       [
         company.email,
-        company.password,
         company.name,
         company.phone,
+        company.image,
+        company.logo,
         company.size,
         company.validate,
         company.id,

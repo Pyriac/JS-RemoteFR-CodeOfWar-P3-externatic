@@ -24,11 +24,6 @@ export const announceIdLoader = async ({ params }) => {
   return response.data;
 };
 
-export const companyLoader = async () => {
-  const response = await myAxios.get("/api/company");
-  return response.data;
-};
-
 export function getAnnounces(contract) {
   return axios
     .get(`${import.meta.env.VITE_API_URL}/api/announce?contract=${contract}`)
