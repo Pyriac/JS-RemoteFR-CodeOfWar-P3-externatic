@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function AnnounceCard({ announce }) {
-
   return (
     <div className="container-card">
       <div className="announce-card" key={announce.id}>
@@ -10,7 +9,9 @@ export default function AnnounceCard({ announce }) {
           <h2>{announce.job_title}</h2>
           <li>Ville: {announce.location}</li>
           <li>Description: {announce.description}</li>
-          <li>Fourchette de salaire: {announce.min_salary} - {announce.max_salary}</li>
+          <li>
+            Fourchette de salaire: {announce.min_salary} - {announce.max_salary}
+          </li>
           <li>Avantages: {announce.benefits}</li>
           <li>Emploi: {announce.contract_name}</li>
           <li>{announce.telework}</li>
@@ -34,5 +35,5 @@ AnnounceCard.propTypes = {
     contract_name: PropTypes.string.isRequired,
     benefits: PropTypes.string.isRequired,
     telework: PropTypes.string.isRequired,
-  }).isRequired
+  }).isRequired,
 };
