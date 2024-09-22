@@ -30,6 +30,7 @@ import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
 import EditCompany from "./pages/EditCompany";
 import LoginCompany from "./pages/LoginCompany";
+import { AuthProvider } from "./context/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,7 @@ const router = createBrowserRouter([
         loader: candidateLoader.CandidateDetailLoader,
         action: candidateActions,
       },
+      
       {
         path: "edit/company/:id",
         element: <EditCompany />,
@@ -124,6 +126,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
+    <AuthProvider>
     <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

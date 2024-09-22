@@ -1,56 +1,59 @@
-import axios from "axios";
-import { useState } from "react";
+
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import myAxios from "../services/myAxios";
 
 export default function LoginCompany() {
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleChangeEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleChangePassword = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const sendCredentials = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post(
-        `${import.meta.env.VITE_API_URL}/api/loginCompany`,
+
+    try {
+      const response = await myAxios.post(
+        "/api/loginCompany",
         { email, password },
         { withCredentials: true }
-      )
-      .then((response) => console.info(response))
-      .catch((error) => console.error(error));
+      );
+
+      const { id } = response.data;
+
+      login(id);
+      navigate("/");
+    } catch (error) {
+      console.error("Erreur de connexion :", error);
+    }
   };
 
   return (
-    <form onSubmit={sendCredentials}>
-      <h2>Connectez-vous</h2>
-
+    <form onSubmit={handleSubmit}>
       <div>
         <label htmlFor="email">Email :</label>
+
         <input
-          id="email"
-          name="email"
           type="email"
+          id="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
           required
-          onChange={handleChangeEmail}
         />
       </div>
       <div>
-        <label htmlFor="password">Mot de Passe :</label>
+        <label htmlFor="password">Mot de passe :</label>
+
         <input
-          id="password"
-          name="password"
           type="password"
+          id="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
           required
-          onChange={handleChangePassword}
         />
       </div>
-
-      <input type="submit" value="connexion" />
+      <button type="submit">Se connecter</button>
     </form>
   );
 }

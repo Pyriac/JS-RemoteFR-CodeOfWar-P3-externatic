@@ -28,7 +28,8 @@ router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
 router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
-
+router.get("/logout", companyActions.disconnect);
+router.get("/checkAuth", companyAuth.verifyToken, companyActions.isLogged);
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.read);
 router.get("/company/:id", companyActions.read);
