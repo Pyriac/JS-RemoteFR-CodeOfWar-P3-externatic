@@ -22,7 +22,7 @@ export default function HomePage() {
           </p>
           <div className="HomePage_header_button">
             <button className="HomePage_create_button" type="button">
-             <Link to="/register/candidate"> Cree ton profil en 3 clics </Link> 
+              <Link to="/register/candidate"> Cree ton profil en 3 clics </Link>
             </button>
             <button className="HomePage_recruit_button" type="button">
               Je recrute
