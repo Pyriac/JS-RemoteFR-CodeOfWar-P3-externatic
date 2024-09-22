@@ -37,7 +37,6 @@ export default function FormCandidat({ candidate }) {
             name="password"
             minLength="8"
             required
-            defaultValue={candidate.password || ""}
           />
         </>
       )}
