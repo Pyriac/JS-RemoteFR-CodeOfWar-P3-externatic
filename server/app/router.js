@@ -28,6 +28,7 @@ router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
 router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
+router.get("/announce/company/:id", announceActions.browseByCompany);
 
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.read);
