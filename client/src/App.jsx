@@ -11,6 +11,7 @@ import "./assets/styles/Footer.css";
 import "./assets/styles/LegalPages.css";
 import "./assets/styles/CorporateSponcor.css";
 import "./assets/styles/RegisterCandidat.css";
+import "./assets/styles/AnnounceByCompany.css";
 
 function App() {
   return (

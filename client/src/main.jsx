@@ -10,6 +10,7 @@ import {
   announceDetailLoader,
   getAnnounces,
   getContracts,
+  getAnnouncesByCompany,
 } from "./services/announceLoader";
 
 import companyAction from "./services/companyAction";
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
       {
         path: "company/:id/announce",
         element: <CompanyAnnounce />,
+        loader: getAnnouncesByCompany,
       },
       {
         path: "announce/:id/edit",
