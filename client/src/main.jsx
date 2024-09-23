@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthProvider } from "./context/AuthentificationContext";
 import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
 import candidateLoader from "./services/candidateLoader";
@@ -14,6 +15,7 @@ import {
 } from "./services/announceLoader";
 
 import companyAction from "./services/companyAction";
+import getAutorization from "./services/request";
 
 import App from "./App";
 import Announce from "./pages/Announce";
@@ -30,8 +32,10 @@ import Confidential from "./pages/Footer/Confidential";
 import Charter from "./pages/Footer/Charter";
 import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
-import EditCompany from "./pages/EditCompany";
+import LoginCandidate from "./pages/LoginCandidate";
 import LoginCompany from "./pages/LoginCompany";
+import Forbidden from "./pages/Forbidden";
+import EditCompany from "./pages/EditCompany";
 
 const router = createBrowserRouter([
   {
@@ -65,11 +69,13 @@ const router = createBrowserRouter([
           const url = new URL(request.url);
           const contract = url.searchParams.get("contract");
           const result = {
+            isConnected: await getAutorization(),
             contracts: await getContracts(),
             announces: await getAnnounces(contract),
           };
           return result;
         },
+        errorElement: <Forbidden />,
       },
       {
         path: "/AddAnnounce",
@@ -90,6 +96,10 @@ const router = createBrowserRouter([
         path: "register/candidate",
         element: <RegisterCandidat />,
         action: candidateActions,
+      },
+      {
+        path: "/login",
+        element: <LoginCandidate />,
       },
       {
         path: "edit/candidate/:id",
@@ -131,6 +141,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

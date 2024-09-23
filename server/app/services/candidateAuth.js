@@ -70,14 +70,13 @@ const createToken = async (req, res, next) => {
 const verifyToken = async (req, res, next) => {
   try {
     const { auth } = req.cookies;
-    console.info(auth);
 
     const result = await jwt.verify(auth, process.env.APP_SECRET);
-    console.info(result);
-
-    next();
+    if (result) {
+      next();
+    }
   } catch (error) {
-    next(error);
+    res.sendStatus(401);
   }
 };
 
@@ -105,8 +104,6 @@ const verifyFields = (req, res, next) => {
   });
 
   const result = schema.validate(req.body);
-
-  console.info(result);
 
   if (result.error) {
     res.status(400).send(result.error.message);
