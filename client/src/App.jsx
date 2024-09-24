@@ -13,6 +13,7 @@ import "./assets/styles/LegalPages.css";
 import "./assets/styles/CorporateSponcor.css";
 import "./assets/styles/RegisterCandidat.css";
 import "./assets/styles/AnnounceByCompany.css";
+import "./assets/styles/announce.css";
 
 function App() {
   return (

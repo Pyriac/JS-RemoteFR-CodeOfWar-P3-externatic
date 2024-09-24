@@ -40,6 +40,7 @@ router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
+
 router.post(
   "/candidate",
   upload.uploadCandidateFile,
@@ -47,6 +48,7 @@ router.post(
   candidateAuth.hashPassword,
   candidateActions.add
 );
+
 router.post(
   "/company",
   upload.uploadCompanyFiles,
@@ -67,6 +69,7 @@ router.post(
   companyAuth.createToken,
   companyActions.login
 );
+
 router.post("/answer", answerActions.add);
 
 // Route to delete an item
