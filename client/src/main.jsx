@@ -55,6 +55,7 @@ const router = createBrowserRouter([
         path: "company/:id/announce",
         element: <CompanyAnnounce />,
         loader: getAnnouncesByCompany,
+        action: announceEditAction,
       },
       {
         path: "announce/:id/edit",
@@ -80,6 +81,7 @@ const router = createBrowserRouter([
       {
         path: "/AddAnnounce",
         element: <AddAnnounce />,
+        loader: getContracts,
         action: announceEditAction,
       },
       {

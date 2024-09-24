@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Form, useLoaderData } from "react-router-dom";
 import AnnounceCard from "../components/AnnounceCard";
 
 export default function CompanyAnnounce() {
@@ -10,7 +10,12 @@ export default function CompanyAnnounce() {
         {announceData.length === 1 ? "annonce publiée" : "annonces publiées"}
       </h2>
       {announceData.map((announce) => (
-        <AnnounceCard key={announce.id} announce={announce} />
+        <div key={announce.id}>
+          <AnnounceCard key={announce.id} announce={announce} />
+          <Form method="delete">
+            <button type="submit">Supprimer</button>
+          </Form>
+        </div>
       ))}
     </section>
   );

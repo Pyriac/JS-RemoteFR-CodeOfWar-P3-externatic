@@ -38,6 +38,7 @@ class AnnounceRepository extends AbstractRepository {
   }
 
   async create(announce) {
+    console.info(announce);
     const [result] = await this.database.query(
       `insert into ${this.table} (job_title, location, description, min_salary, max_salary, benefits, telework, contract_id, company_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       [
@@ -56,6 +57,7 @@ class AnnounceRepository extends AbstractRepository {
   }
 
   async delete(id) {
+    console.info(id);
     const [result] = await this.database.query(
       `delete from ${this.table} where id = ?`,
       [id]

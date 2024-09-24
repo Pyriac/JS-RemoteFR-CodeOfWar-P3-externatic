@@ -1,6 +1,8 @@
+import { useLoaderData } from "react-router-dom";
 import PropTypes from "prop-types";
 
 function FormAnnounce({ announce }) {
+  const contracts = useLoaderData();
   return (
     <>
       <div className="EditAnnounce_div">
@@ -29,10 +31,11 @@ function FormAnnounce({ announce }) {
           required
         >
           <option value="">---------</option>
-          <option value="CDI">CDI</option>
-          <option value="CDD">CDD</option>
-          <option value="STAGE">Stage</option>
-          <option value="ALTERNANCE">Alternance</option>
+          {contracts.map((contract) => (
+            <option key={contract.id} value={contract.id}>
+              {contract.name}
+            </option>
+          ))}
         </select>
         <label htmlFor="telework">Télétravail</label>{" "}
         <select
