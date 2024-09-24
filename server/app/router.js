@@ -28,6 +28,7 @@ router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
 router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
+router.get("/announce/company/:id", announceActions.browseByCompany);
 router.get("/logout", candidateActions.disconnect);
 router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 

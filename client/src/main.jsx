@@ -11,6 +11,7 @@ import {
   announceDetailLoader,
   getAnnounces,
   getContracts,
+  getAnnouncesByCompany,
 } from "./services/announceLoader";
 
 import companyAction from "./services/companyAction";
@@ -24,6 +25,7 @@ import AddAnnounce from "./pages/AddAnnounce";
 import AnnounceDetail from "./pages/AnnounceDetail";
 import RegisterCompany from "./pages/RegisterCompany";
 import EditCandidate from "./pages/EditCandidate";
+import CompanyAnnounce from "./pages/CompanyAnnounce";
 import Legal from "./pages/Footer/Legal";
 import CGU from "./pages/Footer/Cgu";
 import Confidential from "./pages/Footer/Confidential";
@@ -48,6 +50,11 @@ const router = createBrowserRouter([
         path: "loginCompany",
         element: <LoginCompany />,
         action: companyAction,
+      },
+      {
+        path: "company/:id/announce",
+        element: <CompanyAnnounce />,
+        loader: getAnnouncesByCompany,
       },
       {
         path: "announce/:id/edit",

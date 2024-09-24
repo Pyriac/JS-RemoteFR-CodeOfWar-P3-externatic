@@ -29,6 +29,14 @@ class AnnounceRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readByCompany(companyId) {
+    const [rows] = await this.database.query(
+      `SELECT announce .*, c.id, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id WHERE company_id = ?`,
+      [companyId]
+    );
+    return rows;
+  }
+
   async create(announce) {
     const [result] = await this.database.query(
       `insert into ${this.table} (job_title, location, description, min_salary, max_salary, benefits, telework, contract_id, company_id) values (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
