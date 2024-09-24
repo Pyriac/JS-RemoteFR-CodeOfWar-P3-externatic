@@ -26,34 +26,31 @@ export default function LoginCompany() {
   };
 
   return (
-    <form onSubmit={sendCredentials} className="FormLogin">
+    <form onSubmit={sendCredentials}>
       <h2>Connectez-vous</h2>
-      <div className="ContainerForm">
-        <div className="ForLabel">
-          <label htmlFor="email">Email *</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            onChange={handleChangeEmail}
-          />
-        </div>
-        <div className="ForLabel">
-          <label htmlFor="password">Mot de Passe *</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            onChange={handleChangePassword}
-          />
-        </div>
+
+      <div>
+        <label htmlFor="email">Email :</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          onChange={handleChangeEmail}
+        />
       </div>
-      <button type="submit" value="connexion">
-        {" "}
-        connexion{" "}
-      </button>
+      <div>
+        <label htmlFor="password">Mot de Passe :</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          required
+          onChange={handleChangePassword}
+        />
+      </div>
+
+      <input type="submit" value="connexion" />
     </form>
   );
 }
