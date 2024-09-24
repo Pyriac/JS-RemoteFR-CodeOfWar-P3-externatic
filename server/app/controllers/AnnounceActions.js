@@ -4,7 +4,6 @@ const browse = async (req, res, next) => {
   try {
     const { contract } = req.query;
 
-    
     const announces = await tables.announce.readAll(contract);
 
     if (announces.length === 0) {
@@ -64,5 +63,19 @@ const edit = async (req, res, next) => {
   }
 };
 
-const announceActions = { browse, read, add, destroy, edit };
+const browseByCompany = async (req, res, next) => {
+  try {
+    const company = req.params.id;
+    const announce = await tables.announce.readByCompany(company);
+    if (announce == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(announce);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+const announceActions = { browse, read, add, destroy, edit, browseByCompany };
 module.exports = announceActions;

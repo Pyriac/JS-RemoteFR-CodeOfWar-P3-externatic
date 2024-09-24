@@ -28,6 +28,7 @@ router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
 router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
+router.get("/announce/company/:id", announceActions.browseByCompany);
 router.get("/logout", candidateActions.disconnect);
 router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 
@@ -39,6 +40,7 @@ router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
 router.post("/announce", announceActions.add);
+
 router.post(
   "/candidate",
   upload.uploadCandidateFile,
@@ -46,6 +48,7 @@ router.post(
   candidateAuth.hashPassword,
   candidateActions.add
 );
+
 router.post(
   "/company",
   upload.uploadCompanyFiles,
@@ -66,6 +69,7 @@ router.post(
   companyAuth.createToken,
   companyActions.login
 );
+
 router.post("/answer", answerActions.add);
 
 // Route to delete an item
