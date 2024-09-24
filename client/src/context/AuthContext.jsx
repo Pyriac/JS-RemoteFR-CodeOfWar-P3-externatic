@@ -9,7 +9,7 @@ function AuthProvider({ children }) {
   const [update, setUpdate] = useState(true);
 
   useEffect(() => {
-    const company = localStorage.getItem("authToken");
+    const company = localStorage.getItem("authToken"); 
     if (company) {
       setAuth(company);
     }

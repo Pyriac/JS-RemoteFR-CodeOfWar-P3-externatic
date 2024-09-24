@@ -29,7 +29,7 @@ function NavBar() {
               <li className="Login_Link">
                 <Link to="loginCompany"> Se connecter</Link>
               </li>{" "}
-            </>
+            </> 
           ) : (
             <li className="Navbar_disconnected">
               <Link to="/">
