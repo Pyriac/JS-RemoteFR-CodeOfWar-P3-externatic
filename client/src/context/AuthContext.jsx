@@ -2,33 +2,33 @@ import { createContext, useState, useEffect, useMemo } from "react";
 import PropTypes from "prop-types";
 import myAxios from "../services/myAxios";
 
-const AuthContext = createContext();
+const authCompanyContext = createContext();
 
-function AuthProvider({ children }) {
-  const [auth, setAuth] = useState(null);
+function AuthCompanyProvider({ children }) {
+  const [authCompany, setAuthCompany] = useState(null);
   const [update, setUpdate] = useState(true);
 
   useEffect(() => {
     const company = localStorage.getItem("authToken"); 
     if (company) {
-      setAuth(company);
+      setAuthCompany(company);
     }
     setUpdate(false);
   }, []);
 
   const login = (company) => {
     localStorage.setItem("authToken", company);
-    setAuth(company);
+    setAuthCompany(company);
   };
 
-  const logout = async () => {
+  const logoutCompany = async () => {
     try {
       const response = await myAxios.get("/api/logout", {
         withCredentials: true,
       });
       if (response.status === 200) {
         localStorage.removeItem("authToken");
-        setAuth(null);
+        setAuthCompany(null);
       }
     } catch (error) {
       console.error("Erreur de déconnexion:", error);
@@ -36,14 +36,14 @@ function AuthProvider({ children }) {
   };
 
   const value = useMemo(
-    () => ({ auth, login, logout, update }),
-    [auth, update]
+    () => ({ authCompany, login, logoutCompany, update }),
+    [authCompany, update]
   );
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return <authCompanyContext.Provider value={value}>{children}</authCompanyContext.Provider>;
 }
 
-export { AuthContext, AuthProvider };
+export { authCompanyContext, AuthCompanyProvider };
 
-AuthProvider.propTypes = {
+AuthCompanyProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

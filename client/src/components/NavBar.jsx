@@ -1,16 +1,19 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthentificationContext";
+import { authCompanyContext } from "../context/AuthContext";
 import Logo from "../assets/images/Logo.png";
 import "../assets/styles/Navbar.css";
 
 function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const { auth, logout } = useContext(AuthContext);
+  const {auth, logout } = useContext(AuthContext);
+
+  const {authCompany, logoutCompany} = useContext(authCompanyContext);
 
   const handleLogout = () => {
     logout();
+    logoutCompany();
   };
 
   const toggleMenu = () => {
@@ -21,15 +24,15 @@ function NavBar() {
 <nav className="NavBar">
       <div className="Brand_Nav Desktop">
         <ul className="User_Actions">
-          {!auth ? (
+          {!auth && !authCompany ? (
             <>
               <li className="Register_Link">
                 <Link to="/register/candidate">Créer un compte</Link>
               </li>
               <li className="Login_Link">
-                <Link to="loginCompany"> Se connecter</Link>
+                <Link to="/loginCompany"> Se connecter</Link>
               </li>{" "}
-            </> 
+            </>
           ) : (
             <li className="Navbar_disconnected">
               <Link to="/">

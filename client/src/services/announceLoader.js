@@ -37,3 +37,9 @@ export function getContracts() {
     .then((response) => response.data)
     .catch((error) => console.error(error));
 }
+
+export const getAnnouncesByCompany = async ({ params }) => {
+  console.info(params.id);
+  const response = await myAxios.get(`/api/announce/company/${params.id}`);
+  return response.data;
+};

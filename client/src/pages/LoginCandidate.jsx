@@ -1,11 +1,10 @@
-
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { authCompanyContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthentificationContext";
 import myAxios from "../services/myAxios";
 
-export default function LoginCompany() {
-  const { login } = useContext(authCompanyContext);
+export default function LoginCandidate() {
+  const { login } = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -15,7 +14,7 @@ export default function LoginCompany() {
 
     try {
       const response = await myAxios.post(
-        "/api/loginCompany",
+        "/api/login",
         { email, password },
         { withCredentials: true }
       );
