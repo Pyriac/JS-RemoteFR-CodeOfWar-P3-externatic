@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { AuthCompanyProvider }  from "./context/AuthContext";
+import { AuthCompanyProvider } from "./context/AuthContext";
 
 import { AuthProvider } from "./context/AuthentificationContext";
 import announceEditAction from "./services/announceEditAction";
@@ -110,7 +110,7 @@ const router = createBrowserRouter([
         loader: candidateLoader.CandidateDetailLoader,
         action: candidateActions,
       },
-      
+
       {
         path: "edit/company/:id",
         element: <EditCompany />,
@@ -147,7 +147,7 @@ root.render(
   <React.StrictMode>
     <AuthProvider>
       <AuthCompanyProvider>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
       </AuthCompanyProvider>
     </AuthProvider>
   </React.StrictMode>

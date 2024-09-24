@@ -7,9 +7,9 @@ import "../assets/styles/Navbar.css";
 
 function NavBar() {
   const [isMenuOpen, setMenuOpen] = useState(false);
-  const {auth, logout } = useContext(AuthContext);
+  const { auth, logout } = useContext(AuthContext);
 
-  const {authCompany, logoutCompany} = useContext(authCompanyContext);
+  const { authCompany, logoutCompany } = useContext(authCompanyContext);
 
   const handleLogout = () => {
     logout();
@@ -21,7 +21,7 @@ function NavBar() {
   };
 
   return (
-<nav className="NavBar">
+    <nav className="NavBar">
       <div className="Brand_Nav Desktop">
         <ul className="User_Actions">
           {!auth && !authCompany ? (
@@ -89,8 +89,5 @@ function NavBar() {
     </nav>
   );
 }
-
-
-
 
 export default NavBar;

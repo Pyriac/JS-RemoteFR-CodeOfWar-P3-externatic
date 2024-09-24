@@ -81,6 +81,14 @@ const disconnect = async (req, res, next) => {
   }
 };
 
-const companyActions = { browse, read, add, destroy, edit, login, isLogged,
-  disconnect, };
+const companyActions = {
+  browse,
+  read,
+  add,
+  destroy,
+  edit,
+  login,
+  isLogged,
+  disconnect,
+};
 module.exports = companyActions;

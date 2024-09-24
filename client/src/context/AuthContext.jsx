@@ -9,7 +9,7 @@ function AuthCompanyProvider({ children }) {
   const [update, setUpdate] = useState(true);
 
   useEffect(() => {
-    const company = localStorage.getItem("authToken"); 
+    const company = localStorage.getItem("authToken");
     if (company) {
       setAuthCompany(company);
     }
@@ -39,7 +39,11 @@ function AuthCompanyProvider({ children }) {
     () => ({ authCompany, login, logoutCompany, update }),
     [authCompany, update]
   );
-  return <authCompanyContext.Provider value={value}>{children}</authCompanyContext.Provider>;
+  return (
+    <authCompanyContext.Provider value={value}>
+      {children}
+    </authCompanyContext.Provider>
+  );
 }
 
 export { authCompanyContext, AuthCompanyProvider };
