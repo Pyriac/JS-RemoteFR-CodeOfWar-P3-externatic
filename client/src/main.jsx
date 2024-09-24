@@ -58,9 +58,20 @@ const router = createBrowserRouter([
         action: announceEditAction,
       },
       {
-        path: "announce/:id/edit",
+        path: "announce/edit/:id",
         element: <EditAnnounce />,
-        loader: announceIdLoader,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const id = url.pathname.split("/").pop();
+          const [contracts, announce] = await Promise.all([
+            getContracts(),
+            announceIdLoader({ params: id }),
+          ]);
+          return {
+            contracts,
+            announce,
+          };
+        },
         action: announceEditAction,
       },
       {

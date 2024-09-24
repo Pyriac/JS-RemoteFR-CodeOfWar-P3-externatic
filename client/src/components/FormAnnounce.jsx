@@ -1,8 +1,6 @@
-import { useLoaderData } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function FormAnnounce({ announce }) {
-  const contracts = useLoaderData();
+function FormAnnounce({ announce, contracts }) {
   return (
     <>
       <div className="EditAnnounce_div">
@@ -120,9 +118,15 @@ FormAnnounce.propTypes = {
     telework: PropTypes.string,
     description: PropTypes.string,
     benefits: PropTypes.string,
-    min_salary: PropTypes.number,
-    max_salary: PropTypes.number,
+    min_salary: PropTypes.string,
+    max_salary: PropTypes.string,
   }).isRequired,
+  contracts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default FormAnnounce;
