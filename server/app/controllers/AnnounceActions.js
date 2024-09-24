@@ -4,7 +4,6 @@ const browse = async (req, res, next) => {
   try {
     const { contract } = req.query;
 
-    
     const announces = await tables.announce.readAll(contract);
 
     if (announces.length === 0) {
