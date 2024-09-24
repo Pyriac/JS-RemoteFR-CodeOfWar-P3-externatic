@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         loader: companyLoader.AllCompanyLoader,
       },
       {
-        path: "loginCompany",
+        path: "login/company",
         element: <LoginCompany />,
         action: companyAction,
       },
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
         action: candidateActions,
       },
       {
-        path: "/login",
+        path: "/login/candidate",
         element: <LoginCandidate />,
       },
       {
