@@ -9,7 +9,7 @@ function AuthCompanyProvider({ children }) {
   const [update, setUpdate] = useState(true);
 
   useEffect(() => {
-    const company = localStorage.getItem("authToken");
+    const company = localStorage.getItem("authCompanyToken");
     if (company) {
       setAuthCompany(company);
     }
@@ -17,7 +17,6 @@ function AuthCompanyProvider({ children }) {
   }, []);
 
   const login = (company) => {
-    console.info(company);
     localStorage.setItem("authCompanyToken", company);
     setAuthCompany(company);
   };
