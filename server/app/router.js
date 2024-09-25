@@ -81,7 +81,7 @@ router.delete("/company/:id", companyActions.destroy);
 router.delete("/candidate/:id", candidateActions.destroy);
 
 // Route to edit an item
-router.put("/announce/:id", announceActions.edit);
+router.put("/announce/:id", middleware.takeCompanyId, announceActions.edit);
 router.put("/company/:id", upload.uploadCompanyFiles, companyActions.edit);
 router.put("/candidate/:id", upload.uploadCandidateFile, candidateActions.edit);
 /* ************************************************************************* */
