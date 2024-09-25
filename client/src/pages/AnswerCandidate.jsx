@@ -1,25 +1,19 @@
 import { useLoaderData } from "react-router-dom";
+import MyAnswers from "../components/MyAnswers";
 
+function AnswerCandidate() {
+  const answers = useLoaderData();
 
-function AnswerCandidate(){
-    const answerCandidates = useLoaderData();
-
-    return(
-        <div>
-            <h2>Mes Candidatures Envoyées</h2>
-            {answerCandidates.map((answerCandidate) => (
-                <div key={answerCandidate.id}>
-                    <p>{answerCandidate.companyName}</p>
-                    <p>{answerCandidate.job_title}</p>
-                    <p>{answerCandidate.contractName}</p>
-                    <p>{answerCandidate.description}</p>
-                    <p>{answerCandidate.location}</p>
-                </div>
-            ))}
-          
-        </div>
-    )
-
+  return (
+    <div className="Container_Answer">
+      <h2>Mes Candidatures Envoyées {`(${answers.length})`}</h2>
+      <div>
+        {answers.map((answer) => (
+          <MyAnswers key={answer.id} myAnswer={answer} />
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default AnswerCandidate;

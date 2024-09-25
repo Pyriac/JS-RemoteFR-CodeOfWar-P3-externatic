@@ -20,8 +20,9 @@ class AnswerRepository extends AbstractRepository {
     return rows;
   }
 
-  async readByCandidate(candidateId){
-    const [rows] = await this.database.query(`SELECT company.name as companyName, contract.name as contractName, announce.*
+  async readByCandidate(candidateId) {
+    const [rows] = await this.database.query(
+      `SELECT company.name as companyName, contract.name as contractName, announce.*
       FROM
       candidate INNER JOIN ${this.table} on candidate.id = ${this.table}.candidate_id
       INNER JOIN announce ON ${this.table}.announce_id = announce.id

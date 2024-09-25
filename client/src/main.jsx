@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "./context/AuthentificationContext";
 import announceEditAction from "./services/announceEditAction";
@@ -40,7 +39,6 @@ import LoginCompany from "./pages/LoginCompany";
 import Forbidden from "./pages/Forbidden";
 import EditCompany from "./pages/EditCompany";
 import AnswerCandidate from "./pages/AnswerCandidate";
-
 
 const router = createBrowserRouter([
   {
@@ -115,8 +113,7 @@ const router = createBrowserRouter([
       {
         path: "candidate/answer",
         element: <AnswerCandidate />,
-        loader:  candidateLoader.getAnswerCandidate,
-        
+        loader: candidateLoader.getAnswerCandidate,
       },
       {
         path: "edit/company/:id",
