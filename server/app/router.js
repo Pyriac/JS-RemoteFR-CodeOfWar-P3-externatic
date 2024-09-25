@@ -10,16 +10,13 @@ const router = express.Router();
 
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
-
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
 const upload = require("./services/upload");
-
 const candidateAuth = require("./services/candidateAuth");
-
 const companyAuth = require("./services/companyAuth");
-
 const contractActions = require("./controllers/ContractActions");
+const middleware = require("./services/middleware");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
@@ -30,7 +27,11 @@ router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
 router.get("/logout", companyActions.disconnect);
 router.get("/checkAuth", companyAuth.verifyToken, companyActions.isLogged);
-router.get("/announce/company/:id", announceActions.browseByCompany);
+router.get(
+  "/announce/company/:id",
+  middleware.verifyUser,
+  announceActions.browseByCompany
+);
 router.get("/logout", candidateActions.disconnect);
 router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 
@@ -75,11 +76,7 @@ router.post(
 router.post("/answer", answerActions.add);
 
 // Route to delete an item
-router.delete(
-  "/announce/:id",
-  companyAuth.verifyToken,
-  announceActions.destroy
-);
+router.delete("/announce/:id", announceActions.destroy);
 router.delete("/company/:id", companyActions.destroy);
 router.delete("/candidate/:id", candidateActions.destroy);
 
