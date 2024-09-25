@@ -1,3 +1,4 @@
+import { Form } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function Announcefourthbox({ announce }) {
@@ -18,9 +19,11 @@ export default function Announcefourthbox({ announce }) {
           <button className="AnnounceDetail_discover_button" type="button">
             Découvrir l'entreprise
           </button>
-          <button className="AnnounceDetail_spontanée_button" type="button">
-            Candidature spontanée
-          </button>
+          <Form method="delete">
+            <button className="AnnounceDetail_spontanée_button" type="submit">
+              Supprimer l'annonce
+            </button>
+          </Form>
         </div>
       </div>
     </div>
