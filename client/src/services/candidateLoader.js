@@ -9,6 +9,15 @@ const CandidateDetailLoader = async ({ params }) => {
   }
 };
 
-const candidateLoader = { CandidateDetailLoader };
+const getAnswerCandidate = async () => {
+  try {
+    const response = await myAxios.get(`/api/answerCandidate`, {withCredentials: true});
+    return response.data;
+  } catch (error) {
+    throw new Response("", { status: 405 });
+  }
+}
+    
+const candidateLoader = { CandidateDetailLoader, getAnswerCandidate};
 
 export default candidateLoader;

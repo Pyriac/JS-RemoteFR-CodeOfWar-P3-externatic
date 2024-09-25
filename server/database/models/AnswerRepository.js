@@ -20,6 +20,19 @@ class AnswerRepository extends AbstractRepository {
     return rows;
   }
 
+  async readByCandidate(candidateId){
+    const [rows] = await this.database.query(`SELECT company.name as companyName, contract.name as contractName, announce.*
+      FROM
+      candidate INNER JOIN ${this.table} on candidate.id = ${this.table}.candidate_id
+      INNER JOIN announce ON ${this.table}.announce_id = announce.id
+      RIGHT JOIN company on announce.company_id = company.id
+      RIGHT JOIN contract on announce.contract_id = contract.id
+      WHERE candidate.id = ?`,
+      [candidateId]
+    );
+    return rows;
+  }
+
   async create(answer) {
     const [result] = await this.database.query(
       `insert into ${this.table} (announce_id, candidate_id) VALUES (?,?)`,
