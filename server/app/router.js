@@ -14,7 +14,7 @@ const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
 const upload = require("./services/upload");
-
+ 
 const candidateAuth = require("./services/candidateAuth");
 
 const companyAuth = require("./services/companyAuth");
@@ -28,6 +28,8 @@ router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
 router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
+router.get("/logout", companyActions.disconnect);
+router.get("/checkAuth", companyAuth.verifyToken, companyActions.isLogged);
 router.get("/announce/company/:id", announceActions.browseByCompany);
 router.get("/logout", candidateActions.disconnect);
 router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);

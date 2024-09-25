@@ -1,59 +1,59 @@
-import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { authCompanyContext } from "../context/AuthContext";
+import myAxios from "../services/myAxios";
 
 export default function LoginCompany() {
+  const { login } = useContext(authCompanyContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const handleChangeEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleChangePassword = (event) => {
-    setPassword(event.target.value);
-  };
-
-  const sendCredentials = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    axios
-      .post(
-        `${import.meta.env.VITE_API_URL}/api/loginCompany`,
+
+    try {
+      const response = await myAxios.post( 
+        "/api/loginCompany",
         { email, password },
         { withCredentials: true }
-      )
-      .then((response) => console.info(response))
-      .catch((error) => console.error(error));
+      );
+
+      const { id } = response.data;
+
+      login(id);
+      navigate("/");
+    } catch (error) {
+      console.error("Erreur de connexion :", error);
+    }
   };
 
   return (
-    <form onSubmit={sendCredentials} className="FormLogin">
+    <form onSubmit={handleSubmit} className="FormLogin">
       <h2>Connectez-vous</h2>
       <div className="ContainerForm">
         <div className="ForLabel">
-          <label htmlFor="email">Email *</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            onChange={handleChangeEmail}
-          />
-        </div>
-        <div className="ForLabel">
-          <label htmlFor="password">Mot de Passe *</label>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            required
-            onChange={handleChangePassword}
-          />
-        </div>
+        <label htmlFor="email">Email *</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          required
+        />
       </div>
-      <button type="submit" value="connexion">
-        {" "}
-        connexion{" "}
-      </button>
+      <div className="ForLabel">
+        <label htmlFor="password">Mot de passe *</label>
+        <input
+          type="password"
+          id="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+          required
+        />
+      </div>
+      </div>
+      <button type="submit">Se connecter</button>
     </form>
   );
 }

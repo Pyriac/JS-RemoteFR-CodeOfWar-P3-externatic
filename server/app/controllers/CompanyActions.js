@@ -6,7 +6,7 @@ const browse = async (req, res, next) => {
     res.json(company);
   } catch (error) {
     next(error);
-  }
+  } 
 };
 
 const read = async (req, res, next) => {
@@ -65,6 +65,30 @@ const login = async (req, res, next) => {
     next(error);
   }
 };
+const isLogged = async (req, res, next) => {
+  try {
+    res.status(200).json({ message: "vous êtes bien connecté" });
+  } catch (error) {
+    next(error);
+  }
+};
 
-const companyActions = { browse, read, add, destroy, edit, login };
+const disconnect = async (req, res, next) => {
+  try {
+    res.clearCookie("auth").sendStatus(200);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const companyActions = {
+  browse,
+  read,
+  add,
+  destroy,
+  edit,
+  login,
+  isLogged,
+  disconnect,
+};
 module.exports = companyActions;

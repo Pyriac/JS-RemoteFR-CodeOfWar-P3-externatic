@@ -8,7 +8,7 @@ const hashingOptions = {
   memoryCost: 19 * 2 ** 10,
   timeCost: 2,
   parallelism: 1,
-};
+}; 
 
 const hashPassword = async (req, res, next) => {
   try {
