@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
@@ -24,9 +26,15 @@ const read = async (req, res, next) => {
 
 const add = async (req, res, next) => {
   const answer = req.body;
+  const candidate = req.cookies.auth;
   try {
-    const insertId = await tables.answer.create(answer);
-    res.status(201).json({ insertId });
+    const decodeToken = await jwt.decode(candidate, process.env.APP_SECRET);
+    const candidateId = decodeToken.id;
+    const insertId = await tables.answer.create(answer, candidateId);
+    res.status(201).json({
+      insertId,
+      message: "Votre CV a bien été transmis à l'entreprise",
+    });
   } catch (error) {
     next(error);
   }
