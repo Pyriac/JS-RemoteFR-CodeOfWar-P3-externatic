@@ -29,10 +29,11 @@ export default function LoginCompany() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email :</label>
-
+    <form onSubmit={handleSubmit} className="FormLogin">
+      <h2>Connectez-vous</h2>
+      <div className="ContainerForm">
+        <div className="ForLabel">
+        <label htmlFor="email">Email *</label>
         <input
           type="email"
           id="email"
@@ -41,9 +42,8 @@ export default function LoginCompany() {
           required
         />
       </div>
-      <div>
-        <label htmlFor="password">Mot de passe :</label>
-
+      <div className="ForLabel">
+        <label htmlFor="password">Mot de passe *</label>
         <input
           type="password"
           id="password"
@@ -51,6 +51,7 @@ export default function LoginCompany() {
           onChange={(event) => setPassword(event.target.value)}
           required
         />
+      </div>
       </div>
       <button type="submit">Se connecter</button>
     </form>

@@ -1,0 +1,87 @@
+.FormLogin {
+  background-image: url("../images/wave_top.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.FormLogin > h2 {
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-top: 1rem;
+}
+.FormLogin > .ContainerForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--primary-color);
+  width: 90%;
+  margin: 4rem;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.FormLogin > .ContainerForm > .ForLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  width: 100%;
+}
+.FormLogin > .ContainerForm > .ForLabel label {
+  font-family: var(--primary-font);
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.FormLogin > .ContainerForm > .ForLabel input {
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  border: 1px solid rgba(0, 0, 0, 1);
+  font-family: var(--primary-font);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.8rem;
+  width: 90%;
+}
+
+.FormLogin > .ContainerForm > .ForLabel input:hover {
+  background-color: rgba(52, 211, 153, 0.05);
+}
+.FormLogin button {
+  margin: 1.5rem 0rem;
+  padding: 0.5rem 0rem;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+  background-color: var(--secondary-color);
+  width: 60%;
+}
+
+@media (min-width: 993px) {
+  .FormLogin {
+    background-size: 100% 30%;
+  }
+  .FormLogin > .ContainerForm {
+    width: 60%;
+    margin: 7rem;
+    margin-bottom: 0;
+  }
+  .FormLogin button {
+    width: 30%;
+  }
+}

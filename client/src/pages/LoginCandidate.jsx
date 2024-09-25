@@ -29,29 +29,34 @@ export default function LoginCandidate() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="email">Email :</label>
+    <form onSubmit={handleSubmit} className="FormLogin">
+       <h2>Connectez-vous</h2>
+       <div className="ContainerForm">
+        <div className="ForLabel">
+          <label htmlFor="email">Email *</label>
 
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="password">Mot de passe :</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            required
+          />
+        </div>
+        <div className="ForLabel">
+          <label htmlFor="password">Mot de passe *</label>
 
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-        />
-      </div>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            required
+          />
+        </div>
+
+       </div>
+      
       <button type="submit">Se connecter</button>
     </form>
   );
