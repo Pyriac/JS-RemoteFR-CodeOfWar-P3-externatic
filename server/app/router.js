@@ -14,7 +14,7 @@ const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
 const upload = require("./services/upload");
-
+ 
 const candidateAuth = require("./services/candidateAuth");
 
 const companyAuth = require("./services/companyAuth");

@@ -11,7 +11,7 @@ import companyLoader from "./services/companyLoader";
 import {
   announceIdLoader,
   announceDetailLoader,
-  getAnnounces,
+  getAnnounces, 
   getContracts,
   getAnnouncesByCompany,
 } from "./services/announceLoader";

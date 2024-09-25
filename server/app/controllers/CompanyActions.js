@@ -6,7 +6,7 @@ const browse = async (req, res, next) => {
     res.json(company);
   } catch (error) {
     next(error);
-  }
+  } 
 };
 
 const read = async (req, res, next) => {

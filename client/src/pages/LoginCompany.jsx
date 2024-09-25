@@ -13,7 +13,7 @@ export default function LoginCompany() {
     event.preventDefault();
 
     try {
-      const response = await myAxios.post(
+      const response = await myAxios.post( 
         "/api/loginCompany",
         { email, password },
         { withCredentials: true }
