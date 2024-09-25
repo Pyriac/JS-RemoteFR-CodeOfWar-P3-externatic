@@ -14,6 +14,16 @@ const verifyUser = async (req, res, next) => {
   }
 };
 
-const middleware = { verifyUser };
+const takeCompanyId = async (req, res, next) => {
+  const { auth } = req.cookies;
+  const userCookie = await jwt.decode(auth, process.env.APP_SECRET);
+  const cookieId = userCookie.id;
+  req.body.company_id = cookieId;
+  if (req.body.company_id) {
+    next();
+  }
+};
+
+const middleware = { verifyUser, takeCompanyId };
 
 module.exports = middleware;

@@ -42,7 +42,7 @@ router.get("/candidate/:id", candidateActions.read);
 router.get("/answer/:id", answerActions.read);
 
 // Route to add a new item
-router.post("/announce", announceActions.add);
+router.post("/announce", middleware.takeCompanyId, announceActions.add);
 
 router.post(
   "/candidate",
