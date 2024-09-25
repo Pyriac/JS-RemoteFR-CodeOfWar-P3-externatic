@@ -14,7 +14,7 @@ const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
 const upload = require("./services/upload");
- 
+
 const candidateAuth = require("./services/candidateAuth");
 
 const companyAuth = require("./services/companyAuth");
@@ -75,7 +75,11 @@ router.post(
 router.post("/answer", answerActions.add);
 
 // Route to delete an item
-router.delete("/announce/:id", announceActions.destroy);
+router.delete(
+  "/announce/:id",
+  companyAuth.verifyToken,
+  announceActions.destroy
+);
 router.delete("/company/:id", companyActions.destroy);
 router.delete("/candidate/:id", candidateActions.destroy);
 
