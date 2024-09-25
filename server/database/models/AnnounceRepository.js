@@ -55,12 +55,12 @@ class AnnounceRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  async delete(id) {
+  async delete(id, cookieId) {
     const [result] = await this.database.query(
-      `DELETE from answer WHERE announce_id = ?`,
-      [id]
+      `DELETE FROM answer WHERE announce_id = ? AND announce_id IN (SELECT id FROM ${this.table} WHERE id = ? AND company_id = ?);
+`,
+      [id, id, cookieId]
     );
-    await this.database.query(`DELETE from ${this.table} where id = ?`, [id]);
     return result.affectedRows;
   }
 

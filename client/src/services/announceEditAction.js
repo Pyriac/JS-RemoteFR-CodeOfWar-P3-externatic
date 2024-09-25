@@ -39,7 +39,9 @@ const announceEditAction = async ({ request, params }) => {
       return redirect(`/`);
     }
     case "delete": {
-      await myAxios.delete(`/api/announce/${params.id}`);
+      await myAxios.delete(`/api/announce/${params.id}`, {
+        withCredentials: true,
+      });
       return redirect(`/`);
     }
 
