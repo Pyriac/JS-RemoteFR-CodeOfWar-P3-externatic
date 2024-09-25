@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { AuthCompanyProvider } from "./context/AuthContext";
+
 import { AuthProvider } from "./context/AuthentificationContext";
 import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
@@ -11,7 +13,7 @@ import companyLoader from "./services/companyLoader";
 import {
   announceIdLoader,
   announceDetailLoader,
-  getAnnounces,
+  getAnnounces, 
   getContracts,
   getAnnouncesByCompany,
 } from "./services/announceLoader";
@@ -36,6 +38,7 @@ import CookiesPolicy from "./pages/Footer/CookiesPolicy";
 import RegisterCandidat from "./pages/RegisterCandidat";
 import LoginCandidate from "./pages/LoginCandidate";
 import LoginCompany from "./pages/LoginCompany";
+
 import Forbidden from "./pages/Forbidden";
 import EditCompany from "./pages/EditCompany";
 import AnswerCandidate from "./pages/AnswerCandidate";
@@ -58,11 +61,23 @@ const router = createBrowserRouter([
         path: "company/:id/announce",
         element: <CompanyAnnounce />,
         loader: getAnnouncesByCompany,
+        action: announceEditAction,
       },
       {
-        path: "announce/:id/edit",
+        path: "announce/edit/:id",
         element: <EditAnnounce />,
-        loader: announceIdLoader,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const id = url.pathname.split("/").pop();
+          const [contracts, announce] = await Promise.all([
+            getContracts(),
+            announceIdLoader({ params: id }),
+          ]);
+          return {
+            contracts,
+            announce,
+          };
+        },
         action: announceEditAction,
       },
       {
@@ -83,12 +98,14 @@ const router = createBrowserRouter([
       {
         path: "/AddAnnounce",
         element: <AddAnnounce />,
+        loader: getContracts,
         action: announceEditAction,
       },
       {
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+        action: announceEditAction,
       },
       {
         path: "register/company",
@@ -110,6 +127,7 @@ const router = createBrowserRouter([
         loader: candidateLoader.CandidateDetailLoader,
         action: candidateActions,
       },
+
       {
         path: "candidate/answer",
         element: <AnswerCandidate />,
@@ -150,7 +168,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <AuthCompanyProvider>
+        <RouterProvider router={router} />
+      </AuthCompanyProvider>
     </AuthProvider>
   </React.StrictMode>
 );

@@ -20,7 +20,7 @@ export const announceDetailLoader = async ({ params }) => {
 };
 
 export const announceIdLoader = async ({ params }) => {
-  const response = await myAxios.get(`/api/announce/${params.id}`);
+  const response = await myAxios.get(`/api/announce/${params}`);
   return response.data;
 };
 
