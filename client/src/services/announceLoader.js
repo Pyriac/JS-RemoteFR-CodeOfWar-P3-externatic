@@ -20,7 +20,7 @@ export const announceDetailLoader = async ({ params }) => {
 };
 
 export const announceIdLoader = async ({ params }) => {
-  const response = await myAxios.get(`/api/announce/${params.id}`);
+  const response = await myAxios.get(`/api/announce/${params}`);
   return response.data;
 };
 
@@ -39,7 +39,8 @@ export function getContracts() {
 }
 
 export const getAnnouncesByCompany = async ({ params }) => {
-  console.info(params.id);
-  const response = await myAxios.get(`/api/announce/company/${params.id}`);
+  const response = await myAxios.get(`/api/announce/company/${params.id}`, {
+    withCredentials: true,
+  });
   return response.data;
 };

@@ -1,6 +1,27 @@
+import axios from "axios";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
 
 export default function Announcefirstbox({ announce }) {
+  const { id: announceId } = useParams();
+  const [validate, setValidate] = useState();
+
+  const sendAnswer = (event) => {
+    event.preventDefault();
+    axios
+      .post(
+        `${import.meta.env.VITE_API_URL}/api/answer`,
+        { announceId },
+        { withCredentials: true }
+      )
+      .then((response) => setValidate(response.data.message))
+      .catch(
+        (error) => console.error(error),
+        setValidate("Vous avez déjà postulé à cette annonce")
+      );
+  };
+
   return (
     <div className="AnnounceDetail_jobtitle">
       <h1 className="AnnounceDetail_title">{announce.job_title}</h1>
@@ -14,12 +35,14 @@ export default function Announcefirstbox({ announce }) {
         </li>
       </ul>
       <div className="AnnounceDetail_announcesection_button">
-        <button className="AnnounceDetail_postuler_button" type="button">
+        <button
+          className="AnnounceDetail_postuler_button"
+          type="submit"
+          onClick={sendAnswer}
+        >
           Postuler
         </button>
-        <button className="AnnounceDetail_spontanée_button" type="button">
-          Candidature spontanée
-        </button>
+        <p className="AnnounceDetail_spontanée_button">{validate}</p>
       </div>
     </div>
   );

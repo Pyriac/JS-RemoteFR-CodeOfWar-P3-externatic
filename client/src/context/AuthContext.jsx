@@ -9,7 +9,7 @@ function AuthCompanyProvider({ children }) {
   const [update, setUpdate] = useState(true);
 
   useEffect(() => {
-    const company = localStorage.getItem("authToken");
+    const company = localStorage.getItem("authCompanyToken");
     if (company) {
       setAuthCompany(company);
     }
@@ -17,7 +17,7 @@ function AuthCompanyProvider({ children }) {
   }, []);
 
   const login = (company) => {
-    localStorage.setItem("authToken", company);
+    localStorage.setItem("authCompanyToken", company);
     setAuthCompany(company);
   };
 
@@ -27,7 +27,7 @@ function AuthCompanyProvider({ children }) {
         withCredentials: true,
       });
       if (response.status === 200) {
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("authCompanyToken");
         setAuthCompany(null);
       }
     } catch (error) {

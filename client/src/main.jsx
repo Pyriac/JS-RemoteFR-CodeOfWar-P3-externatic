@@ -58,11 +58,23 @@ const router = createBrowserRouter([
         path: "company/:id/announce",
         element: <CompanyAnnounce />,
         loader: getAnnouncesByCompany,
+        action: announceEditAction,
       },
       {
-        path: "announce/:id/edit",
+        path: "announce/edit/:id",
         element: <EditAnnounce />,
-        loader: announceIdLoader,
+        loader: async ({ request }) => {
+          const url = new URL(request.url);
+          const id = url.pathname.split("/").pop();
+          const [contracts, announce] = await Promise.all([
+            getContracts(),
+            announceIdLoader({ params: id }),
+          ]);
+          return {
+            contracts,
+            announce,
+          };
+        },
         action: announceEditAction,
       },
       {
@@ -81,14 +93,16 @@ const router = createBrowserRouter([
         errorElement: <Forbidden />,
       },
       {
-        path: "/AddAnnounce",
+        path: "announce/add",
         element: <AddAnnounce />,
+        loader: getContracts,
         action: announceEditAction,
       },
       {
         path: "announce/:id",
         element: <AnnounceDetail />,
         loader: announceDetailLoader,
+        action: announceEditAction,
       },
       {
         path: "register/company",

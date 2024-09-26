@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-function FormAnnounce({ announce }) {
+function FormAnnounce({ announce, contracts }) {
   return (
     <>
       <div className="EditAnnounce_div">
@@ -29,10 +29,11 @@ function FormAnnounce({ announce }) {
           required
         >
           <option value="">---------</option>
-          <option value="CDI">CDI</option>
-          <option value="CDD">CDD</option>
-          <option value="STAGE">Stage</option>
-          <option value="ALTERNANCE">Alternance</option>
+          {contracts.map((contract) => (
+            <option key={contract.id} value={contract.id}>
+              {contract.name}
+            </option>
+          ))}
         </select>
         <label htmlFor="telework">Télétravail</label>{" "}
         <select
@@ -117,9 +118,15 @@ FormAnnounce.propTypes = {
     telework: PropTypes.string,
     description: PropTypes.string,
     benefits: PropTypes.string,
-    min_salary: PropTypes.number,
-    max_salary: PropTypes.number,
+    min_salary: PropTypes.string,
+    max_salary: PropTypes.string,
   }).isRequired,
+  contracts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default FormAnnounce;
