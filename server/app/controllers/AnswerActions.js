@@ -24,6 +24,23 @@ const read = async (req, res, next) => {
   }
 };
 
+const readByCandidate = async (req, res, next) => {
+  try {
+    const token = req.cookies.auth;
+    const decodedToken = await jwt.decode(token);
+    const candidateId = decodedToken.id;
+
+    const answer = await tables.answer.readByCandidate(candidateId);
+    if (answer == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(answer);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
 const add = async (req, res, next) => {
   const answer = req.body;
   const candidate = req.cookies.auth;
@@ -50,5 +67,5 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const answerActions = { browse, read, add, destroy };
+const answerActions = { browse, read, readByCandidate, add, destroy };
 module.exports = answerActions;

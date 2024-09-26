@@ -15,7 +15,7 @@ import "./assets/styles/RegisterCandidat.css";
 import "./assets/styles/Login.css";
 import "./assets/styles/AnnounceByCompany.css";
 import "./assets/styles/announce.css";
-
+import "./assets/styles/AnswerCandidate.css";
 
 function App() {
   return (
