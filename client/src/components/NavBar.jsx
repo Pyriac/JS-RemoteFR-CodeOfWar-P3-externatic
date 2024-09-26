@@ -83,9 +83,16 @@ function NavBar() {
           <li className="Home">
             <Link to="/">Accueil</Link>
           </li>
-          <li>
-            <Link to="/announce?contract=">Les offres</Link>
-          </li>
+          {!authCompany ? (
+            <li>
+              <Link to="/announce?contract=">Les offres</Link>
+            </li>
+          ) : (
+            <li>
+              <Link to={`/company/${authCompany}/announce`}>Mes offres</Link>
+            </li>
+          )}
+
           <li>
             <Link to="/">Blog</Link>
           </li>
