@@ -72,7 +72,7 @@ function NavBar() {
             <Link to="/">Accueil</Link>
           </li>
           <li>
-            <Link to="/">Les offres</Link>
+            <Link to="/announce?contract=">Les offres</Link>
           </li>
           <li>
             <Link to="/">Blog</Link>

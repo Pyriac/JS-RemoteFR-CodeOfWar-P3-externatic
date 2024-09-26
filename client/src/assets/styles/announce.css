@@ -8,7 +8,7 @@
   font-family: var(--primary-font);
 }
 
-.announce_title {
+.Announce_title {
   display: block;
   text-align: center;
   font-family: var(--primary-font);
@@ -91,8 +91,9 @@
 }
 
 @media (min-width: 992px) {
-  .Container-announce-card {
-    margin: 10px;
+  .Container_announce_card {
+    display: flex;
+    margin: 20px;
   }
 
   .Filter_announce {
@@ -108,7 +109,7 @@
     justify-content: flex-start;
   }
 
-  .Card_map {
+  .Announce_card_map {
     display: flex;
   }
 

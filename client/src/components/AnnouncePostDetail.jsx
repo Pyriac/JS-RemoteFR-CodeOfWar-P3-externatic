@@ -13,11 +13,9 @@ export default function Announcesecondbox({ announce }) {
 }
 
 Announcesecondbox.propTypes = {
-  announce: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      description: PropTypes.string.isRequired,
-      benefits: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  announce: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    benefits: PropTypes.string.isRequired,
+  }).isRequired,
 };

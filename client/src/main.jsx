@@ -104,8 +104,8 @@ const router = createBrowserRouter([
       {
         path: "announce/:id",
         element: <AnnounceDetail />,
-        loader: announceDetailLoader,
         action: announceEditAction,
+        loader: announceDetailLoader,
       },
       {
         path: "register/company",

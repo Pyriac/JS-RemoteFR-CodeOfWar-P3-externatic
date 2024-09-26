@@ -5,7 +5,9 @@ import AnnounceDetailCompanyDescription from "../components/AnnounceDetailCompan
 import AnnounceDetailCompanyMore from "../components/AnnounceDetailCompanyMore";
 
 export default function AnnounceDetail() {
-  const announce = useLoaderData();
+  const announceData = useLoaderData();
+
+  const announce = announceData[0];
 
   return (
     <div className="AnnounceDetail_background">
