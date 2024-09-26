@@ -39,7 +39,8 @@ export function getContracts() {
 }
 
 export const getAnnouncesByCompany = async ({ params }) => {
-  console.info(params.id);
-  const response = await myAxios.get(`/api/announce/company/${params.id}`);
+  const response = await myAxios.get(`/api/announce/company/${params.id}`, {
+    withCredentials: true,
+  });
   return response.data;
 };

@@ -31,7 +31,7 @@ class AnnounceRepository extends AbstractRepository {
 
   async readByCompany(companyId) {
     const [rows] = await this.database.query(
-      `SELECT announce .*, c.id, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id WHERE company_id = ?`,
+      `SELECT announce .*, c.id AS contract_id, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id WHERE company_id = ?`,
       [companyId]
     );
     return rows;
@@ -55,12 +55,11 @@ class AnnounceRepository extends AbstractRepository {
     return result.insertId;
   }
 
-  async delete(id) {
+  async delete(id, cookieId) {
     const [result] = await this.database.query(
-      `DELETE from answer WHERE announce_id = ?`,
-      [id]
+      `DELETE FROM ${this.table} WHERE id = ? AND company_id = ?`,
+      [id, cookieId]
     );
-    await this.database.query(`DELETE from ${this.table} where id = ?`, [id]);
     return result.affectedRows;
   }
 

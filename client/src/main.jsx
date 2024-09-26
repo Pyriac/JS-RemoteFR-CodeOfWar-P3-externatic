@@ -11,7 +11,7 @@ import companyLoader from "./services/companyLoader";
 import {
   announceIdLoader,
   announceDetailLoader,
-  getAnnounces, 
+  getAnnounces,
   getContracts,
   getAnnouncesByCompany,
 } from "./services/announceLoader";
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
         errorElement: <Forbidden />,
       },
       {
-        path: "/AddAnnounce",
+        path: "announce/add",
         element: <AddAnnounce />,
         loader: getContracts,
         action: announceEditAction,
