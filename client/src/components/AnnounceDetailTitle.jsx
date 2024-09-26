@@ -21,14 +21,14 @@ export default function Announcefirstbox({ announce }) {
         setValidate("Vous avez déjà postulé à cette annonce")
       );
   };
-
+  // announce job_type à changer dans le li
   return (
     <div className="AnnounceDetail_jobtitle">
       <h1 className="AnnounceDetail_title">{announce.job_title}</h1>
       <p className="AnnounceDetail_bref">L'annonce en Bref</p>
       <ul key={announce.id}>
         <li>{announce.telework}</li>
-        <li>{announce.job_type}</li>
+        <li>{announce.contract_id}</li>
         <li>{announce.location}</li>
         <li>
           {announce.min_salary} - {announce.max_salary}

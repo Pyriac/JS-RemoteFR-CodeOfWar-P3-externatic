@@ -80,5 +80,17 @@ class AnnounceRepository extends AbstractRepository {
     );
     return result.affectedRows;
   }
+
+  async readAnnounceJoinCandidateCompany(announceId) {
+    const [rows] = await this.database.query(
+      `select company.name as comanyName, contract.name as contractName, announce.*
+      FROM ${this.table}
+      RIGHT JOIN company on announce.company_id = company.id
+      RIGHT JOIN contract on announce.contract_id = contract.id
+      WHERE announce.id = ?`,
+      [announceId]
+    );
+    return rows;
+  }
 }
 module.exports = AnnounceRepository;

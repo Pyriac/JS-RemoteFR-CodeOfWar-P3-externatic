@@ -10,9 +10,9 @@ export const announceLoader = async () => {
   }
 };
 
-export const announceDetailLoader = async ({ params }) => {
+export const announceDetailLoader = async (id) => {
   try {
-    const response = await myAxios.get(`/api/announce/${params.id}`);
+    const response = await myAxios.get(`/api/announce/${id}`);
     return response.data;
   } catch (error) {
     throw new Response("", { status: 405 });

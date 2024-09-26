@@ -14,7 +14,7 @@ const companyActions = require("./controllers/CompanyActions");
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
 const upload = require("./services/upload");
- 
+
 const candidateAuth = require("./services/candidateAuth");
 
 const companyAuth = require("./services/companyAuth");
@@ -35,7 +35,7 @@ router.get("/logout", candidateActions.disconnect);
 router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 
 // Route to get a specific item by ID
-router.get("/announce/:id", announceActions.read);
+router.get("/announce/:id", announceActions.browseWithCompanyContract);
 router.get("/company/:id", companyActions.read);
 router.get("/candidate/:id", candidateActions.read);
 router.get("/answer/:id", answerActions.read);
