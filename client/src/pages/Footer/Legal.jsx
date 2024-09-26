@@ -12,11 +12,7 @@ function Legal() {
         Cyrielle. Formateurs.
       </p>
       <h2 className="Legal_pages_h2">Hébergeur</h2>
-      <p className="Legal_pages_p">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat quis
-        quisquam deserunt in vitae voluptates impedit labore delectus, eum sit
-        dicta ex esse distinctio nobis sunt ratione rerum, asperiores laborum.
-      </p>
+      <p className="Legal_pages_p">Thunder cloud</p>
     </>
   );
 }

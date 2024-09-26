@@ -25,8 +25,7 @@ export default function HomePage() {
               <Link to="/register/candidate"> Cree ton profil en 3 clics </Link>
             </button>
             <button className="HomePage_recruit_button" type="button">
-            <Link to="/register/company">
-              Je recrute </Link>
+              <Link to="/register/company">Je recrute </Link>
             </button>
           </div>
         </div>

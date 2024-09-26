@@ -28,9 +28,7 @@ export default function Announcefourthbox({ announce }) {
 }
 
 Announcefourthbox.propTypes = {
-  announce: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  announce: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };

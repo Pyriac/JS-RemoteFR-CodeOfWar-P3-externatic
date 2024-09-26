@@ -30,8 +30,8 @@ export default function LoginCandidate() {
 
   return (
     <form onSubmit={handleSubmit} className="FormLogin">
-       <h2>Connectez-vous</h2>
-       <div className="ContainerForm">
+      <h2>Connectez-vous</h2>
+      <div className="ContainerForm">
         <div className="ForLabel">
           <label htmlFor="email">Email *</label>
 
@@ -40,6 +40,7 @@ export default function LoginCandidate() {
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            autoComplete="on"
             required
           />
         </div>
@@ -51,12 +52,12 @@ export default function LoginCandidate() {
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            autoComplete="on"
             required
           />
         </div>
+      </div>
 
-       </div>
-      
       <button type="submit">Se connecter</button>
     </form>
   );

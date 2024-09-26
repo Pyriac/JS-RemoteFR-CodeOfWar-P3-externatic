@@ -20,7 +20,6 @@ export default function AnnounceCard({ announce }) {
           <ul>
             <h2>{announce.job_title}</h2>
             <li>{announce.location}</li>
-            <li>{announce.description}</li>
             <li>
               {announce.min_salary} - {announce.max_salary}
             </li>
@@ -42,7 +41,6 @@ AnnounceCard.propTypes = {
     id: PropTypes.number.isRequired,
     job_title: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
     min_salary: PropTypes.number.isRequired,
     max_salary: PropTypes.number.isRequired,
     contract_name: PropTypes.string.isRequired,

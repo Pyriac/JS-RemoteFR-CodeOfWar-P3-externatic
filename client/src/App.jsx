@@ -16,7 +16,6 @@ import "./assets/styles/Login.css";
 import "./assets/styles/AnnounceByCompany.css";
 import "./assets/styles/announce.css";
 
-
 function App() {
   return (
     <>

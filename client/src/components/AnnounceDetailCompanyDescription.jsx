@@ -19,9 +19,7 @@ export default function Announcethirdbox({ announce }) {
 }
 
 Announcethirdbox.propTypes = {
-  announce: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-    })
-  ).isRequired,
+  announce: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }).isRequired,
 };

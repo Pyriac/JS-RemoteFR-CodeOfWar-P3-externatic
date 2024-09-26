@@ -13,7 +13,7 @@ export default function Announce() {
   return (
     <>
       <div className="Announce_background">
-        <h1 className="announce_title">Trouver un job</h1>
+        <h1 className="Announce_title">Trouver un job</h1>
 
         <div className="Announce_container_input">
           <select className="Filter_announce" onChange={handleChangeSelect}>
@@ -26,7 +26,7 @@ export default function Announce() {
           </select>
         </div>
       </div>
-      <div className="Card_map">
+      <div className="Announce_card_map">
         {announces.map((announce) => (
           <AnnounceCard announce={announce} key={announce.id} />
         ))}
