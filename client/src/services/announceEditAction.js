@@ -5,35 +5,43 @@ const announceEditAction = async ({ request, params }) => {
   const formData = await request.formData();
   switch (request.method.toLowerCase()) {
     case "put": {
-      await myAxios.put(`/api/announce/${params.id}`, {
-        job_title: formData.get("job_title"),
-        location: formData.get("location"),
-        description: formData.get("description"),
-        min_salary: formData.get("min_salary"),
-        max_salary: formData.get("max_salary"),
-        benefits: formData.get("benefits"),
-        contract_id: formData.get("job_type"),
-        telework: formData.get("telework"),
-        company_id: 1,
-      });
+      await myAxios.put(
+        `/api/announce/${params.id}`,
+        {
+          job_title: formData.get("job_title"),
+          location: formData.get("location"),
+          description: formData.get("description"),
+          min_salary: formData.get("min_salary"),
+          max_salary: formData.get("max_salary"),
+          benefits: formData.get("benefits"),
+          contract_id: formData.get("job_type"),
+          telework: formData.get("telework"),
+        },
+        { withCredentials: true }
+      );
       return redirect(`/`);
     }
     case "post": {
-      await myAxios.post("/api/announce", {
-        job_title: formData.get("job_title"),
-        location: formData.get("location"),
-        description: formData.get("description"),
-        min_salary: formData.get("min_salary"),
-        max_salary: formData.get("max_salary"),
-        benefits: formData.get("benefits"),
-        contract_id: formData.get("job_type"),
-        telework: formData.get("telework"),
-        company_id: 1,
-      });
+      await myAxios.post(
+        "/api/announce",
+        {
+          job_title: formData.get("job_title"),
+          location: formData.get("location"),
+          description: formData.get("description"),
+          min_salary: formData.get("min_salary"),
+          max_salary: formData.get("max_salary"),
+          benefits: formData.get("benefits"),
+          contract_id: formData.get("job_type"),
+          telework: formData.get("telework"),
+        },
+        { withCredentials: true }
+      );
       return redirect(`/`);
     }
     case "delete": {
-      await myAxios.delete(`/api/announce/${params.id}`);
+      await myAxios.delete(`/api/announce/${params.id}`, {
+        withCredentials: true,
+      });
       return redirect(`/`);
     }
 

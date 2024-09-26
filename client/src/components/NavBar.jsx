@@ -13,7 +13,7 @@ function NavBar() {
 
   const handleLogout = () => {
     logout();
-    logoutCompany(); 
+    logoutCompany();
   };
 
   const toggleMenu = () => {

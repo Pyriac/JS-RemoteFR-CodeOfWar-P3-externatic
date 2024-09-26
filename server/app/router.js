@@ -10,16 +10,13 @@ const router = express.Router();
 
 const announceActions = require("./controllers/AnnounceActions");
 const companyActions = require("./controllers/CompanyActions");
-
 const candidateActions = require("./controllers/CandidateActions");
 const answerActions = require("./controllers/AnswerActions");
 const upload = require("./services/upload");
- 
 const candidateAuth = require("./services/candidateAuth");
-
 const companyAuth = require("./services/companyAuth");
-
 const contractActions = require("./controllers/ContractActions");
+const middleware = require("./services/middleware");
 
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
@@ -30,7 +27,11 @@ router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
 router.get("/logout", companyActions.disconnect);
 router.get("/checkAuth", companyAuth.verifyToken, companyActions.isLogged);
-router.get("/announce/company/:id", announceActions.browseByCompany);
+router.get(
+  "/announce/company/:id",
+  middleware.verifyUser,
+  announceActions.browseByCompany
+);
 router.get("/logout", candidateActions.disconnect);
 router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 
@@ -41,7 +42,7 @@ router.get("/candidate/:id", candidateActions.read);
 router.get("/answer/:id", answerActions.read);
 router.get("/answerCandidate", answerActions.readByCandidate);
 // Route to add a new item
-router.post("/announce", announceActions.add);
+router.post("/announce", middleware.takeCompanyId, announceActions.add);
 
 router.post(
   "/candidate",
@@ -80,7 +81,7 @@ router.delete("/company/:id", companyActions.destroy);
 router.delete("/candidate/:id", candidateActions.destroy);
 
 // Route to edit an item
-router.put("/announce/:id", announceActions.edit);
+router.put("/announce/:id", middleware.takeCompanyId, announceActions.edit);
 router.put("/company/:id", upload.uploadCompanyFiles, companyActions.edit);
 router.put("/candidate/:id", upload.uploadCandidateFile, candidateActions.edit);
 /* ************************************************************************* */
