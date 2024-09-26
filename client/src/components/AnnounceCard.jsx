@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import CompanyAFAC from "../assets/images/Company_AFAC.png";
 
 export default function AnnounceCard({ announce }) {
-  console.info(announce);
   return (
     <div className="Container_announce_card">
       <div>
