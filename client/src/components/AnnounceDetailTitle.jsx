@@ -21,7 +21,7 @@ export default function Announcefirstbox({ announce }) {
         setValidate("Vous avez déjà postulé à cette annonce")
       );
   };
-  // announce job_type à changer dans le li
+
   return (
     <div className="AnnounceDetail_jobtitle">
       <h1 className="AnnounceDetail_title">{announce.job_title}</h1>
