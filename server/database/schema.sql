@@ -53,8 +53,8 @@ CREATE TABLE answer (
     announce_id INT UNSIGNED NOT NULL,
     candidate_id INT UNSIGNED NOT NULL,
     PRIMARY KEY (announce_id, candidate_id),
-    FOREIGN KEY (announce_id) REFERENCES announce(id),
-    FOREIGN KEY (candidate_id) REFERENCES candidate(id)
+    FOREIGN KEY (announce_id) REFERENCES announce(id) ON DELETE CASCADE,
+    FOREIGN KEY (candidate_id) REFERENCES candidate(id) ON DELETE CASCADE
 );
 
 

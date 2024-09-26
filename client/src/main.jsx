@@ -93,7 +93,7 @@ const router = createBrowserRouter([
         errorElement: <Forbidden />,
       },
       {
-        path: "/AddAnnounce",
+        path: "announce/add",
         element: <AddAnnounce />,
         loader: getContracts,
         action: announceEditAction,
