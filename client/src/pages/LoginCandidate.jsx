@@ -40,6 +40,7 @@ export default function LoginCandidate() {
             id="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
+            autoComplete="on"
             required
           />
         </div>
@@ -51,6 +52,7 @@ export default function LoginCandidate() {
             id="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
+            autoComplete="on"
             required
           />
         </div>
