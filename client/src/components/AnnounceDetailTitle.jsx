@@ -28,7 +28,7 @@ export default function Announcefirstbox({ announce }) {
       <p className="AnnounceDetail_bref">L'annonce en Bref</p>
       <ul key={announce.id}>
         <li>{announce.telework}</li>
-        <li>{announce.contract_name}</li>
+        <li>{announce.contractName}</li>
         <li>{announce.location}</li>
         <li>
           {announce.min_salary} - {announce.max_salary}
@@ -53,7 +53,7 @@ Announcefirstbox.propTypes = {
     id: PropTypes.number.isRequired,
     job_title: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
-    contract_name: PropTypes.string.isRequired,
+    contractName: PropTypes.string.isRequired,
     min_salary: PropTypes.number.isRequired,
     max_salary: PropTypes.number.isRequired,
     telework: PropTypes.string.isRequired,

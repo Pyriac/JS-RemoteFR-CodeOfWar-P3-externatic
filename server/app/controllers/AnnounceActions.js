@@ -86,5 +86,29 @@ const browseByCompany = async (req, res, next) => {
   }
 };
 
-const announceActions = { browse, read, add, destroy, edit, browseByCompany };
+const browseWithCompanyContract = async (req, res, next) => {
+  try {
+    const announceId = req.params.id;
+    const announce =
+      await tables.announce.readAnnounceJoinCandidateCompany(announceId);
+
+    if (announce == null) {
+      res.sendStatus(404);
+    } else {
+      res.json(announce);
+    }
+  } catch (error) {
+    next(error);
+  }
+};
+
+const announceActions = {
+  browse,
+  read,
+  add,
+  destroy,
+  edit,
+  browseByCompany,
+  browseWithCompanyContract,
+};
 module.exports = announceActions;

@@ -57,7 +57,7 @@ function NavBar() {
             <Link to="/register/candidate">Créer un compte</Link>
           </li>
           <li className="Login_Link">
-            <Link to="/login">Connexion</Link>
+            <Link to="/login/candidate">Connexion</Link>
           </li>
         </ul>
       </div>
