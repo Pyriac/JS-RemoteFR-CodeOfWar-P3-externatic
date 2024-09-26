@@ -1,6 +1,6 @@
 import { Form } from "react-router-dom";
 import PropTypes from "prop-types";
-// h2 a redre dynamique nom entreprise
+
 export default function Announcefourthbox({ announce }) {
   return (
     <div className="Announcedetail_company_more">
