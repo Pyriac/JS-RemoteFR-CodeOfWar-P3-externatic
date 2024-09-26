@@ -79,8 +79,7 @@ const browseByCompany = async (req, res, next) => {
 
 const browseWithCompanyContract = async (req, res, next) => {
   try {
-    const announceId = req.body.announce_id;
-
+    const announceId = req.params.id;
     const announce =
       await tables.announce.readAnnounceJoinCandidateCompany(announceId);
 

@@ -10,7 +10,9 @@ export default function Announcefourthbox({ announce }) {
       />
       <div key={announce.id}>
         <h2 className="Announcedetail_quote">Vous voulez en savoir</h2>
-        <h2 className="Announcedetail_quote_suit">D'avantage sur Capgemini</h2>
+        <h2 className="Announcedetail_quote_suit">
+          D'avantage sur {announce.companyName}
+        </h2>
         <p className="Announcedetail_4_texte">
           Et explorer leurs autres offres
         </p>

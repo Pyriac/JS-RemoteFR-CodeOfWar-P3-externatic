@@ -102,27 +102,8 @@ const router = createBrowserRouter([
         path: "announce/:id",
         element: <AnnounceDetail />,
         action: announceEditAction,
-        loader: async ({ params }) => {
-          const result = {
-            announce: await announceDetailLoader(params.id),
-            contracts: await getContracts(),
-          };
-          return result;
-        },
+        loader: announceDetailLoader,
       },
-      //  {
-      //   path: "/dashboard",
-      //   element: <Dashboard />,
-      //   loader: async () => {
-      //     const result = {
-      //       isConnected: await getAutorization(),
-      //       types: await getTypes(),
-      //       modeles: await getModeles(),
-      //     };
-      //     return result;
-      //   },
-      //   errorElement: <Forbidden />,
-      // },
       {
         path: "register/company",
         element: <RegisterCompany />,

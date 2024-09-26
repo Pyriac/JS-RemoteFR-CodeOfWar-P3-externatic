@@ -5,14 +5,14 @@ import AnnounceDetailCompanyDescription from "../components/AnnounceDetailCompan
 import AnnounceDetailCompanyMore from "../components/AnnounceDetailCompanyMore";
 
 export default function AnnounceDetail() {
-  const { announce, contracts } = useLoaderData();
-  console.info("depuis announce details", announce);
-  console.info("depuis announce details", contracts);
+  const announceData = useLoaderData();
+
+  const announce = announceData[0];
 
   return (
     <div className="AnnounceDetail_background">
       <div className="AnnounceDetail_general">
-        <AnnounceDetailTitle announce={announce} contracts={contracts} />
+        <AnnounceDetailTitle announce={announce} />
 
         <AnnounceDetailPost announce={announce} />
 
