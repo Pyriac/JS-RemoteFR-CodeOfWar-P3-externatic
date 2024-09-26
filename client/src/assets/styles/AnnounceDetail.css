@@ -56,8 +56,7 @@
   margin-top: 2rem;
 }
 
-.AnnounceDetail_postuler_button,
-.AnnounceDetail_spontanée_button {
+.AnnounceDetail_postuler_button {
   width: 100%;
   max-width: 150px;
   padding: 10px;
@@ -68,11 +67,6 @@
 .AnnounceDetail_postuler_button {
   background-color: var(--secondary-color);
   color: #fff;
-}
-
-.AnnounceDetail_spontanée_button {
-  background-color: #fff;
-  border: 1px solid #000;
 }
 
 .AnnounceDetail_post {
@@ -155,8 +149,7 @@
   gap: 1.5rem;
 }
 
-.AnnounceDetail_discover_button,
-.AnnounceDetail_spontanée_button {
+.AnnounceDetail_discover_button {
   display: flex;
   width: 100%;
   max-width: 150px;
@@ -170,11 +163,6 @@
 .AnnounceDetail_discover_button {
   background-color: #000;
   color: #fff;
-}
-
-.AnnounceDetail_spontanée_button {
-  background-color: #fff;
-  border: 1px solid #000;
 }
 
 .Announcedetail_company_more div {

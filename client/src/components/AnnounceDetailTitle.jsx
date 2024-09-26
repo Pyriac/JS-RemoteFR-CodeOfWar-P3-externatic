@@ -30,7 +30,7 @@ export default function Announcefirstbox({ announce }) {
       <p className="AnnounceDetail_bref">L'annonce en Bref</p>
       <ul key={announce.id}>
         <li>{announce.telework}</li>
-        <li>{announce.job_type}</li>
+        <li>{announce.contractName}</li>
         <li>{announce.location}</li>
         <li>
           {announce.min_salary} - {announce.max_salary}
@@ -55,15 +55,13 @@ export default function Announcefirstbox({ announce }) {
 }
 
 Announcefirstbox.propTypes = {
-  announce: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      job_title: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      job_type: PropTypes.string.isRequired,
-      min_salary: PropTypes.number.isRequired,
-      max_salary: PropTypes.number.isRequired,
-      telework: PropTypes.string.isRequired,
-    })
-  ).isRequired,
+  announce: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    job_title: PropTypes.string.isRequired,
+    location: PropTypes.string.isRequired,
+    contractName: PropTypes.string.isRequired,
+    min_salary: PropTypes.number.isRequired,
+    max_salary: PropTypes.number.isRequired,
+    telework: PropTypes.string.isRequired,
+  }).isRequired,
 };

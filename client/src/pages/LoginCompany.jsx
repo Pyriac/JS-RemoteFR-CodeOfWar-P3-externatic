@@ -13,7 +13,7 @@ export default function LoginCompany() {
     event.preventDefault();
 
     try {
-      const response = await myAxios.post( 
+      const response = await myAxios.post(
         "/api/loginCompany",
         { email, password },
         { withCredentials: true }
@@ -33,25 +33,27 @@ export default function LoginCompany() {
       <h2>Connectez-vous</h2>
       <div className="ContainerForm">
         <div className="ForLabel">
-        <label htmlFor="email">Email *</label>
-        <input
-          type="email"
-          id="email"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
-          required
-        />
-      </div>
-      <div className="ForLabel">
-        <label htmlFor="password">Mot de passe *</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-          required
-        />
-      </div>
+          <label htmlFor="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+            autoComplete="on"
+            required
+          />
+        </div>
+        <div className="ForLabel">
+          <label htmlFor="password">Mot de passe *</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="on"
+            required
+          />
+        </div>
       </div>
       <button type="submit">Se connecter</button>
     </form>

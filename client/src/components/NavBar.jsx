@@ -57,7 +57,7 @@ function NavBar() {
             <Link to="/register/candidate">Créer un compte</Link>
           </li>
           <li className="Login_Link">
-            <Link to="/login">Connexion</Link>
+            <Link to="/login/candidate">Connexion</Link>
           </li>
         </ul>
       </div>
@@ -72,7 +72,7 @@ function NavBar() {
             <Link to="/">Accueil</Link>
           </li>
           <li>
-            <Link to="/">Les offres</Link>
+            <Link to="/announce?contract=">Les offres</Link>
           </li>
           <li>
             <Link to="/">Blog</Link>

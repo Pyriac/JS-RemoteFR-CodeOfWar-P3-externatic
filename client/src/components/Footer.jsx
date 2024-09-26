@@ -28,11 +28,11 @@ function Footer() {
           </div>
         </div>
         <div>
-          <Link to="/announce" className="Footer_announce_link">
+          <Link to="/announce?contract=" className="Footer_announce_link">
             <h3>Offres d'emploi</h3>
           </Link>
-          <Link to="/company" className="Footer_company_link">
-            <h3>Entreprises</h3>
+          <Link to="login/company" className="Footer_company_link">
+            <h3>Mon espace employeur</h3>
           </Link>
         </div>
       </div>

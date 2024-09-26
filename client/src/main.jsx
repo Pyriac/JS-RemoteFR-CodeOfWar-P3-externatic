@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthCompanyProvider } from "./context/AuthContext";
 
@@ -8,6 +9,7 @@ import announceEditAction from "./services/announceEditAction";
 import candidateActions from "./services/candidateAction";
 import candidateLoader from "./services/candidateLoader";
 import companyLoader from "./services/companyLoader";
+
 import {
   announceIdLoader,
   announceDetailLoader,
@@ -39,6 +41,7 @@ import LoginCompany from "./pages/LoginCompany";
 
 import Forbidden from "./pages/Forbidden";
 import EditCompany from "./pages/EditCompany";
+import AnswerCandidate from "./pages/AnswerCandidate";
 
 const router = createBrowserRouter([
   {
@@ -101,8 +104,8 @@ const router = createBrowserRouter([
       {
         path: "announce/:id",
         element: <AnnounceDetail />,
-        loader: announceDetailLoader,
         action: announceEditAction,
+        loader: announceDetailLoader,
       },
       {
         path: "register/company",
@@ -125,6 +128,11 @@ const router = createBrowserRouter([
         action: candidateActions,
       },
 
+      {
+        path: "candidate/answer",
+        element: <AnswerCandidate />,
+        loader: candidateLoader.getAnswerCandidate,
+      },
       {
         path: "edit/company/:id",
         element: <EditCompany />,
