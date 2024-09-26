@@ -40,7 +40,7 @@ router.get("/announce/:id", announceActions.browseWithCompanyContract);
 router.get("/company/:id", companyActions.read);
 router.get("/candidate/:id", candidateActions.read);
 router.get("/answer/:id", answerActions.read);
-
+router.get("/answerCandidate", answerActions.readByCandidate);
 // Route to add a new item
 router.post("/announce", middleware.takeCompanyId, announceActions.add);
 

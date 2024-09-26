@@ -30,8 +30,8 @@ export default function LoginCandidate() {
 
   return (
     <form onSubmit={handleSubmit} className="FormLogin">
-       <h2>Connectez-vous</h2>
-       <div className="ContainerForm">
+      <h2>Connectez-vous</h2>
+      <div className="ContainerForm">
         <div className="ForLabel">
           <label htmlFor="email">Email *</label>
 
@@ -54,9 +54,8 @@ export default function LoginCandidate() {
             required
           />
         </div>
+      </div>
 
-       </div>
-      
       <button type="submit">Se connecter</button>
     </form>
   );
