@@ -50,28 +50,34 @@ export default function HomePage() {
         </div>
         <img src={HeaderPeopleExternatech} alt="three happy people" />
       </div>
-      <div className="HomePage_background_grey">
-        <article className="HomePage_article_carrousel">
-          <div className="HomePage_title_carrousel">
-            <h2>
-              Ces entreprises n'attendent que{" "}
-              <span className="HomePage_span_green">vous</span> !
-            </h2>
-            <img src={HomePageLineYou} alt="line green" />
-          </div>
-          <CarrouselCompanyHomePage />
-          <button className="Homepage_more_company" type="button">
-            Examiner plus d'entreprises
-          </button>
-        </article>
-        <article className="HomePage_partner_company">
-          <div className="HomePage_title_company">
-            <h2>Entreprises partenaires qui nous font confiance.</h2>
-            <img src={HomePageLineTrust} alt="line green" />
-          </div>
-          <CorporateSponcor />
-        </article>
-      </div>
+      {authCompany ? (
+        <h2 className="CompanyHomepage">
+          Externatech est heureux de vous compter parmis ses collaborateurs
+        </h2>
+      ) : (
+        <div className="HomePage_background_grey">
+          <article className="HomePage_article_carrousel">
+            <div className="HomePage_title_carrousel">
+              <h2>
+                Ces entreprises n'attendent que{" "}
+                <span className="HomePage_span_green">vous</span> !
+              </h2>
+              <img src={HomePageLineYou} alt="line green" />
+            </div>
+            <CarrouselCompanyHomePage />
+            <button className="Homepage_more_company" type="button">
+              Examiner plus d'entreprises
+            </button>
+          </article>
+          <article className="HomePage_partner_company">
+            <div className="HomePage_title_company">
+              <h2>Entreprises partenaires qui nous font confiance.</h2>
+              <img src={HomePageLineTrust} alt="line green" />
+            </div>
+            <CorporateSponcor />
+          </article>
+        </div>
+      )}
     </>
   );
 }
