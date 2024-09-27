@@ -57,6 +57,16 @@ const add = async (req, res, next) => {
   }
 };
 
+const edit = async (req, res, next) => {
+  try {
+    const answer = { ...req.body };
+    await tables.answer.update(answer);
+    res.sendStatus(204);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const destroy = async (req, res, next) => {
   try {
     await tables.answer.delete(req.params.id);
@@ -67,5 +77,5 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const answerActions = { browse, read, readByCandidate, add, destroy };
+const answerActions = { browse, read, readByCandidate, add, destroy, edit };
 module.exports = answerActions;

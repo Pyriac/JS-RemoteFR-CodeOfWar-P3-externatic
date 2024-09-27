@@ -41,6 +41,14 @@ class AnswerRepository extends AbstractRepository {
     );
     return result.affectedRows;
   }
+
+  async update(answer) {
+    const [result] = await this.database.query(
+      `UPDATE ${this.table} SET status = ? WHERE announce_id = ? AND candidte_id = ?`,
+      [answer.status, answer.announce_id, answer.candidate_id]
+    );
+    return result.insertId;
+  }
 }
 
 module.exports = AnswerRepository;
