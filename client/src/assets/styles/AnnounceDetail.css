@@ -167,7 +167,7 @@
 }
 .AnnounceDetail_spontanée_button {
   color: var(--third-color);
-  background-color: var(--fifth-color);
+  background-color: rgba(224, 80, 80, 0.836);
 }
 
 .Announcedetail_company_more div {
