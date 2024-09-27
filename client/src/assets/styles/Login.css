@@ -72,6 +72,27 @@
   width: 60%;
 }
 
+.RedirectLoginCompany {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem;
+}
+
+.RedirectLoginCompany p {
+  font-family: var(--primary-font);
+}
+
+.RedirectLoginCompany a {
+  font-family: var(--primary-font);
+  color: black;
+  background-color: var(--secondary-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+  font-size: 0.8rem;
+}
+
 @media (min-width: 993px) {
   .FormLogin {
     background-size: 100% 30%;

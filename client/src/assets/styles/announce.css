@@ -32,7 +32,7 @@
   height: 150px;
   width: 100%;
   object-fit: cover;
-  border-radius: 0px, 8px;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .Announce_logo_company {
@@ -93,6 +93,7 @@
 @media (min-width: 992px) {
   .Container_announce_card {
     display: flex;
+    flex-wrap: wrap;
     margin: 20px;
   }
 
@@ -115,6 +116,7 @@
 
   .Announce_picture_company {
     max-height: 150px;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 
   .Announce_logo_company {

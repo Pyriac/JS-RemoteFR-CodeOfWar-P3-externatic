@@ -53,12 +53,24 @@ function NavBar() {
 
       <div className="Brand_Nav Mobile">
         <ul className="User_Actions">
-          <li className="Register_Link">
-            <Link to="/register/candidate">Créer un compte</Link>
-          </li>
-          <li className="Login_Link">
-            <Link to="/login/candidate">Connexion</Link>
-          </li>
+          {!auth && !authCompany ? (
+            <>
+              <li className="Register_Link">
+                <Link to="/register/candidate">Créer un compte</Link>
+              </li>
+              <li className="Login_Link">
+                <Link to="/login/candidate">Connexion</Link>
+              </li>
+            </>
+          ) : (
+            <li className="Navbar_disconnected">
+              <Link to="/">
+                <button onClick={handleLogout} type="button">
+                  Se déconnecter
+                </button>
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="Nav_Link">
@@ -71,9 +83,16 @@ function NavBar() {
           <li className="Home">
             <Link to="/">Accueil</Link>
           </li>
-          <li>
-            <Link to="/announce?contract=">Les offres</Link>
-          </li>
+          {!authCompany ? (
+            <li>
+              <Link to="/announce?contract=">Les offres</Link>
+            </li>
+          ) : (
+            <li>
+              <Link to={`/company/${authCompany}/announce`}>Mes offres</Link>
+            </li>
+          )}
+
           <li>
             <Link to="/">Blog</Link>
           </li>

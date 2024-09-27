@@ -140,6 +140,10 @@ const router = createBrowserRouter([
         action: companyAction,
       },
       {
+        path: "forbidden",
+        element: <Forbidden />,
+      },
+      {
         path: "pages/legal",
         element: <Legal />,
       },
