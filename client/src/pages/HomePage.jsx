@@ -9,9 +9,11 @@ import CarrouselCompanyHomePage from "../components/CarrouselCompanyHomePage";
 import CorporateSponcor from "../components/CorporateSponcor";
 
 import { authCompanyContext } from "../context/AuthContext";
+import { AuthContext } from "../context/AuthentificationContext";
 
 export default function HomePage() {
   const { authCompany } = useContext(authCompanyContext);
+  const { auth } = useContext(AuthContext);
 
   return (
     <>
@@ -31,10 +33,23 @@ export default function HomePage() {
                   Mes recrutements en cours...{" "}
                 </Link>
               ) : (
+                ""
+              )}
+              {auth ? (
+                <Link to={`/edit/candidate/${auth}`}>
+                  {" "}
+                  Modifier mon profil{" "}
+                </Link>
+              ) : (
+                ""
+              )}
+              {!auth && !authCompany ? (
                 <Link to="/register/candidate">
                   {" "}
                   Cree ton profil en 3 clics{" "}
                 </Link>
+              ) : (
+                ""
               )}
             </button>
             <button className="HomePage_recruit_button" type="button">
