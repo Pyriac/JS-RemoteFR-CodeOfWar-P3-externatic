@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-  flex-wrap: wrap;
   font-family: var(--primary-font);
 }
 
@@ -32,7 +31,7 @@
   height: 150px;
   width: 100%;
   object-fit: cover;
-  border-radius: 0px, 8px;
+  border-radius: 0.5rem 0.5rem 0 0;
 }
 
 .Announce_logo_company {
@@ -56,6 +55,7 @@
   justify-content: space-between;
   text-align: center;
   position: relative;
+  min-height: 28rem;
 }
 
 .Announces_card ul {
@@ -93,7 +93,9 @@
 @media (min-width: 992px) {
   .Container_announce_card {
     display: flex;
-    margin: 20px;
+    flex-wrap: wrap;
+    margin: 50px;
+    padding-left: 300px;
   }
 
   .Filter_announce {
@@ -111,10 +113,13 @@
 
   .Announce_card_map {
     display: flex;
+    flex-wrap: wrap;
+    min-height: 30rem;
   }
 
   .Announce_picture_company {
     max-height: 150px;
+    border-radius: 0.5rem 0.5rem 0 0;
   }
 
   .Announce_logo_company {
