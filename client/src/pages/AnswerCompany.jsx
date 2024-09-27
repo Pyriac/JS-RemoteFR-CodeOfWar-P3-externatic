@@ -1,9 +1,9 @@
-import { useLoaderData, Form } from "react-router-dom";
+import { useLoaderData, Form, useActionData } from "react-router-dom";
 
 function AnswerCompany() {
   const myAnswers = useLoaderData();
-  console.info(myAnswers);
-
+  const send = useActionData();
+  console.info(send);
   return (
     <div>
       <h2>Mes retour</h2>
@@ -24,6 +24,7 @@ function AnswerCompany() {
             </select>
             <button type="submit">Transmettre</button>
           </Form>
+          <p>{send}</p>
         </ul>
       ))}
     </div>

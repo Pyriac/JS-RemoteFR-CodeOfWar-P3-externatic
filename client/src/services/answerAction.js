@@ -16,7 +16,7 @@ const answerAction = async ({ request, params }) => {
       } catch (error) {
         return error.response.data;
       }
-      return new Response("Ton retour au candidat est bien noté", {
+      return new Response("Ton retour au candidat est bien transmis", {
         status: 201,
       });
     }
