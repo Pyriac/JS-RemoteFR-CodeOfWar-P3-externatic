@@ -33,7 +33,6 @@ export default function AnnounceCard({ announce }) {
             <li>
               {announce.min_salary} - {announce.max_salary}
             </li>
-            <li>{announce.benefits}</li>
             <li>{announce.contract_name}</li>
             <li>{announce.telework}</li>
           </ul>
@@ -54,7 +53,6 @@ AnnounceCard.propTypes = {
     min_salary: PropTypes.number.isRequired,
     max_salary: PropTypes.number.isRequired,
     contract_name: PropTypes.string.isRequired,
-    benefits: PropTypes.string.isRequired,
     telework: PropTypes.string.isRequired,
     company_name: PropTypes.string.isRequired,
     company_image: PropTypes.string.isRequired,
