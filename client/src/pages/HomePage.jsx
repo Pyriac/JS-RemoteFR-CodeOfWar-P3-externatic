@@ -74,7 +74,7 @@ export default function HomePage() {
       {authCompany ? (
         <>
           <h2 className="CompanyHomepage">
-            Externatech est heureux de vous compter parmis ses collaborateurs
+            Externatech est heureux de vous compter parmis ses collaborateurs.
           </h2>
           <div className="Homepage_button_for_company">
             <Link
