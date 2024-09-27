@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { AuthContext } from "../context/AuthentificationContext";
+import { authCompanyContext } from "../context/AuthContext";
 import DefaultImage from "../assets/images/default.png";
 import DefaultLogo from "../assets/images/logo_default.png";
 
 export default function CardCompany({ company }) {
+  const auth = useContext(AuthContext);
+  const authCompany = useContext(authCompanyContext);
+
   return (
     <div className="CardCompany_body">
       <img
@@ -29,9 +35,13 @@ export default function CardCompany({ company }) {
         <p>Nombre de salariés: {company.size}</p>
         <div className="CardCompany_num_offre_see_offer">
           <p>17 Offres</p>
-          <Link to="announce?contract=">
-            <button type="button">Voir l'offre</button>
-          </Link>
+          {!auth && !authCompany ? (
+            <Link to="announce?contract=">
+              <button type="button">Voir l'offre</button>
+            </Link>
+          ) : (
+            ""
+          )}
         </div>
       </section>
     </div>
