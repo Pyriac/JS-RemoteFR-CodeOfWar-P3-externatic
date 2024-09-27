@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken");
+
 const tables = require("../../database/tables");
 
 const browse = async (req, res, next) => {
@@ -21,6 +23,24 @@ const read = async (req, res, next) => {
     next(error);
   }
 };
+
+const readByAnnounceAndCompany = async (req, res, next) => {
+  try {
+      const token = req.cookies.auth;
+      const decodedToken = await jwt.decode(token);
+      const companyId = decodedToken.id;
+      const announceId = req.params.id;
+      const candidate = await tables.candidate.readByAnnounceAndCompany(announceId, companyId);
+      if (candidate == null) {
+        res.sendStatus(404);
+      } else {
+        res.json(candidate);
+      }
+  } catch (error) {
+    next(error);
+  }
+
+}
 
 const add = async (req, res, next) => {
   const candidate = req.body;
@@ -83,6 +103,7 @@ const disconnect = async (req, res, next) => {
 const candidateActions = {
   browse,
   read,
+  readByAnnounceAndCompany,
   add,
   edit,
   destroy,
