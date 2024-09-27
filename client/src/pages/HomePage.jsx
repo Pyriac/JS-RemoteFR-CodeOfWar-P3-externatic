@@ -30,7 +30,7 @@ export default function HomePage() {
               {authCompany ? (
                 <Link to={`/company/${authCompany}/announce`}>
                   {" "}
-                  Mes recrutements en cours...{" "}
+                  Créer une nouvelle offre{" "}
                 </Link>
               ) : (
                 ""
@@ -72,9 +72,41 @@ export default function HomePage() {
         <img src={HeaderPeopleExternatech} alt="three happy people" />
       </div>
       {authCompany ? (
-        <h2 className="CompanyHomepage">
-          Externatech est heureux de vous compter parmis ses collaborateurs
-        </h2>
+        <>
+          <h2 className="CompanyHomepage">
+            Externatech est heureux de vous compter parmis ses collaborateurs
+          </h2>
+          <div className="Homepage_button_for_company">
+            <button className="HomePage_button_list" type="button">
+              <Link to={`/company/${authCompany}/announce`}>
+                {" "}
+                Créer une nouvelle offre{" "}
+              </Link>
+            </button>
+            <button className="HomePage_button_list" type="button">
+              <Link to="/announce/add"> Mes recrutements en cours... </Link>
+            </button>
+            <button className="HomePage_button_list" type="button">
+              <Link to={`edit/company/${authCompany}`}>
+                Modifier mon profil{" "}
+              </Link>
+            </button>
+            <button className="HomePage_button_list" type="button">
+              <Link to={`/company/${authCompany}/announce`}>
+                {" "}
+                Mon espace employeur{" "}
+              </Link>
+            </button>
+          </div>
+
+          <article className="HomePage_partner_company">
+            <div className="HomePage_title_company">
+              <h2>Rejoignez nos entreprises partenaires.</h2>
+              <img src={HomePageLineTrust} alt="line green" />
+            </div>
+            <CorporateSponcor />
+          </article>
+        </>
       ) : (
         <div className="HomePage_background_grey">
           <article className="HomePage_article_carrousel">
