@@ -1,7 +1,11 @@
 import { Form } from "react-router-dom";
+import { useContext } from "react";
 import PropTypes from "prop-types";
+import { AuthContext } from "../context/AuthentificationContext";
 
 export default function Announcefourthbox({ announce }) {
+  const { auth } = useContext(AuthContext);
+
   return (
     <div className="Announcedetail_company_more">
       <img
@@ -21,11 +25,15 @@ export default function Announcefourthbox({ announce }) {
           <button className="AnnounceDetail_discover_button" type="button">
             Découvrir l'entreprise
           </button>
-          <Form method="delete">
-            <button className="AnnounceDetail_spontanée_button" type="submit">
-              Supprimer l'annonce
-            </button>
-          </Form>
+          {auth ? (
+            ""
+          ) : (
+            <Form method="delete">
+              <button className="AnnounceDetail_spontanée_button" type="submit">
+                Supprimer l'annonce
+              </button>
+            </Form>
+          )}
         </div>
       </div>
     </div>
