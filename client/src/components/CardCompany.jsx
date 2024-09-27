@@ -34,7 +34,6 @@ export default function CardCompany({ company }) {
         <h2>{company.name}</h2>
         <p>Nombre de salariés: {company.size}</p>
         <div className="CardCompany_num_offre_see_offer">
-          <p>17 Offres</p>
           {!auth && !authCompany ? (
             <Link to="announce?contract=">
               <button type="button">Voir l'offre</button>
