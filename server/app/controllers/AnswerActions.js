@@ -48,10 +48,10 @@ const add = async (req, res, next) => {
     const decodeToken = await jwt.decode(candidate, process.env.APP_SECRET);
     const candidateId = decodeToken.id;
     const insertId = await tables.answer.create(answer, candidateId);
-    console.info("requette", insertId)
+    console.info("requette", insertId);
     res.status(201).json({
       insertId,
-      message: "Votre CV a bien été transmis à l'entreprise",
+      message: "Votre candidature à bien été transmise 🚀",
     });
   } catch (error) {
     next(error);
