@@ -149,7 +149,8 @@
   gap: 1.5rem;
 }
 
-.AnnounceDetail_discover_button {
+.AnnounceDetail_discover_button,
+.AnnounceDetail_spontanée_button {
   display: flex;
   width: 100%;
   max-width: 150px;
@@ -163,6 +164,10 @@
 .AnnounceDetail_discover_button {
   background-color: #000;
   color: #fff;
+}
+.AnnounceDetail_spontanée_button {
+  color: var(--third-color);
+  background-color: var(--fifth-color);
 }
 
 .Announcedetail_company_more div {

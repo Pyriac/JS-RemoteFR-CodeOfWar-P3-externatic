@@ -47,7 +47,7 @@ export default function Announcefirstbox({ announce }) {
           >
             Postuler
           </button>
-          <p className="AnnounceDetail_spontanée_button">{validate}</p>
+          <p className="AnnounceDetail_Validate">{validate}</p>
         </div>
       )}
     </div>
