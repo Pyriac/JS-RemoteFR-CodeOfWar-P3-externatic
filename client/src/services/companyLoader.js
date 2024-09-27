@@ -14,6 +14,18 @@ const CompanyDetailLoader = async ({ params }) => {
   }
 };
 
-const companyLoader = { AllCompanyLoader, CompanyDetailLoader };
+const getAnswerCompany = async ({ params }) => {
+  try {
+    const response = await myAxios.get(`/api/answerAnnounceByCandidate/${params.id}`, {
+      withCredentials: true,
+    });
+    return response.data;
+  } catch (error) {
+    throw new Response("", { status: 405 });
+  }
+
+};
+
+const companyLoader = { AllCompanyLoader, CompanyDetailLoader, getAnswerCompany };
 
 export default companyLoader;

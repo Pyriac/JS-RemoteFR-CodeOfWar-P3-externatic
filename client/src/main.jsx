@@ -42,6 +42,7 @@ import LoginCompany from "./pages/LoginCompany";
 import Forbidden from "./pages/Forbidden";
 import EditCompany from "./pages/EditCompany";
 import AnswerCandidate from "./pages/AnswerCandidate";
+import AnswerCompany from "./pages/AnswerCompany";
 
 const router = createBrowserRouter([
   {
@@ -132,6 +133,11 @@ const router = createBrowserRouter([
         path: "candidate/answer",
         element: <AnswerCandidate />,
         loader: candidateLoader.getAnswerCandidate,
+      },
+      {
+        path: "company/answer/:id",
+        element: <AnswerCompany />,
+        loader: companyLoader.getAnswerCompany,
       },
       {
         path: "edit/company/:id",

@@ -27,6 +27,21 @@ class CandidateRepository extends AbstractRepository {
     return rows[0];
   }
 
+  async readByAnnounceAndCompany(announceId, companyId){
+    const [rows] = await this.database.query(
+      `SELECT candidate.*
+        FROM
+        ${this.table} INNER JOIN answer on ${this.table}.id = answer.candidate_id
+        INNER JOIN announce on answer.announce_id = announce.id
+        WHERE company_id = ? and announce.id = ?`,
+        [
+          companyId,
+          announceId
+        ]
+    );
+    return rows;
+  }
+
   async create(candidate) {
     const [result] = await this.database.query(
       `insert into ${this.table} (email, password, cv, location, first_name, last_name, title, birthday, degree, phone ) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
