@@ -5,7 +5,7 @@ create table company (
   id int unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(155) not NULL,
   password VARCHAR(255) not NULL,
-  description TEXT not NULL,
+  description TEXT,
   name VARCHAR(155) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   size INT NOT NULL,
