@@ -3,7 +3,6 @@ import AnnounceCard from "../components/AnnounceCard";
 
 export default function CompanyAnnounce() {
   const announceData = useLoaderData();
-  console.info(announceData);
   return (
     <section className="AnnounceDetail_background">
       <div className="CompanyAnnounce_header">

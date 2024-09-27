@@ -1,11 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import PropTypes from "prop-types";
+import { authCompanyContext } from "../context/AuthContext";
 
 export default function Announcefirstbox({ announce }) {
   const { id: announceId } = useParams();
   const [validate, setValidate] = useState();
+  const { authCompany } = useContext(authCompanyContext);
 
   const sendAnswer = (event) => {
     event.preventDefault();
@@ -34,16 +36,20 @@ export default function Announcefirstbox({ announce }) {
           {announce.min_salary} - {announce.max_salary}
         </li>
       </ul>
-      <div className="AnnounceDetail_announcesection_button">
-        <button
-          className="AnnounceDetail_postuler_button"
-          type="submit"
-          onClick={sendAnswer}
-        >
-          Postuler
-        </button>
-        <p className="AnnounceDetail_spontanée_button">{validate}</p>
-      </div>
+      {authCompany ? (
+        ""
+      ) : (
+        <div className="AnnounceDetail_announcesection_button">
+          <button
+            className="AnnounceDetail_postuler_button"
+            type="submit"
+            onClick={sendAnswer}
+          >
+            Postuler
+          </button>
+          <p className="AnnounceDetail_spontanée_button">{validate}</p>
+        </div>
+      )}
     </div>
   );
 }

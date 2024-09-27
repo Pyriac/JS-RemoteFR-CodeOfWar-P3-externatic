@@ -132,6 +132,16 @@
   background-size: contain;
 }
 
+.CompanyHomepage {
+  font-family: var(--primary-font);
+  text-align: center;
+  margin: 3rem;
+}
+
+.HomePage_recruit_button a {
+  color: black;
+}
+
 @media (max-width: 992px) {
   .HomePage_header_picture {
     height: 26rem;
@@ -191,5 +201,10 @@
 
   .HomePage_title_company > img {
     display: none;
+  }
+
+  .CompanyHomepage {
+    text-align: left;
+    margin: 2rem;
   }
 }
