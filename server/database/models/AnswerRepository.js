@@ -37,7 +37,7 @@ class AnswerRepository extends AbstractRepository {
   async create(answer, candidateId) {
     const [result] = await this.database.query(
       `insert into ${this.table} (announce_id, candidate_id) VALUES (?,?)`,
-      [answer.announceId,  candidateId]
+      [answer.announceId, candidateId]
     );
     return result.affectedRows;
   }
