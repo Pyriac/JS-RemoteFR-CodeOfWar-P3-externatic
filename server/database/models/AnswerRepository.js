@@ -42,10 +42,10 @@ class AnswerRepository extends AbstractRepository {
     return result.affectedRows;
   }
 
-  async update(answer) {
+  async update(id, answer) {
     const [result] = await this.database.query(
-      `UPDATE ${this.table} SET status = ? WHERE announce_id = ? AND candidte_id = ?`,
-      [answer.status, answer.announce_id, answer.candidate_id]
+      `UPDATE ${this.table} SET status = ? WHERE announce_id = ? AND candidate_id = ?`,
+      [answer.status, id, answer.candidate_id]
     );
     return result.insertId;
   }

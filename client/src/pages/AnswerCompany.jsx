@@ -22,6 +22,7 @@ function AnswerCompany() {
               <option value={1}>Reçu</option>
               <option value={2}>Refusé</option>
             </select>
+            <button type="submit">Transmettre</button>
           </Form>
         </ul>
       ))}

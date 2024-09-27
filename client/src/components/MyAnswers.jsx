@@ -6,10 +6,10 @@ function MyAnswers({ myAnswer }) {
   const [answerClassName, setAnswerClassName] = useState("answerPending");
 
   useEffect(() => {
-    switch (myAnswer.status) {
+    switch (Number(myAnswer.status)) {
       case 1:
         setAnswerStatus("Rejetée");
-        setAnswerClassName("");
+        setAnswerClassName("answerRefused");
         break;
       case 2:
         setAnswerStatus("Acceptée");
