@@ -77,26 +77,34 @@ export default function HomePage() {
             Externatech est heureux de vous compter parmis ses collaborateurs
           </h2>
           <div className="Homepage_button_for_company">
-            <button className="HomePage_button_list" type="button">
-              <Link to={`/company/${authCompany}/announce`}>
-                {" "}
-                Créer une nouvelle offre{" "}
-              </Link>
-            </button>
-            <button className="HomePage_button_list" type="button">
-              <Link to="/announce/add"> Mes recrutements en cours... </Link>
-            </button>
-            <button className="HomePage_button_list" type="button">
-              <Link to={`edit/company/${authCompany}`}>
-                Modifier mon profil{" "}
-              </Link>
-            </button>
-            <button className="HomePage_button_list" type="button">
-              <Link to={`/company/${authCompany}/announce`}>
-                {" "}
-                Mon espace employeur{" "}
-              </Link>
-            </button>
+            <Link
+              className="HomePage_button_list"
+              to={`/company/${authCompany}/announce`}
+            >
+              {" "}
+              Créer une nouvelle offre{" "}
+            </Link>
+
+            <Link className="HomePage_button_list" to="/announce/add">
+              {" "}
+              Mes recrutements en cours...{" "}
+            </Link>
+
+            <Link
+              className="HomePage_button_list"
+              to={`edit/company/${authCompany}`}
+            >
+              {" "}
+              Modifier mon profil{" "}
+            </Link>
+
+            <Link
+              className="HomePage_button_list"
+              to={`/company/${authCompany}/announce`}
+            >
+              {" "}
+              Mon espace employeur{" "}
+            </Link>
           </div>
 
           <article className="HomePage_partner_company">
