@@ -22,7 +22,7 @@ class AnswerRepository extends AbstractRepository {
 
   async readByCandidate(candidateId) {
     const [rows] = await this.database.query(
-      `SELECT company.name as companyName, contract.name as contractName, announce.*
+      `SELECT company.name as companyName, contract.name as contractName, announce.*, answer.status
       FROM
       candidate INNER JOIN ${this.table} on candidate.id = ${this.table}.candidate_id
       INNER JOIN announce ON ${this.table}.announce_id = announce.id
@@ -34,10 +34,10 @@ class AnswerRepository extends AbstractRepository {
     return rows;
   }
 
-  async create(answer) {
+  async create(answer, candidateId) {
     const [result] = await this.database.query(
       `insert into ${this.table} (announce_id, candidate_id) VALUES (?,?)`,
-      [answer.announceId, answer.candidateId]
+      [answer.announceId, candidateId]
     );
     return result.affectedRows;
   }

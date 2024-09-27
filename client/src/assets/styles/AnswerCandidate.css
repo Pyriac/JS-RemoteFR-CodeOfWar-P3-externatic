@@ -19,11 +19,36 @@
   border-radius: 0.5rem;
   font-size: large;
   gap: 0.5rem;
+  font-family: var(--primary-font);
 }
 .Container_Answer > div > .Card_Answer > .Job_Title {
   font-weight: bold;
   font-size: large;
   color: var(--primary-color);
+}
+
+.answerPending,
+.answerValidate,
+.answerRefused {
+  color: black;
+  width: 50%;
+  text-align: center;
+  border-radius: 0.5rem;
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.answerPending {
+  background-color: var(--fourth-color);
+}
+
+.answerValidate {
+  background-color: var(--secondary-color);
+}
+
+.answerRefused {
+  background-color: rgba(224, 80, 80, 0.836);
 }
 
 @media (min-width: 993px) {

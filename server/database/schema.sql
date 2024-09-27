@@ -52,6 +52,7 @@ create table announce (
 CREATE TABLE answer (
     announce_id INT UNSIGNED NOT NULL,
     candidate_id INT UNSIGNED NOT NULL,
+    status INT UNSIGNED DEFAULT 0 NOT NULL,
     PRIMARY KEY (announce_id, candidate_id),
     FOREIGN KEY (announce_id) REFERENCES announce(id) ON DELETE CASCADE,
     FOREIGN KEY (candidate_id) REFERENCES candidate(id) ON DELETE CASCADE
@@ -59,7 +60,7 @@ CREATE TABLE answer (
 
 
   INSERT INTO company(email, password, name, phone, size, validate)
-  VALUES("auchan@auchan.fr", "0000", "auchan", "03087965412", 500, 1 ),
+  VALUES("auchan@auchan.fr", "$argon2id$v=19$m=19456,t=2,p=1$WNw5leo2QdyYJF63r4JdUw$8JOOUjTc1dqVj1s+9ULhEfDXC/Z9U1WgyNpTej2TtsQ", "auchan", "03087965412", 500, 1 ),
   ("lidl@lidl.fr", "1234", "lidl", "03087965412", 300, 1 ),
   ("action@action.fr", "azerty", "action", "03087965412", 100, 0 );
 
@@ -69,10 +70,10 @@ VALUES('Agent de maîtrise', 'Saint-dié-des-Vosges', 'Tu maîtrises un peu tout
 ('Caissier', 'Bastia', 'Tu passeras des clients avec le sourire et un sens du service client parfait', 1500, 1600, 'chèques cadeau', 3, 'Présentiel', 3);
 
 INSERT INTO candidate (email, password, location, first_name, last_name, title, degree)
-VALUES ("pechin.geoffrey@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Noisy Le Grand", "Geoffrey", "Pechin",  "Développeur Front-End", "Titre RNCP niveau 5"),
-("anthony.gelormini@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Corsica", "Anthony", "Gelormini", "Developpeur Back-End", "Titre RNCP niveau 6"),
-("aissatou.diallo@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Lille", "Aïssatou", "Diallo", "Data Analyst", "BTS développeur d'application"),
-("samih.ringuet@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Corse", "Samih", "Ringuet", "Développeur Full-Stack", "Titre RNCP niveau 5");
+VALUES ("pechin.geoffrey@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$WNw5leo2QdyYJF63r4JdUw$8JOOUjTc1dqVj1s+9ULhEfDXC/Z9U1WgyNpTej2TtsQ", "Noisy Le Grand", "Geoffrey", "Pechin",  "Développeur Front-End", "Titre RNCP niveau 5"),
+("anthony.gelormini@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$WNw5leo2QdyYJF63r4JdUw$8JOOUjTc1dqVj1s+9ULhEfDXC/Z9U1WgyNpTej2TtsQ", "Corsica", "Anthony", "Gelormini", "Developpeur Back-End", "Titre RNCP niveau 6"),
+("aissatou.diallo@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$WNw5leo2QdyYJF63r4JdUw$8JOOUjTc1dqVj1s+9ULhEfDXC/Z9U1WgyNpTej2TtsQ", "Lille", "Aïssatou", "Diallo", "Data Analyst", "BTS développeur d'application"),
+("samih.ringuet@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$WNw5leo2QdyYJF63r4JdUw$8JOOUjTc1dqVj1s+9ULhEfDXC/Z9U1WgyNpTej2TtsQ", "Corse", "Samih", "Ringuet", "Développeur Full-Stack", "Titre RNCP niveau 5");
 
 INSERT INTO answer (announce_id, candidate_id)
 VALUES (1,2),(1,3),(2,3),(3,4);

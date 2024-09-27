@@ -1,9 +1,30 @@
-import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import PropTypes, { number } from "prop-types";
 
 function MyAnswers({ myAnswer }) {
+  const [answerStatus, setAnswerStatus] = useState("En attente");
+  const [answerClassName, setAnswerClassName] = useState("answerPending");
+
+  useEffect(() => {
+    switch (myAnswer.status) {
+      case 1:
+        setAnswerStatus("Rejetée");
+        setAnswerClassName("");
+        break;
+      case 2:
+        setAnswerStatus("Acceptée");
+        setAnswerClassName("answerValidate");
+        break;
+      default:
+        setAnswerStatus("En attente");
+        setAnswerClassName("answerPending");
+    }
+  }, [myAnswer.status]);
+
   return (
     <ul className="Card_Answer">
       <li>{myAnswer.companyName}</li>
+      <li className={answerClassName}>{answerStatus}</li>
       <li className="Job_Title">
         {myAnswer.job_title} en {myAnswer.contractName}
       </li>
@@ -20,6 +41,7 @@ MyAnswers.propTypes = {
     contractName: PropTypes.string,
     description: PropTypes.string,
     location: PropTypes.string,
+    status: number,
   }).isRequired,
 };
 
