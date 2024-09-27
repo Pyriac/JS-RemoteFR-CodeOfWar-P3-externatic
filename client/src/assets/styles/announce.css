@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: center;
   margin: auto;
-  flex-wrap: wrap;
   font-family: var(--primary-font);
 }
 
@@ -56,6 +55,7 @@
   justify-content: space-between;
   text-align: center;
   position: relative;
+  min-height: 28rem;
 }
 
 .Announces_card ul {
@@ -94,7 +94,8 @@
   .Container_announce_card {
     display: flex;
     flex-wrap: wrap;
-    margin: 20px;
+    margin: 50px;
+    padding-left: 300px;
   }
 
   .Filter_announce {
@@ -112,6 +113,8 @@
 
   .Announce_card_map {
     display: flex;
+    flex-wrap: wrap;
+    min-height: 30rem;
   }
 
   .Announce_picture_company {
