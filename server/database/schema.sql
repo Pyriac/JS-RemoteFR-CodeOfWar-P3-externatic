@@ -60,9 +60,56 @@ CREATE TABLE answer (
 
 
   INSERT INTO company(email, password, name, phone, size, validate)
-  VALUES("auchan@auchan.fr", "0000", "auchan", "03087965412", 500, 1 ),
-  ("lidl@lidl.fr", "1234", "lidl", "03087965412", 300, 1 ),
-  ("action@action.fr", "azerty", "action", "03087965412", 100, 0 );
+  VALUES("aramirez@gmail.com", "45255", "Tech Innovators", "4022418434956", 91, 0),
+("rlee@hotmail.com", "68528", "CodeWorks", "8374419783522", 4708, 1),
+("francisco89@wade.biz", "92732", "NextGen Solutions", "4724531330785", 2517, 0),
+("kellybean@gmail.com", "28267", "Cyber Dynamics", "7717798297070", 1655, 0),
+("mcleandiane@pierce.com", "32994", "Cloud Architects", "5564412775019", 3953, 0),
+("dgarcia@hughes-walters.com", "25385", "AI Vision", "5073852486282", 359, 1),
+("heather58@austin-ramos.net", "25940", "DataBridge", "7312385040876", 4124, 1),
+("johnsontodd@miller-bell.com", "08136", "QuantumSoft", "9069403378534", 1892, 0),
+("khenson@flores.net", "35492", "DevStream", "3531620596135", 1119, 0),
+("scott99@gmail.com", "64867", "Agile Minds", "4044174845872", 4171, 1),
+("rebecca99@gmail.com", "56152", "ByteCraft", "4967504468562", 2689, 0),
+("benjaminwilliams@little.info", "79949", "Pixel Labs", "0095389936059", 2922, 1),
+("stephencontreras@hotmail.com", "11601", "AlphaCode", "6922978535575", 270, 0),
+("colin00@yahoo.com", "94997", "Tech Nexus", "3561142385516", 3447, 1),
+("samuelchung@hotmail.com", "09965", "Futureware", "7620701620286", 337, 1),
+("pagedaniel@hudson.com", "83410", "Smart Systems", "4888588020624", 4585, 0),
+("iharding@fletcher.biz", "77676", "Digital Pioneers", "2143567831118", 618, 1),
+("elizabethcox@hotmail.com", "50909", "Cybernetic Labs", "6658610272608", 2615, 1),
+("jason11@hernandez.com", "96806", "InnovateTech", "3221176911409", 3095, 1),
+("paul23@hotmail.com", "10667", "Vertex Digital", "7319116154212", 1888, 0),
+("qjones@gmail.com", "58880", "Infinity Code", "1753805038915", 1076, 0),
+("jenny72@gmail.com", "74449", "Optima Systems", "2610259725546", 2879, 0),
+("davidadams@gmail.com", "54863", "NextWave Solutions", "8572438029476", 4219, 1),
+("michellesmith@torres.com", "21154", "BlueTech", "6693291570644", 3554, 1),
+("mitchellluke@roberts.com", "94025", "MindSpark", "5238786418760", 2316, 1),
+("michaelanderson@lopez.com", "76833", "TechScape", "3472932159081", 2044, 1),
+("james02@gmail.com", "44278", "CoreTech", "4605701367009", 4832, 0),
+("amy41@harris.com", "15367", "MatrixSoft", "2059735362149", 4269, 0),
+("aaronsmith@griffin.com", "78527", "Omega Tech", "3751062631479", 159, 1),
+("angelacline@cooper.com", "07794", "FusionWorks", "6430658606132", 4572, 1),
+("guerrerowillie@hotmail.com", "81309", "Quantum Dev", "4570393242898", 1784, 1),
+("nathan02@newman-lowe.com", "66771", "Vortex Systems", "6917060331949", 4823, 1),
+("valerie12@yahoo.com", "12466", "CloudMatrix", "1767105643442", 4214, 1),
+("gary38@hotmail.com", "77492", "Visionary Labs", "3642320004606", 4064, 1),
+("robertmays@yahoo.com", "91726", "Prime Solutions", "9804650966573", 293, 1),
+("newmandakota@estrada-hernandez.info", "77297", "DeltaSoft", "1954482846009", 2075, 0),
+("phillipanthony@yahoo.com", "43402", "HexaCore", "3572191015211", 1222, 0),
+("jenkinskyle@yahoo.com", "86538", "LogicFlow", "5887496789557", 3662, 0),
+("ryanlarson@white-craig.info", "66902", "Binary Brains", "0751761609260", 1843, 0),
+("michaelellis@hotmail.com", "47988", "CyberShift", "4349364142450", 4122, 0),
+("gutierrezamanda@hughes-lyons.biz", "81148", "TechVision", "7977887058071", 4629, 0),
+("mturner@lane.biz", "57230", "NeuroSoft", "6312354292118", 3766, 1),
+("arnoldwilliam@santiago-hubbard.com", "47368", "NextEra Technologies", "5259169313147", 510, 1),
+("stricklandscott@lee-garcia.com", "79051", "Nova Innovations", "1399209757675", 4494, 0),
+("james46@santos.com", "65174", "Digital Shift", "2896142287015", 330, 1),
+("dthomas@hotmail.com", "18860", "Pixel Dynamics", "6321371872521", 4780, 0),
+("benjamin38@brown.com", "09948", "InnovateX", "0288574592093", 3055, 0),
+("harrislauren@gmail.com", "99718", "DataSolutions", "5224615222077", 311, 0),
+("qturner@yahoo.com", "10868", "Agile Coders", "8597361187894", 773, 1);
+
 
   INSERT INTO announce ( job_title,  location, description, min_salary, max_salary, benefits, contract_id, telework, company_id)
 VALUES ("Ingénieur DevOps", "Strasbourg", "Vous travaillerez en collaboration avec les équipes de développement et d'exploitation pour améliorer l'efficacité des processus de déploiement. Votre rôle consistera à automatiser les tâches, optimiser les outils et gérer les pipelines CI/CD. Vous serez également responsable de la gestion des incidents et de la mise en place des solutions pour assurer la disponibilité des applications. Une expérience avec Docker, Kubernetes et des outils de monitoring est fortement recommandée. Vous interviendrez également dans la formation des équipes sur les bonnes pratiques DevOps.", 2792, 5401, "RTT, primes de performance, matériel informatique fourni, chèques vacances et tickets restaurant.", 2, "Remote", 18),
@@ -169,10 +216,11 @@ VALUES ("Ingénieur DevOps", "Strasbourg", "Vous travaillerez en collaboration a
 
 
 INSERT INTO candidate (email, password, location, first_name, last_name, title, degree)
-VALUES ("pechin.geoffrey@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Noisy Le Grand", "Geoffrey", "Pechin",  "Développeur Front-End", "Titre RNCP niveau 5"),
-("anthony.gelormini@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Corsica", "Anthony", "Gelormini", "Developpeur Back-End", "Titre RNCP niveau 6"),
-("aissatou.diallo@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Lille", "Aïssatou", "Diallo", "Data Analyst", "BTS développeur d'application"),
-("samih.ringuet@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$tvJwAL5PqsoGa420ttK8nQ$lZ8HXKZC+/S3HU6sWJLCL+Dyr49tQaTOekotGGpS4lc", "Corse", "Samih", "Ringuet", "Développeur Full-Stack", "Titre RNCP niveau 5");
+VALUES ("pechin.geoffrey@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Noisy Le Grand", "Geoffrey", "Pechin",  "Développeur Front-End", "Titre RNCP niveau 5"),
+("anthony.gelormini@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Corsica", "Anthony", "Gelormini", "Developpeur Back-End", "Titre RNCP niveau 6"),
+("aissatou.diallo@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Lille", "Aïssatou", "Diallo", "Data Analyst", "BTS développeur d'application"),
+("samih.ringuet@externatech.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Corse", "Samih", "Ringuet", "Développeur Full-Stack", "Titre RNCP niveau 5");
+-- mdp : Externatech100%
 
 INSERT INTO answer (announce_id, candidate_id)
 VALUES (1,2),(1,3),(2,3),(3,4);
