@@ -58,7 +58,13 @@ export default function HomePage() {
                   Modifier mon profil{" "}
                 </Link>
               ) : (
+                ""
+              )}
+              {auth ? <Link to="candidate/answer">Mes candidatures </Link> : ""}
+              {!auth && !authCompany ? (
                 <Link to="/register/company">Je recrute </Link>
+              ) : (
+                ""
               )}
             </button>
           </div>
