@@ -1,4 +1,5 @@
--- Active: 1724754257677@@127.0.0.1@3306@authenticate
+-- SQLBook: Code
+-- Active: 1722329778237@@127.0.0.1@3306@externatic
 
 create table company (
   id int unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -12,6 +13,7 @@ create table company (
   image VARCHAR(255) DEFAULT "../assets/images/default.png",
   logo VARCHAR(255)  DEFAULT "../assets/images/logo_default.png"
 );
+
 CREATE Table contract (
   id INT unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
   name VARCHAR(155) NOT NULL
@@ -59,8 +61,8 @@ CREATE TABLE answer (
 );
 
 
-  INSERT INTO company(email, password, name, phone, size, validate)
-  VALUES("aramirez@gmail.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Tech Innovators est une entreprise spécialisée dans le développement de solutions logicielles pour la transformation numérique. Forte de plus de 90 employés, elle propose des outils d'automatisation, d'intelligence artificielle et d'analyse de données pour améliorer l'efficacité des entreprises. Tech Innovators se concentre sur des technologies de pointe comme le cloud computing et l'optimisation des processus métiers. En collaborant avec des clients de secteurs variés, l'entreprise développe des solutions sur mesure adaptées à leurs besoins. L'innovation est au cœur de sa stratégie, avec un fort investissement en recherche et développement pour garantir des solutions évolutives et compétitives.", "Tech Innovators", "4022418434956", 91, 0),
+  INSERT INTO company(email, password, description, name, phone, size, validate)
+  VALUES ("aramirez@gmail.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Tech Innovators est une entreprise spécialisée dans le développement de solutions logicielles pour la transformation numérique. Forte de plus de 90 employés, elle propose des outils d'automatisation, d'intelligence artificielle et d'analyse de données pour améliorer l'efficacité des entreprises. Tech Innovators se concentre sur des technologies de pointe comme le cloud computing et l'optimisation des processus métiers. En collaborant avec des clients de secteurs variés, l'entreprise développe des solutions sur mesure adaptées à leurs besoins. L'innovation est au cœur de sa stratégie, avec un fort investissement en recherche et développement pour garantir des solutions évolutives et compétitives.", "Tech Innovators", "4022418434956", 91, 0),
 ("rlee@hotmail.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "CodeWorks est une entreprise de développement de logiciels sur mesure comptant plus de 4 700 collaborateurs. Elle aide les entreprises à intégrer des solutions technologiques innovantes pour améliorer leurs processus. Ses services couvrent des domaines variés, comme la cybersécurité, l’automatisation et l'analyse de données. CodeWorks propose des solutions personnalisées adaptées aux besoins spécifiques des entreprises, quel que soit leur secteur. L’entreprise s’appuie sur une équipe d'experts pour concevoir des produits robustes et performants, garantissant des résultats concrets et mesurables pour ses clients.", "CodeWorks", "8374419783522", 4708, 1),
 ("francisco89@wade.biz", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "NextGen Solutions, avec plus de 2 500 employés, est un acteur majeur de la transformation numérique. L'entreprise propose des solutions technologiques de nouvelle génération, notamment dans le cloud, la gestion des données, et l'intelligence artificielle. Ses services aident les entreprises à améliorer leur compétitivité en optimisant leurs infrastructures technologiques. NextGen Solutions est reconnue pour sa capacité à innover, en offrant des solutions sur mesure et adaptées aux besoins spécifiques de chaque client. Son objectif est de rendre la transformation numérique accessible à toutes les entreprises, quel que soit leur secteur d’activité.", "NextGen Solutions", "4724531330785", 2517, 0),
 ("kellybean@gmail.com", "$argon2id$v=19$m=19456,t=2,p=1$dZSsRvSzwLka0GW1oBZCzA$/nDAgY1FzrptX2gdCJSyuCt2YXSMkm/wQQAKALFnnCc", "Cyber Dynamics est spécialisée dans la cybersécurité et compte plus de 1 600 employés. L'entreprise aide les organisations à protéger leurs systèmes informatiques contre les cybermenaces. Cyber Dynamics propose des audits de sécurité, des solutions de protection des réseaux et des services de surveillance en temps réel. Elle est réputée pour ses solutions adaptées aux environnements à haut risque et pour son expertise dans la gestion des incidents. Cyber Dynamics accompagne des entreprises de secteurs variés, allant des PME aux multinationales, pour assurer la sécurité de leurs infrastructures.", "Cyber Dynamics", "7717798297070", 1655, 0),
