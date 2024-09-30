@@ -5,7 +5,7 @@ create table company (
   id int unsigned PRIMARY KEY AUTO_INCREMENT NOT NULL,
   email VARCHAR(155) not NULL,
   password VARCHAR(255) not NULL,
-  description TEXT not NULL,
+  description TEXT,
   name VARCHAR(155) NOT NULL,
   phone VARCHAR(20) NOT NULL,
   size INT NOT NULL,
@@ -55,10 +55,12 @@ create table announce (
 CREATE TABLE answer (
     announce_id INT UNSIGNED NOT NULL,
     candidate_id INT UNSIGNED NOT NULL,
+    status INT UNSIGNED DEFAULT 0 NOT NULL,
     PRIMARY KEY (announce_id, candidate_id),
     FOREIGN KEY (announce_id) REFERENCES announce(id) ON DELETE CASCADE,
     FOREIGN KEY (candidate_id) REFERENCES candidate(id) ON DELETE CASCADE
 );
+
 
 
   INSERT INTO company(email, password, description, name, phone, size, validate)

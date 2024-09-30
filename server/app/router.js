@@ -18,13 +18,16 @@ const companyAuth = require("./services/companyAuth");
 const contractActions = require("./controllers/ContractActions");
 const middleware = require("./services/middleware");
 
-
 // Route to get a list of items
 router.get("/announce", announceActions.browse);
 router.get("/company", companyActions.browse);
 router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
-router.get("/answerAnnounceByCandidate/:id",  middleware.takeCompanyId, candidateActions.readByAnnounceAndCompany);
+router.get(
+  "/answerAnnounceByCandidate/:id",
+  middleware.takeCompanyId,
+  candidateActions.readByAnnounceAndCompany
+);
 router.get("/answer", answerActions.browse);
 router.get("/contract", contractActions.browse);
 router.get("/logout", companyActions.disconnect);
@@ -86,6 +89,7 @@ router.delete("/candidate/:id", candidateActions.destroy);
 router.put("/announce/:id", middleware.takeCompanyId, announceActions.edit);
 router.put("/company/:id", upload.uploadCompanyFiles, companyActions.edit);
 router.put("/candidate/:id", upload.uploadCandidateFile, candidateActions.edit);
+router.put("/answer/:id", answerActions.edit);
 /* ************************************************************************* */
 
 module.exports = router;
