@@ -31,7 +31,8 @@ class AnnounceRepository extends AbstractRepository {
 
   async readByCompany(companyId) {
     const [rows] = await this.database.query(
-      `SELECT announce .*, c.id AS contract_id, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id WHERE company_id = ?`,
+      `SELECT announce .*, c.id AS contract_id, company.image as company_image, company.logo as company_logo, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id 
+      LEFT JOIN company on company.id = announce.company_id WHERE company_id = ?`,
       [companyId]
     );
     return rows;
@@ -82,7 +83,7 @@ class AnnounceRepository extends AbstractRepository {
 
   async readAnnounceJoinCandidateCompany(announceId) {
     const [rows] = await this.database.query(
-      `select company.name as companyName, contract.name as contractName, announce.*
+      `select company.name as companyName, company.description as companyDescription, contract.name as contractName, announce.*
       FROM ${this.table}
       RIGHT JOIN company on announce.company_id = company.id
       RIGHT JOIN contract on announce.contract_id = contract.id

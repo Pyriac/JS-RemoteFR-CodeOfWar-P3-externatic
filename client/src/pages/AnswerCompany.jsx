@@ -1,7 +1,8 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Form, useActionData } from "react-router-dom";
 
 function AnswerCompany() {
   const myAnswers = useLoaderData();
+  const send = useActionData();
   return (
     <div className="Company_Container">
       <h2>Mes retour pour cette offre{`(${myAnswers.length})`}</h2>
@@ -15,6 +16,17 @@ function AnswerCompany() {
             <li>📍{myAnswer.location}</li>
             <li>{myAnswer.phone}</li>
             <li>{myAnswer.cv}</li>
+            <p>Statut du candidat</p>
+            <Form method="put">
+              <input type="hidden" name="id" value={myAnswer.id} />
+              <select name="status" id="status" defaultValue={myAnswer.status}>
+                <option value={0}>En Attente</option>
+                <option value={1}>Reçu</option>
+                <option value={2}>Refusé</option>
+              </select>
+              <button type="submit">Transmettre</button>
+            </Form>
+            <p>{send}</p>
           </ul>
         ))}
       </div>
@@ -22,3 +34,4 @@ function AnswerCompany() {
   );
 }
 export default AnswerCompany;
+

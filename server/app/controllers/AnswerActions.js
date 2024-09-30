@@ -51,9 +51,21 @@ const add = async (req, res, next) => {
     console.info("requette", insertId);
     res.status(201).json({
       insertId,
-      message: "Votre CV a bien été transmis à l'entreprise",
+      message: "Votre candidature à bien été transmise 🚀",
     });
   } catch (error) {
+    next(error);
+  }
+};
+
+const edit = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const answer = req.body;
+    await tables.answer.update(id, answer);
+    res.sendStatus(204);
+  } catch (error) {
+    console.info(req.body);
     next(error);
   }
 };
@@ -68,5 +80,5 @@ const destroy = async (req, res, next) => {
   }
 };
 
-const answerActions = { browse, read, readByCandidate, add, destroy };
+const answerActions = { browse, read, readByCandidate, add, destroy, edit };
 module.exports = answerActions;

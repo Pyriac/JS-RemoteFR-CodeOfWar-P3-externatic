@@ -89,6 +89,7 @@ router.delete("/candidate/:id", candidateActions.destroy);
 router.put("/announce/:id", middleware.takeCompanyId, announceActions.edit);
 router.put("/company/:id", upload.uploadCompanyFiles, companyActions.edit);
 router.put("/candidate/:id", upload.uploadCandidateFile, candidateActions.edit);
+router.put("/answer/:id", answerActions.edit);
 /* ************************************************************************* */
 
 module.exports = router;

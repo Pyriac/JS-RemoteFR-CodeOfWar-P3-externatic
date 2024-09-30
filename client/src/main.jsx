@@ -17,7 +17,7 @@ import {
   getContracts,
   getAnnouncesByCompany,
 } from "./services/announceLoader";
-
+import answerAction from "./services/answerAction";
 import companyAction from "./services/companyAction";
 import getAutorization from "./services/request";
 
@@ -138,6 +138,7 @@ const router = createBrowserRouter([
         path: "company/answer/:id",
         element: <AnswerCompany />,
         loader: companyLoader.getAnswerCompany,
+        action: answerAction,
       },
       {
         path: "edit/company/:id",

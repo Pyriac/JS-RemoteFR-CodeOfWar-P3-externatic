@@ -169,6 +169,12 @@
   height: auto;
 }
 
+.AnnounceDetail_spontanée_button {
+  border: solid;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
 @media (min-width: 992px) {
   .AnnounceDetail_general {
     display: grid;
@@ -253,5 +259,10 @@
 
   .Announcedetail_company_more div {
     height: auto;
+  }
+
+  .AnnounceDetail_spontanée_button:hover {
+    cursor: pointer;
+    background-color: rgba(127, 255, 212, 0.144);
   }
 }

@@ -29,11 +29,11 @@ class CandidateRepository extends AbstractRepository {
 
   async readByAnnounceAndCompany(announceId, companyId) {
     const [rows] = await this.database.query(
-      `SELECT candidate.*
+      `SELECT candidate.*, answer.status
         FROM
         ${this.table} INNER JOIN answer on ${this.table}.id = answer.candidate_id
         INNER JOIN announce on answer.announce_id = announce.id
-        WHERE company_id = ? and announce.id = ?`,
+        WHERE announce.company_id = ? and announce.id = ?`,
       [companyId, announceId]
     );
     return rows;
