@@ -31,7 +31,8 @@ class AnnounceRepository extends AbstractRepository {
 
   async readByCompany(companyId) {
     const [rows] = await this.database.query(
-      `SELECT announce .*, c.id AS contract_id, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id WHERE company_id = ?`,
+      `SELECT announce .*, c.id AS contract_id, company.image as company_image, company.logo as company_logo, c.name AS contract_name FROM ${this.table} LEFT JOIN contract c ON c.id = announce.contract_id 
+      LEFT JOIN company on company.id = announce.company_id WHERE company_id = ?`,
       [companyId]
     );
     return rows;

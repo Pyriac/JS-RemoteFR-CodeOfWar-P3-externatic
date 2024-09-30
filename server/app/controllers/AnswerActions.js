@@ -51,7 +51,7 @@ const add = async (req, res, next) => {
     console.info("requette", insertId);
     res.status(201).json({
       insertId,
-      message: "Votre CV a bien été transmis à l'entreprise",
+      message: "Votre candidature à bien été transmise 🚀",
     });
   } catch (error) {
     next(error);
