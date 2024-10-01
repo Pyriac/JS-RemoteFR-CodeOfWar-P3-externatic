@@ -77,15 +77,15 @@ export default function HomePage() {
             Externatech est heureux de vous compter parmis ses collaborateurs.
           </h2>
           <div className="Homepage_button_for_company">
-            <Link
-              className="HomePage_button_list"
-              to={`/company/${authCompany}/announce`}
-            >
+            <Link className="HomePage_button_list" to="/announce/add">
               {" "}
               Créer une nouvelle offre{" "}
             </Link>
 
-            <Link className="HomePage_button_list" to="/announce/add">
+            <Link
+              className="HomePage_button_list"
+              to={`/company/${authCompany}/announce`}
+            >
               {" "}
               Mes recrutements en cours...{" "}
             </Link>
