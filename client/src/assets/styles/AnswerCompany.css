@@ -1,0 +1,38 @@
+.Company_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.Company_Container > h2 {
+  text-align: center;
+}
+
+.Company_Container > .Company_Contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
+  font-size: large;
+  gap: 1rem;
+  width: 100%;
+}
+
+.Company_Container > .Company_Contain > .Card_Company {
+  background-color: whitesmoke;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+@media (min-width: 993px) {
+  .Company_Container > .Company_Contain {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
