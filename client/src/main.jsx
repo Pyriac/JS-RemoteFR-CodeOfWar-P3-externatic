@@ -119,7 +119,7 @@ const router = createBrowserRouter([
         action: candidateActions,
       },
       {
-        path: "/login/candidate",
+        path: "login/candidate",
         element: <LoginCandidate />,
       },
       {

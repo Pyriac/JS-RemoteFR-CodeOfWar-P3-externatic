@@ -36,7 +36,7 @@ function Footer() {
         {authCompany ? (
           <div>
             <Link to="/announce/add" className="Footer_announce_link">
-              <h3>Mes recrutements en cours...</h3>
+              <h3>Mes recrutements...</h3>
             </Link>
             <Link
               to={`/company/${authCompany}/announce`}
