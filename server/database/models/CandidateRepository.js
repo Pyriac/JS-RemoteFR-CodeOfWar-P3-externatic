@@ -74,7 +74,7 @@ class CandidateRepository extends AbstractRepository {
       query += `,cv = ?`;
       params.push(candidate.cv);
     }
-    query += `where id = ?`;
+    query += ` where id = ?`;
     params.push(candidate.id);
 
     const [result] = await this.database.query(query, params);

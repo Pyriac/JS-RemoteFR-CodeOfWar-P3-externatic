@@ -53,19 +53,30 @@ class CompanyRepository extends AbstractRepository {
   }
 
   async update(company) {
-    const [result] = await this.database.query(
-      `update ${this.table} set email = ?, name = ?, phone = ?, image = ?, logo = ?, size = ?, validate = ? where id = ?`,
-      [
-        company.email,
-        company.name,
-        company.phone,
-        company.image,
-        company.logo,
-        company.size,
-        company.validate,
-        company.id,
-      ]
-    );
+    let query = `update ${this.table} set email = ?, name = ?, phone = ?, size = ?, validate = ?`;
+    const params = [
+      company.email,
+      company.name,
+      company.phone,
+      company.size,
+      company.validate,
+    ];
+    if (company.logo) {
+      query += `, logo = ?`;
+      params.push(company.logo);
+    }
+
+    if (company.image) {
+      query += `, image = ?`;
+      params.push(company.image);
+    }
+
+    query += ` where id = ?`;
+    params.push(company.id);
+
+    console.info(query);
+    const [result] = await this.database.query(query, params);
+
     return result.affectedRows;
   }
 }

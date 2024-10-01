@@ -28,9 +28,19 @@ function FormCompany({ company }) {
           defaultValue={(company && company.size) || ""}
           required
         />
-        <label htmlFor="image">Photo de l'entreprise</label>
+        {company && company.image ? (
+          <label htmlFor="image">
+            Mettre à jour votre photo d'entreprise ?
+          </label>
+        ) : (
+          <label htmlFor="image">Photo de l'entreprise</label>
+        )}
         <input id="image" name="image" type="file" />
-        <label htmlFor="logo">Logo de l'entreprise</label>
+        {company && company.logo ? (
+          <label htmlFor="logo">Mettre à jour votre logo d'entreprise ?</label>
+        ) : (
+          <label htmlFor="logo">Logo de l'entreprise</label>
+        )}
         <input id="logo" name="logo" type="file" />
         <label htmlFor="email">Email*</label>
         <input
