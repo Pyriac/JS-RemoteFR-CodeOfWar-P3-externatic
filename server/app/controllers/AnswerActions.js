@@ -48,7 +48,6 @@ const add = async (req, res, next) => {
     const decodeToken = await jwt.decode(candidate, process.env.APP_SECRET);
     const candidateId = decodeToken.id;
     const insertId = await tables.answer.create(answer, candidateId);
-    console.info("requette", insertId);
     res.status(201).json({
       insertId,
       message: "Votre candidature à bien été transmise 🚀",
@@ -65,7 +64,6 @@ const edit = async (req, res, next) => {
     await tables.answer.update(id, answer);
     res.sendStatus(204);
   } catch (error) {
-    console.info(req.body);
     next(error);
   }
 };
