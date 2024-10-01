@@ -39,19 +39,19 @@ export default function AnnounceCard({ announce }) {
             <li>{announce.contract_name}</li>
             <li>{announce.telework}</li>
           </ul>
-          <Link to={`/announce/${announce.id}`}>
-            <button type="submit">Voir</button>
-          </Link>
-        </div>
-        {authCompany ? (
-          <div>
-            <Link to={`/company/answer/${announce.id}`}>
-              <button type="submit">Mes retour</button>
+          <div className="Card_Button">
+            <Link to={`/announce/${announce.id}`}>
+              <button type="submit">Voir</button>
             </Link>
+            {authCompany ? (
+              <Link to={`/company/answer/${announce.id}`}>
+                <button type="submit">Mes retour</button>
+              </Link>
+            ) : (
+              ""
+            )}
           </div>
-        ) : (
-          ""
-        )}
+        </div>
       </div>
     </div>
   );

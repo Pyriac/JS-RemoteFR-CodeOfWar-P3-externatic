@@ -76,7 +76,15 @@
   color: #555;
 }
 
-.Announces_card button {
+.Announces_card > .Card_Button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.Announces_card > .Card_Button button {
   padding: 10px 10px;
   background-color: var(--secondary-color);
   color: black;
@@ -84,7 +92,6 @@
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  position: absolute;
   bottom: 10px;
   left: 10px;
   font-family: var(--primary-font);
