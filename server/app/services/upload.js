@@ -40,7 +40,6 @@ const storageCandidate = multer.diskStorage({
 
 const uploadCandidateFile = (req, res, next) => {
   const upload = multer({ storage: storageCandidate });
-
   return upload.single("cv")(req, res, next);
 };
 

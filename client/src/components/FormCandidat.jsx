@@ -76,13 +76,16 @@ export default function FormCandidat({ candidate }) {
         type="text"
         defaultValue={(candidate && candidate.phone) || ""}
       />
-      <label htmlFor="cv">Importer votre C.V</label>
+      {candidate && candidate.cv ? (
+        <label htmlFor="cv">Vous avez déjà un cv lié, mettre à jour ?</label>
+      ) : (
+        <label htmlFor="cv">Importer votre C.V</label>
+      )}
       <input
         className="FormCandidat_Download"
         name="cv"
         type="file"
         accept=".doc, .docx, .pdf, .jpg, .jpeg, .png"
-        defaultValue={(candidate && candidate.cv) || ""}
       />
     </div>
   );
