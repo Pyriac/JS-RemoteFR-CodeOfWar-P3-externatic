@@ -20,7 +20,7 @@ const companyAction = async ({ request, params }) => {
           confirmPassword: formData.get("confirmPassword"),
         });
         if (response.status === 201) {
-          return redirect(`/`);
+          return redirect(`/login/company`);
         }
       } catch (err) {
         return err.response.data;

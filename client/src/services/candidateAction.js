@@ -22,7 +22,7 @@ const candidateActions = async ({ request, params }) => {
           phone: formData.get("phone"),
         });
         if (response.status === 201) {
-          return redirect(`/`);
+          return redirect(`/login/candidate`);
         }
       } catch (err) {
         return err.response.data;
