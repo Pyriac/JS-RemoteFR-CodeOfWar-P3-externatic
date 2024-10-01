@@ -3,6 +3,7 @@ import { useLoaderData, Form, useActionData } from "react-router-dom";
 function AnswerCompany() {
   const myAnswers = useLoaderData();
   const send = useActionData();
+  console.info(myAnswers);
   return (
     <div className="Company_Container">
       <h2>Mes retour pour cette offre{`(${myAnswers.length})`}</h2>
@@ -15,7 +16,20 @@ function AnswerCompany() {
             <li>{myAnswer.email}</li>
             <li>📍{myAnswer.location}</li>
             <li>{myAnswer.phone}</li>
-            <li>{myAnswer.cv}</li>
+            {myAnswer.cv ? (
+              <li>
+                <a
+                  href={`${import.meta.env.VITE_API_URL}/uploads/${myAnswer.cv}`}
+                  download={`${myAnswer.first_name}  ${myAnswer.last_name}`}
+                  target="blank"
+                >
+                  Télécharger le CV
+                </a>
+              </li>
+            ) : (
+              ""
+            )}
+
             <p>Statut du candidat</p>
             <Form method="put">
               <input type="hidden" name="id" value={myAnswer.id} />
