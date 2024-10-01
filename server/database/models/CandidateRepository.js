@@ -59,21 +59,25 @@ class CandidateRepository extends AbstractRepository {
   }
 
   async update(candidate) {
-    const [result] = await this.database.query(
-      `update ${this.table} set email = ?, cv = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ? where id = ?`,
-      [
-        candidate.email,
-        candidate.cv,
-        candidate.location,
-        candidate.first_name,
-        candidate.last_name,
-        candidate.title,
-        candidate.birthday || null,
-        candidate.degree,
-        candidate.phone,
-        candidate.id,
-      ]
-    );
+    let query = `update ${this.table} set email = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ? `;
+    const params = [
+      candidate.email,
+      candidate.location,
+      candidate.first_name,
+      candidate.last_name,
+      candidate.title,
+      candidate.birthday || null,
+      candidate.degree,
+      candidate.phone,
+    ];
+    if (candidate.cv) {
+      query += `,cv = ?`;
+      params.push(candidate.cv);
+    }
+    query += `where id = ?`;
+    params.push(candidate.id);
+
+    const [result] = await this.database.query(query, params);
     return result.insertId;
   }
 
