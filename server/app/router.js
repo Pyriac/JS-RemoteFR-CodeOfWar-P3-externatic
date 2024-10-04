@@ -38,7 +38,6 @@ router.get(
   announceActions.browseByCompany
 );
 router.get("/logout", candidateActions.disconnect);
-router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.browseWithCompanyContract);
