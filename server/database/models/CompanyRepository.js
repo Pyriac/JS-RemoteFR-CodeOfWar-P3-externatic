@@ -74,7 +74,6 @@ class CompanyRepository extends AbstractRepository {
     query += ` where id = ?`;
     params.push(company.id);
 
-    console.info(query);
     const [result] = await this.database.query(query, params);
 
     return result.affectedRows;

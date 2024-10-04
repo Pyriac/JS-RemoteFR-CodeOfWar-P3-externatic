@@ -59,7 +59,7 @@ class CandidateRepository extends AbstractRepository {
   }
 
   async update(candidate) {
-    let query = `update ${this.table} set email = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ? `;
+    let query = `update ${this.table} set email = ?, location = ?, first_name = ?, last_name = ?, title = ?, birthday = ?, degree = ?, phone = ?`;
     const params = [
       candidate.email,
       candidate.location,
@@ -71,7 +71,7 @@ class CandidateRepository extends AbstractRepository {
       candidate.phone,
     ];
     if (candidate.cv) {
-      query += `,cv = ?`;
+      query += `, cv = ?`;
       params.push(candidate.cv);
     }
     query += ` where id = ?`;
