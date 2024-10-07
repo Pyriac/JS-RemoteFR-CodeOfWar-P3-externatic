@@ -26,7 +26,9 @@ export const announceIdLoader = async ({ params }) => {
 
 export function getAnnounces(contract) {
   return axios
-    .get(`${import.meta.env.VITE_API_URL}/api/announce?contract=${contract}`)
+    .get(`${import.meta.env.VITE_API_URL}/api/announce?contract=${contract}`, {
+      withCredentials: true,
+    })
     .then((response) => response.data.result)
     .catch((error) => console.error(error));
 }

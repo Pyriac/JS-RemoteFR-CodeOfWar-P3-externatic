@@ -15,7 +15,11 @@ function EditCandidate() {
           Bienvenue chez EXTERNA<span>TECH</span>
         </h2>
         <p className="FormTitle">{formError}</p>
-        <Form className="CandidatForm" method="put">
+        <Form
+          className="CandidatForm"
+          method="put"
+          encType="multipart/form-data"
+        >
           <FormCandidat candidate={candidateData} />
           <button type="submit"> Mettre à jour</button>
         </Form>

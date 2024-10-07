@@ -56,6 +56,7 @@ const add = async (req, res, next) => {
 
 const edit = async (req, res, next) => {
   try {
+    console.info(req.body);
     const candidate = { ...req.body, id: Number(req.params.id) };
     await tables.candidate.update(candidate);
     res.sendStatus(204);

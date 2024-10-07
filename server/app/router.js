@@ -19,7 +19,7 @@ const contractActions = require("./controllers/ContractActions");
 const middleware = require("./services/middleware");
 
 // Route to get a list of items
-router.get("/announce", announceActions.browse);
+router.get("/announce", candidateAuth.verifyToken, announceActions.browse);
 router.get("/company", companyActions.browse);
 router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);
@@ -38,7 +38,6 @@ router.get(
   announceActions.browseByCompany
 );
 router.get("/logout", candidateActions.disconnect);
-router.get("/checkAuth", candidateAuth.verifyToken, candidateActions.isLogged);
 
 // Route to get a specific item by ID
 router.get("/announce/:id", announceActions.browseWithCompanyContract);

@@ -8,12 +8,12 @@ function MyAnswers({ myAnswer }) {
   useEffect(() => {
     switch (Number(myAnswer.status)) {
       case 1:
-        setAnswerStatus("Rejetée");
-        setAnswerClassName("answerRefused");
-        break;
-      case 2:
         setAnswerStatus("Acceptée");
         setAnswerClassName("answerValidate");
+        break;
+      case 2:
+        setAnswerStatus("Rejetée");
+        setAnswerClassName("answerRefused");
         break;
       default:
         setAnswerStatus("En attente");
