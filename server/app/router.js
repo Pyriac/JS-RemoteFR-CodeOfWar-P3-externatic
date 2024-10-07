@@ -19,7 +19,7 @@ const contractActions = require("./controllers/ContractActions");
 const middleware = require("./services/middleware");
 
 // Route to get a list of items
-router.get("/announce", announceActions.browse);
+router.get("/announce", candidateAuth.verifyToken, announceActions.browse);
 router.get("/company", companyActions.browse);
 router.get("/candidate", candidateAuth.verifyToken, candidateActions.browse);
 router.get("/candidate", candidateActions.browse);

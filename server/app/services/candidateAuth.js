@@ -76,7 +76,8 @@ const verifyToken = async (req, res, next) => {
       next();
     }
   } catch (error) {
-    res.sendStatus(401);
+    console.error(error);
+    res.sendStatus(404);
   }
 };
 

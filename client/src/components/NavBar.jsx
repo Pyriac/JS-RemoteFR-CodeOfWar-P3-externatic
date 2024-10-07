@@ -85,7 +85,7 @@ function NavBar() {
           </li>
           {!authCompany && !auth ? (
             <li>
-              <Link to="/forbidden">Les offres</Link>
+              <Link to="/announce?contract=">Les offres</Link>
             </li>
           ) : (
             ""
