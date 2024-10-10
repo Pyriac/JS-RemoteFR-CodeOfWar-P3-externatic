@@ -1,0 +1,27 @@
+.CompanyAnnounce_title {
+  text-align: center;
+  padding-top: 1rem;
+  margin: 0rem 0.5rem 1rem 0.5rem;
+  font-family: var(--primary-font);
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.4rem;
+}
+
+.AddAnnounce {
+  margin: 1.5rem 0rem;
+  text-align: center;
+  padding: 0.5rem 2rem;
+  border-radius: 0.5rem;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  font-style: normal;
+  font-size: 0.8rem;
+  background-color: var(--secondary-color);
+}
+
+.CompanyAnnounce_header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

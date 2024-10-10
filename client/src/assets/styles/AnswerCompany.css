@@ -1,0 +1,65 @@
+.Company_Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  margin: 0 auto;
+  font-family: var(--primary-font);
+}
+
+.Company_Container > h2 {
+  text-align: center;
+}
+
+.Company_Container > .Company_Contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
+  font-size: large;
+  gap: 1rem;
+  width: 100%;
+}
+
+.Company_Container > .Company_Contain > .Card_Company {
+  background-color: whitesmoke;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.StatusSelect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.StatusSelect select {
+  font-family: var(--primary-font);
+  padding: 0.5rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+  width: 65%;
+  margin-top: 1rem;
+}
+
+.StatusSelect button {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: var(--secondary-color);
+  text-align: center;
+  border-radius: 0.5rem;
+  width: 60%;
+  font-family: var(--primary-font);
+  font-size: 0.8rem;
+}
+
+@media (min-width: 993px) {
+  .Company_Container > .Company_Contain {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
